@@ -1,0 +1,57 @@
+:root {
+  --primary: #E7191F;
+  --padding-md: 12px;
+  --transition-md: 0.3s;
+}
+
+html, body {
+  font-family: "Vazirmatn", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+  font-size: 14px;
+  line-height: 1.7;
+  direction: rtl;
+}
+* {
+  box-sizing: border-box;
+}
+img {
+  width: 100%;
+}
+h1 {
+  font-size: 26px;
+}
+h2 {
+  font-size: 19px;
+}
+h3 {
+  font-size: 16px;
+}
+h4 {
+  font-size: 14px;
+}
+a.link {
+  text-decoration: none;
+  color: var(--primary);
+  transition-duration: var(--transition-md);
+  padding: 0px 4px;
+}
+a.link:hover {
+  background-color: var(--primary);
+  color: white;
+}
+button {
+  color: white;
+  border: none;
+  padding: 12px 8px;
+  border-radius: 7px;
+  font-family: "Vazirmatn", sans-serif;
+  background-color: var(--primary);
+  width: 100%;
+  cursor: pointer;
+  transition-duration: var(--transition-md);
+}
+button:hover {
+  background-color: black;
+}
