@@ -16,6 +16,13 @@ html, body {
 * {
   box-sizing: border-box;
 }
+.english {
+  font-family: "Raleway", sans-serif;
+  font-optical-sizing: auto;
+}
+.hide {
+  display: none;
+}
 img {
   width: 100%;
 }
@@ -35,7 +42,8 @@ a.link {
   text-decoration: none;
   color: var(--primary);
   transition-duration: var(--transition-md);
-  padding: 0px 4px;
+  padding: 1px 4px;
+  border-radius: 5px;
 }
 a.link:hover {
   background-color: var(--primary);
