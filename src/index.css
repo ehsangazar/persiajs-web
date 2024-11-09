@@ -43,7 +43,7 @@ a.link {
   color: var(--primary);
   transition-duration: var(--transition-md);
   padding: 1px 4px;
-  border-radius: 0px;
+  border-radius: 4px;
 }
 a.link:hover {
   background-color: var(--primary);
@@ -53,7 +53,7 @@ button {
   color: white;
   border: none;
   padding: 12px 8px;
-  border-radius: 0px;
+  border-radius: 4px;
   font-family: "Vazirmatn", sans-serif;
   background-color: var(--primary);
   width: 100%;
