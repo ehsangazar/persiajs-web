@@ -7,7 +7,7 @@ const fetchHandler = () => {
     Authorization: `Bearer ${token}`,
   };
 
-  let newUrl = `http://localhost:1337/api/fas?populate=*&sort[0]=publishedAt:desc&pagination[page]=1&pagination[pageSize]=1000`;
+  const newUrl = `https://gazar-b.fly.dev/api/fas?populate=*&sort[0]=publishedAt:desc&pagination[page]=1&pagination[pageSize]=1000`;
 
   return fetch(newUrl, {
     method: "GET",
