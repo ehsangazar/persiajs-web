@@ -1,6 +1,7 @@
 .app__container {
     max-width: 800px;
     margin: 10vh auto;
+    padding: 0 30px;
 }
 .app__container .logo {
     width: 100px;
@@ -37,6 +38,7 @@
 }
 .app_events ul li {
     padding: 2px;
+    margin: 4px 0;
 }
 .app_events ul li a {
     color: black;
@@ -51,7 +53,7 @@
     background-color: #0088cc;
     color: white;
     padding: 10px 20px;
-    border-radius: 5px;
+    border-radius: 0;
     text-decoration: none;
 }
 .telegram:hover {

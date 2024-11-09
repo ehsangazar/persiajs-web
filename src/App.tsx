@@ -35,7 +35,7 @@ function App() {
           <p className="app_looking">
             گروه برنامه‌نویسی پرشیا‌جی‌اس یک گروه برنامه‌نویسی فعال در PersiaJS
             که توسط
-            <a target="_blank" href="https://gazar.dev">
+            <a target="_blank" href="https://gazar.dev" className="link">
               {" "}
               احسان گازار{" "}
             </a>
