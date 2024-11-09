@@ -2,8 +2,15 @@ import persiaJSLogo from "./assets/logo.png";
 import "./App.css";
 import { useEffect, useState } from "react";
 import fetchHandler from "./utils/fetchHandler";
+interface Post {
+  id: number;
+  title: string;
+  slug: string;
+  createdAt: string;
+}
+
 function App() {
-  const [posts, setPosts] = useState([]);
+  const [posts, setPosts] = useState<Post[]>([]);
   const [loading, setLoading] = useState(true);
 
   const fetchData = async () => {
@@ -70,7 +77,6 @@ function App() {
           </a>
         </div>
         <div className="app_looking app_events">
-          {loading && <p>در حال بارگذاری...</p>}
           <h3>آخرین مطالب گروه برنامه‌نویسی پرشیا‌جی‌اس:</h3>
 
           {!loading && posts.length === 0 && <p>No data found</p>}
@@ -83,12 +89,16 @@ function App() {
                     className="link"
                     href={`https://gazar.dev/fa/${post.slug}`}
                   >
-                    {post.title}
+                    <span>
+                      {new Date(post.createdAt).toLocaleDateString("fa-IR")}
+                    </span>{" "}
+                    -{post.title}
                   </a>
                 </li>
               ))}
             </ul>
           )}
+          {loading && <p>در حال بارگذاری...</p>}
         </div>
       </div>
     </div>
