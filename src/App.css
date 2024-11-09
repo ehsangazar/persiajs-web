@@ -1,9 +1,6 @@
 .app__container {
-    display: grid;
-    width: 100%;
-    justify-content: center;
-    padding: var(--padding-md);
-    margin-top: 10vh;
+    max-width: 800px;
+    margin: 10vh auto;
 }
 .app__container .logo {
     width: 100px;
@@ -13,6 +10,11 @@
 }
 .app_looking p {
     margin-bottom: 12px;
+}
+.app_looking h3 {
+    margin-top: 50px;
+    font-size: 20px;
+    font-weight: 500;
 }
 .app__header {
     text-align: center;
@@ -34,9 +36,24 @@
     padding-right: 20px;
 }
 .app_events ul li {
-    padding: 2px 0px;
+    padding: 2px;
 }
 .app_events ul li a {
     color: black;
+    padding: 4px;
     text-decoration: underline;
+}
+/* telegram button */
+.telegram {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    background-color: #0088cc;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+}
+.telegram:hover {
+    background-color: #005580;
 }
