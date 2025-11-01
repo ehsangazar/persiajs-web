@@ -3,6 +3,7 @@ import Footer from "./components/layout/Footer";
 import Hero from "./components/sections/Hero";
 import About from "./components/sections/About";
 import Speakers from "./components/sections/Speakers";
+import GetInvolved from "./components/sections/GetInvolved";
 import Team from "./components/sections/Team";
 import FAQ from "./components/sections/FAQ";
 import Community from "./components/sections/Community";
@@ -17,6 +18,7 @@ function App() {
         <Hero />
         <About />
         <Speakers />
+        <GetInvolved />
         <Team />
         <FAQ />
         <Community />

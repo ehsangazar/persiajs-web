@@ -12,7 +12,7 @@ export default function PersonCard({
 }: PersonCardProps) {
   return (
     <div className={`group ${className}`}>
-      <div className="relative bg-white rounded-2xl shadow-lg border border-gray-200 overflow-hidden transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 hover:border-orange-200">
+      <div className="relative bg-white rounded-2xl shadow-lg border border-gray-200 overflow-hidden transition-all duration-300 ease-out hover:shadow-xl hover:-translate-y-2 hover:border-orange-200">
         {/* Hover Gradient Overlay on Card */}
         <div className="absolute inset-0 bg-gradient-to-br from-orange-500/5 to-red-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none z-10" />
 
@@ -32,11 +32,11 @@ export default function PersonCard({
         </div>
 
         {/* Content */}
-        <div className="relative p-6 text-center z-20">
+        <div className="relative p-6 md:p-8 text-center z-20">
           <h3 className="text-xl font-bold text-gray-900 mb-1 group-hover:text-orange-600 transition-colors duration-300">
             {person.name}
           </h3>
-          <p className="text-gray-600 mb-4 text-sm">{person.title}</p>
+          <p className="text-gray-700 mb-4 text-sm">{person.title}</p>
           {person.linkedin && (
             <a
               href={person.linkedin}

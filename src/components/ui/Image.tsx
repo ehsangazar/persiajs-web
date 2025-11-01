@@ -27,7 +27,7 @@ export default function Image({
         <img
           src={src}
           alt={alt}
-          className={`w-full h-full object-cover transition-opacity duration-300 ${
+          className={`w-full h-full object-cover transition-opacity duration-300 ease-out ${
             loading ? "opacity-0" : "opacity-100"
           }`}
           onLoad={() => setLoading(false)}

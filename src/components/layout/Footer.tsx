@@ -78,7 +78,7 @@ export default function Footer() {
                   <li key={link.href}>
                     <a
                       href={link.href}
-                      className="text-gray-400 hover:text-orange-500 transition-colors duration-300 flex items-center group"
+                      className="text-gray-400 hover:text-orange-500 transition-colors duration-300 ease-out flex items-center group"
                     >
                       <span className="mr-2 opacity-0 group-hover:opacity-100 transition-opacity">
                         →
@@ -100,7 +100,7 @@ export default function Footer() {
               <li>
                 <a
                   href="#faq"
-                  className="text-gray-400 hover:text-orange-500 transition-colors duration-300 flex items-center group"
+                  className="text-gray-400 hover:text-orange-500 transition-colors duration-300 ease-out flex items-center group"
                 >
                   <span className="mr-2 opacity-0 group-hover:opacity-100 transition-opacity">
                     →
@@ -111,7 +111,7 @@ export default function Footer() {
               <li>
                 <a
                   href="#terms"
-                  className="text-gray-400 hover:text-orange-500 transition-colors duration-300 flex items-center group"
+                  className="text-gray-400 hover:text-orange-500 transition-colors duration-300 ease-out flex items-center group"
                 >
                   <span className="mr-2 opacity-0 group-hover:opacity-100 transition-opacity">
                     →

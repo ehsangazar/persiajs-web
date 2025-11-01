@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from "react";
+import { useState } from "react";
 import Container from "../layout/Container";
 import SectionTitle from "../ui/SectionTitle";
 import faqData from "../../data/faq.json";
@@ -8,32 +8,6 @@ const faq = faqData as { items: FAQItem[] };
 
 export default function FAQ() {
   const [openItem, setOpenItem] = useState<string | null>(null);
-  const sectionRef = useRef<HTMLElement>(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const elements =
-              entry.target.querySelectorAll(".animate-on-scroll");
-            elements.forEach((el, index) => {
-              setTimeout(() => {
-                el.classList.add("fade-in-up");
-              }, index * 100);
-            });
-          }
-        });
-      },
-      { threshold: 0.1 }
-    );
-
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-
-    return () => observer.disconnect();
-  }, []);
 
   const toggleItem = (id: string) => {
     setOpenItem(openItem === id ? null : id);
@@ -47,26 +21,21 @@ export default function FAQ() {
   };
 
   return (
-    <section
-      id="faq"
-      ref={sectionRef}
-      className="py-20 md:py-32 bg-white"
-    >
+    <section id="faq" className="py-20 md:py-32 bg-white">
       <Container>
         <SectionTitle
           label="FAQ"
           title="Frequently Asked Questions"
           subtitle="Everything you need to know about PersiaJS"
-          className="animate-on-scroll opacity-0"
         />
         <div className="max-w-3xl mx-auto space-y-4">
           {faq.items.map((item, index) => (
             <div
               key={item.id}
-              className="animate-on-scroll opacity-0 bg-white rounded-2xl border-2 border-gray-200 overflow-hidden transition-all duration-300 hover:border-orange-200 hover:shadow-lg"
+              className="bg-white rounded-2xl border border-gray-200 overflow-hidden transition-all duration-300 hover:border-orange-200 hover:shadow-lg"
             >
               <button
-                className="w-full px-6 md:px-8 py-5 md:py-6 text-left flex items-center justify-between hover:bg-orange-50/50 transition-colors focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 group"
+                className="w-full px-6 md:px-8 py-5 md:py-6 text-left flex items-center justify-between hover:bg-orange-50/50 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-[#FF4500] focus:ring-offset-2 group"
                 onClick={() => toggleItem(item.id)}
                 onKeyDown={(e) => handleKeyDown(e, item.id)}
                 aria-expanded={openItem === item.id}
@@ -83,7 +52,7 @@ export default function FAQ() {
                   >
                     {index + 1}
                   </div>
-                  <span className="font-semibold text-gray-900 pr-4 text-base md:text-lg group-hover:text-orange-600 transition-colors">
+                  <span className="font-semibold text-gray-900 pr-4 text-base md:text-lg group-hover:text-orange-600 transition-colors duration-300">
                     {item.question}
                   </span>
                 </div>

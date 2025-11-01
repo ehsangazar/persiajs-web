@@ -14,16 +14,16 @@ export default function Card({
   ...props
 }: CardProps) {
   const baseStyles =
-    "bg-white rounded-lg transition-all duration-150 relative overflow-hidden";
+    "bg-white rounded-2xl transition-all duration-300 relative overflow-hidden shadow-lg border border-gray-200";
 
   const variants = {
-    default: "border border-[#DAE0E6]",
-    elevated: "border border-[#DAE0E6]",
-    bordered: "border border-[#DAE0E6]",
+    default: "",
+    elevated: "shadow-xl",
+    bordered: "border-2",
   };
 
   const hoverStyles = hover
-    ? "hover:border-[#C8CBD0] cursor-pointer"
+    ? "hover:border-orange-200 hover:shadow-xl cursor-pointer"
     : "";
 
   return (
@@ -31,7 +31,6 @@ export default function Card({
       className={`${baseStyles} ${variants[variant]} ${hoverStyles} ${className}`}
       {...props}
     >
-
       {/* Content */}
       <div className="relative z-10">{children}</div>
     </div>

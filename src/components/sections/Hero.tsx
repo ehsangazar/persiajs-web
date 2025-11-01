@@ -103,10 +103,10 @@ export default function Hero() {
       </div>
 
       {/* Content */}
-      <Container className="relative z-10 flex flex-col items-center justify-center text-center py-12 sm:py-16 lg:py-20">
+      <Container className="relative z-10 flex flex-col items-center justify-center text-center py-20 md:py-32">
         {/* Badge with improved animation */}
         <div
-          className={`inline-flex items-center justify-center gap-2 bg-white rounded-full px-5 py-2.5 mb-8 sm:mb-10 border border-[#DAE0E6] transition-all duration-150 hover:border-[#C8CBD0] ${
+          className={`inline-flex items-center justify-center gap-2 bg-white rounded-full px-5 py-2.5 mb-10 border border-gray-200 transition-all duration-300 hover:border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#FF4500] focus:ring-offset-2 ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-4"
           }`}
           onClick={() =>
@@ -123,7 +123,7 @@ export default function Hero() {
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-orange-400 opacity-75"></span>
             <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-orange-500"></span>
           </span>
-          <span className="text-sm font-semibold text-[#1A1A1B] hover:text-[#FF4500] transition-colors duration-150 whitespace-nowrap">
+          <span className="text-sm font-semibold text-gray-900 hover:text-[#FF4500] transition-colors duration-300 whitespace-nowrap">
             Join Our Growing Community
           </span>
         </div>
@@ -134,12 +134,12 @@ export default function Hero() {
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
           }`}
         >
-          <span className="block text-[#1A1A1B] font-heading">Persia JS</span>
+          <span className="block text-gray-900 font-heading">Persia JS</span>
         </h1>
 
         {/* Tagline with enhanced styling */}
         <p
-          className={`text-lg md:text-xl lg:text-2xl text-[#878A8C] max-w-3xl mx-auto mb-8 sm:mb-10 leading-relaxed text-center transition-all duration-1000 delay-200 ${
+          className={`text-lg md:text-xl lg:text-2xl text-gray-600 max-w-3xl mx-auto mb-10 leading-relaxed text-center transition-all duration-1000 delay-200 ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
           }`}
         >
@@ -150,23 +150,23 @@ export default function Hero() {
 
         {/* Stats - Quick info */}
         <div
-          className={`flex flex-wrap justify-center items-center gap-x-6 sm:gap-x-8 gap-y-2 mb-10 sm:mb-12 transition-all duration-1000 delay-300 ${
+          className={`flex flex-wrap justify-center items-center gap-x-6 sm:gap-x-8 gap-y-4 mb-12 transition-all duration-1000 delay-300 ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
           }`}
         >
-          <div className="flex items-center gap-2 text-[#1A1A1B]">
+          <div className="flex items-center gap-2 text-gray-900">
             <span className="text-[#FF4500] text-sm">●</span>
             <span className="text-sm md:text-base font-medium">
               500+ Members
             </span>
           </div>
-          <div className="flex items-center gap-2 text-[#1A1A1B]">
+          <div className="flex items-center gap-2 text-gray-900">
             <span className="text-[#FF4500] text-sm">●</span>
             <span className="text-sm md:text-base font-medium">
               Monthly Events
             </span>
           </div>
-          <div className="flex items-center gap-2 text-[#1A1A1B]">
+          <div className="flex items-center gap-2 text-gray-900">
             <span className="text-[#FF4500] text-sm">●</span>
             <span className="text-sm md:text-base font-medium">
               Expert Speakers
@@ -176,7 +176,7 @@ export default function Hero() {
 
         {/* Call to Action Buttons - Enhanced */}
         <div
-          className={`relative flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center mb-10 sm:mb-12 transition-all duration-1000 delay-400 ${
+          className={`relative flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center mb-12 transition-all duration-1000 delay-400 ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
           }`}
         >
@@ -222,51 +222,25 @@ export default function Hero() {
           >
             Meet Our Speakers
           </Button>
-
-          {/* Scroll Indicator - Centered under button group */}
-          <div className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 w-full flex justify-center">
-            <button
-              onClick={() => scrollToSection("#about")}
-              className="flex flex-col items-center text-[#878A8C] hover:text-[#FF4500] transition-colors duration-150 focus:outline-none focus:ring-2 focus:ring-[#FF4500] focus:ring-offset-1 rounded-md p-2"
-              aria-label="Scroll to content"
-            >
-              <span className="text-xs font-medium mb-1.5 whitespace-nowrap">
-                Scroll to explore
-              </span>
-              <div className="relative">
-                <svg
-                  className="w-5 h-5"
-                  fill="none"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
-                </svg>
-              </div>
-            </button>
-          </div>
         </div>
 
         {/* Social Links - Quick Access */}
         <div
-          className={`flex flex-col sm:flex-row justify-center items-center gap-3 sm:gap-4 transition-all duration-1000 delay-500 ${
+          className={`flex flex-col sm:flex-row justify-center items-center gap-4 transition-all duration-1000 delay-500 ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
           }`}
         >
-          <span className="text-sm text-[#878A8C] font-medium whitespace-nowrap">
+          <span className="text-sm text-gray-600 font-medium whitespace-nowrap">
             Connect with us:
           </span>
-          <div className="flex gap-2.5 sm:gap-3">
+          <div className="flex gap-3">
             {social.links.map((link) => (
               <a
                 key={link.platform}
                 href={link.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-9 h-9 sm:w-10 sm:h-10 rounded-md bg-white border border-[#DAE0E6] flex items-center justify-center text-[#1A1A1B] hover:bg-[#FF4500] hover:text-white hover:border-[#FF4500] transition-colors duration-150"
+                className="w-10 h-10 rounded-md bg-white border border-gray-200 flex items-center justify-center text-gray-900 hover:bg-[#FF4500] hover:text-white hover:border-[#FF4500] transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-[#FF4500] focus:ring-offset-2"
                 aria-label={`Visit our ${link.platform} page`}
               >
                 <SocialIcon
@@ -278,6 +252,32 @@ export default function Hero() {
           </div>
         </div>
       </Container>
+
+      {/* Scroll Indicator - Sticky to bottom of hero */}
+      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20">
+        <button
+          onClick={() => scrollToSection("#about")}
+          className="flex flex-col items-center text-gray-600 hover:text-[#FF4500] transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-[#FF4500] focus:ring-offset-2 rounded-md p-2"
+          aria-label="Scroll to content"
+        >
+          <span className="text-xs font-medium mb-1.5 whitespace-nowrap">
+            Scroll to explore
+          </span>
+          <div className="relative">
+            <svg
+              className="w-5 h-5"
+              fill="none"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+            </svg>
+          </div>
+        </button>
+      </div>
 
       {/* Decorative elements at edges */}
       <div className="absolute top-0 left-0 w-40 h-40 bg-gradient-to-br from-orange-200/30 to-transparent rounded-full blur-3xl"></div>

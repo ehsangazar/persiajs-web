@@ -23,10 +23,10 @@ export default function ActionCardComponent({
 
   return (
     <div
-      className={`relative bg-white rounded-lg border border-[#DAE0E6] p-6 transition-all duration-150 hover:border-[#C8CBD0] ${className}`}
+      className={`relative bg-white rounded-2xl shadow-lg border border-gray-200 p-6 md:p-8 transition-all duration-300 ease-out hover:border-orange-200 hover:shadow-xl h-full flex flex-col ${className}`}
     >
-      <div className="flex flex-col items-center text-center">
-        <div className="w-16 h-16 bg-[#FF4500] rounded-md flex items-center justify-center mb-4">
+      <div className="flex flex-col items-center text-center flex-1">
+        <div className="w-16 h-16 bg-[#FF4500] rounded-lg flex items-center justify-center mb-4 shadow-md">
           <svg
             className="w-8 h-8 text-white"
             fill="none"
@@ -40,10 +40,10 @@ export default function ActionCardComponent({
           </svg>
         </div>
 
-        <h3 className="text-lg font-semibold text-[#1A1A1B] mb-2">
-          {card.title}
-        </h3>
-        <p className="text-[#878A8C] mb-5 text-sm leading-relaxed">{card.description}</p>
+        <h3 className="text-xl font-bold text-gray-900 mb-2">{card.title}</h3>
+        <p className="text-gray-700 mb-5 text-base leading-relaxed flex-1">
+          {card.description}
+        </p>
 
         <Button
           variant="primary"

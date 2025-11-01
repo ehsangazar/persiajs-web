@@ -12,7 +12,7 @@ export default function SectionTitle({
   className = "",
 }: SectionTitleProps) {
   return (
-    <div className={`text-center mb-16 ${className}`}>
+    <div className={`text-center mb-12 md:mb-16 ${className}`}>
       {label && (
         <div className="inline-block mb-4">
           <span className="text-orange-600 font-bold text-sm uppercase tracking-wider bg-orange-100 px-4 py-2 rounded-full shadow-sm">
@@ -44,7 +44,7 @@ export default function SectionTitle({
         })}
       </h2>
       {subtitle && (
-        <p className="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+        <p className="text-lg md:text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed mt-4">
           {subtitle}
         </p>
       )}

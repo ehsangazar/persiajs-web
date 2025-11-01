@@ -150,7 +150,7 @@ export default function Header() {
             {/* Logo */}
             <a
               href="#"
-              className="flex items-center gap-2.5 group transition-all duration-200 hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-[#f59e0b] focus:ring-offset-2 rounded-lg px-1 -ml-1"
+              className="flex items-center gap-2.5 group transition-all duration-300 ease-out hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-[#FF4500] focus:ring-offset-2 rounded-lg px-1 -ml-1"
               aria-label="PersiaJS Home"
               onClick={handleLogoClick}
             >
@@ -158,27 +158,27 @@ export default function Header() {
                 <img
                   src="/logo.png"
                   alt="PersiaJS"
-                  className="h-8 w-8 md:h-10 md:w-10 object-contain transition-transform duration-200 group-hover:scale-105"
+                  className="h-8 w-8 md:h-10 md:w-10 object-contain transition-transform duration-300 ease-out group-hover:scale-105"
                   loading="eager"
                 />
               </div>
-              <span className="font-bold text-lg md:text-xl text-gray-900 tracking-tight transition-colors duration-200 group-hover:text-[#f59e0b]">
+              <span className="font-bold text-lg md:text-xl text-gray-900 tracking-tight transition-colors duration-300 ease-out group-hover:text-[#FF4500]">
                 PersiaJS
               </span>
             </a>
 
             {/* Desktop Navigation */}
-            <div className="hidden md:flex items-center gap-1">
+            <div className="hidden md:flex items-center gap-2">
               {navigation.links.map((link) => {
                 const isActive = activeSection === link.href;
                 return (
                   <a
                     key={link.href}
                     href={link.href}
-                    className={`relative px-4 py-2.5 text-sm font-medium transition-all duration-200 rounded-lg group focus:outline-none focus:ring-2 focus:ring-[#f59e0b] focus:ring-offset-2 ${
+                    className={`relative px-4 py-2.5 text-sm font-medium transition-all duration-300 ease-out rounded-lg group focus:outline-none focus:ring-2 focus:ring-[#FF4500] focus:ring-offset-2 ${
                       isActive
-                        ? "text-[#f59e0b] bg-[#fef3c7]/50"
-                        : "text-gray-700 hover:text-[#f59e0b] hover:bg-gray-50"
+                        ? "text-[#FF4500] bg-[#fef3c7]/50"
+                        : "text-gray-700 hover:text-[#FF4500] hover:bg-gray-50"
                     }`}
                     onClick={(e) => {
                       e.preventDefault();
@@ -188,7 +188,7 @@ export default function Header() {
                     {link.label}
                     {isActive && (
                       <span
-                        className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-1 h-1 bg-[#f59e0b] rounded-full transition-all duration-200"
+                        className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-1 h-1 bg-[#FF4500] rounded-full transition-all duration-300"
                         aria-hidden="true"
                       />
                     )}
@@ -199,7 +199,7 @@ export default function Header() {
 
             {/* Mobile Menu Button */}
             <button
-              className="md:hidden p-2.5 text-gray-700 hover:bg-gray-100 active:bg-gray-200 rounded-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-[#f59e0b] focus:ring-offset-2 min-w-[44px] min-h-[44px] flex items-center justify-center"
+              className="md:hidden p-2.5 text-gray-700 hover:bg-gray-100 active:bg-gray-200 rounded-lg transition-all duration-300 ease-out focus:outline-none focus:ring-2 focus:ring-[#FF4500] focus:ring-offset-2 min-w-[44px] min-h-[44px] flex items-center justify-center"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
               aria-expanded={isMobileMenuOpen}
@@ -276,7 +276,7 @@ export default function Header() {
               </div>
               <button
                 onClick={() => setIsMobileMenuOpen(false)}
-                className="p-2 text-gray-500 hover:text-gray-900 hover:bg-gray-100 active:bg-gray-200 rounded-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-[#f59e0b] focus:ring-offset-2 min-w-[44px] min-h-[44px] flex items-center justify-center"
+                className="p-2 text-gray-500 hover:text-gray-900 hover:bg-gray-100 active:bg-gray-200 rounded-lg transition-all duration-300 ease-out focus:outline-none focus:ring-2 focus:ring-[#FF4500] focus:ring-offset-2 min-w-[44px] min-h-[44px] flex items-center justify-center"
                 aria-label="Close menu"
               >
                 <svg
@@ -308,10 +308,10 @@ export default function Header() {
                       e.preventDefault();
                       handleLinkClick(link.href);
                     }}
-                    className={`group flex items-center px-4 py-3.5 mb-1 text-base font-medium rounded-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-[#f59e0b] focus:ring-offset-2 min-h-[44px] ${
+                    className={`group flex items-center px-4 py-3.5 mb-1 text-base font-medium rounded-lg transition-all duration-300 ease-out focus:outline-none focus:ring-2 focus:ring-[#FF4500] focus:ring-offset-2 min-h-[44px] ${
                       isActive
-                        ? "text-[#f59e0b] bg-[#fef3c7]/50 shadow-sm"
-                        : "text-gray-700 hover:text-[#f59e0b] hover:bg-gray-50"
+                        ? "text-[#FF4500] bg-[#fef3c7]/50 shadow-sm"
+                        : "text-gray-700 hover:text-[#FF4500] hover:bg-gray-50"
                     }`}
                     style={{
                       animationDelay: `${index * 50}ms`,
@@ -321,7 +321,7 @@ export default function Header() {
                       {link.label}
                       {isActive && (
                         <span
-                          className="absolute -right-2 top-1/2 transform -translate-y-1/2 w-2 h-2 bg-[#f59e0b] rounded-full"
+                          className="absolute -right-2 top-1/2 transform -translate-y-1/2 w-2 h-2 bg-[#FF4500] rounded-full"
                           aria-hidden="true"
                         />
                       )}
