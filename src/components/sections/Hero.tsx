@@ -134,10 +134,7 @@ export default function Hero() {
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
           }`}
         >
-          <span className="block text-[#1A1A1B] font-heading">Persia</span>
-          <span className="block text-[#FF4500] font-heading mt-2 sm:mt-3">
-            JS
-          </span>
+          <span className="block text-[#1A1A1B] font-heading">Persia JS</span>
         </h1>
 
         {/* Tagline with enhanced styling */}
