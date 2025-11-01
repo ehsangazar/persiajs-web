@@ -27,7 +27,7 @@ export default function Community() {
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
-          {social.links.map((link, index) => (
+          {social.links.map((link) => (
             <a
               key={link.platform}
               href={link.url}
@@ -39,7 +39,7 @@ export default function Community() {
                 <div className="flex flex-col items-center text-center space-y-4">
                   <div className="w-16 h-16 bg-gradient-to-br from-orange-500 to-red-600 rounded-2xl flex items-center justify-center shadow-lg group-hover:shadow-xl group-hover:scale-110 transition-all duration-300">
                     <SocialIcon
-                      platform={link.icon}
+                      platform={link.icon || "linkedin"}
                       className="w-8 h-8 text-white"
                     />
                   </div>

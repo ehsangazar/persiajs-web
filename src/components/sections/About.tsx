@@ -1,6 +1,5 @@
 import Container from "../layout/Container";
 import SectionTitle from "../ui/SectionTitle";
-import Card from "../ui/Card";
 import aboutData from "../../data/about.json";
 import type { AboutContent } from "../../types";
 

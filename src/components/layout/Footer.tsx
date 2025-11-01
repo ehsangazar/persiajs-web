@@ -54,7 +54,7 @@ export default function Footer() {
                   aria-label={link.platform}
                 >
                   <SocialIcon
-                    platform={link.icon}
+                    platform={link.icon || "linkedin"}
                     className="w-5 h-5 text-gray-400 group-hover:text-white transition-colors"
                   />
                 </a>
