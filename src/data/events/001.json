@@ -4,14 +4,15 @@
   "date": "December 1st, 2025",
   "time": "6:00 PM - 8:30 PM GMT (UK Time)",
   "location": "Online",
-  "platform": "Zoom / Teams / YouTube Live - TBD",
+  "platform": "Twitch",
   "lumaLink": "https://luma.com/rlbqpett",
-  "description": "Join us for an exciting evening of technical talks focused on modern frontend development practices! This month's PersiaJS event brings together community experts to share their knowledge on design systems and web components—two critical topics for building scalable, maintainable web applications.",
+  "description": "Join us for an exciting evening of technical talks focused on modern frontend development practices! This month's PersiaJS event brings together community experts to share their knowledge on design systems and web components—two critical topics for building scalable, maintainable web applications. The event will be streamed live on Twitch, so join us there to participate in real-time discussions and Q&A sessions.",
   "highlights": [
     "Deep dives into design system implementation strategies",
     "Hands-on insights into modern web components",
     "Q&A sessions with experienced speakers",
     "Networking opportunities with the PersiaJS community",
+    "Live streaming on Twitch",
     "Live recording available on our YouTube channel"
   ],
   "agenda": [
@@ -108,7 +109,7 @@
     "language": "Persian / English (Bilingual)",
     "level": "Intermediate to Advanced (all levels welcome)",
     "cost": "Free",
-    "format": "Online via video conferencing platform",
+    "format": "Online via Twitch livestream",
     "capacity": "Unlimited (online event)",
     "recording": "Yes - Event will be recorded and available on our YouTube channel"
   }

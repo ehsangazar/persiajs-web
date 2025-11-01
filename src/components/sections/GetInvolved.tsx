@@ -19,14 +19,6 @@ const actionCards: ActionCard[] = [
     buttonLink: social.speakerApplicationForm,
   },
   {
-    id: "host-event",
-    icon: "location",
-    title: "Host a Persia JS in Your City",
-    description: "Bring Persia JS to your local ecosystem",
-    buttonText: "Host an event",
-    buttonLink: "#contact",
-  },
-  {
     id: "become-sponsor",
     icon: "lightning",
     title: "Become a Sponsor",
@@ -48,7 +40,7 @@ export default function GetInvolved() {
         />
 
         {/* Action Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-stretch">
           {actionCards.map((card) => (
             <div key={card.id} className="h-full">
               <ActionCardComponent card={card} />

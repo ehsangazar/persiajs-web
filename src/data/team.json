@@ -27,6 +27,13 @@
       "title": "Software Engineer",
       "image": "/images/the-team_img/Ali-Ahmadi.jpg",
       "linkedin": "https://www.linkedin.com/in/ali-ahmadi-7a61a123b"
+    },
+    {
+      "id": "mohammad-baqer-kohie",
+      "name": "Mohammad Baqer Kohie",
+      "title": "Software Engineer",
+      "image": "/images/the-team_img/mohammad_baqer_kohie.jpg",
+      "linkedin": "https://www.linkedin.com/in/mbkprogrammer/"
     }
   ]
 }

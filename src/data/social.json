@@ -24,6 +24,11 @@
       "platform": "YouTube",
       "url": "https://www.youtube.com/@persiajs",
       "icon": "youtube"
+    },
+    {
+      "platform": "Twitch",
+      "url": "https://www.twitch.tv/persiajs",
+      "icon": "twitch"
     }
   ],
   "speakerApplicationForm": "https://forms.gle/KLJzyhcMYTfnhZpQA",

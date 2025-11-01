@@ -21,11 +21,6 @@
       "answer": "We welcome sponsors who want to support the Persian-speaking developer community. Sponsorship opportunities include event sponsorship, content sponsorship, and community support. Fill out our sponsor form to learn more about available opportunities."
     },
     {
-      "id": "host-event",
-      "question": "Can I host a PersiaJS event in my city?",
-      "answer": "Yes! We encourage community members to organize local PersiaJS events in their cities. If you're interested in hosting an event, please reach out to us through our contact form or Telegram group. We'll provide guidance and support to help make your event successful."
-    },
-    {
       "id": "open-source",
       "question": "How can I contribute to open-source projects?",
       "answer": "PersiaJS hosts and supports various open-source projects. You can contribute by checking out our GitHub repositories, reporting issues, submitting pull requests, or starting your own project within the community. Collaboration and code sharing are core values of our community."
