@@ -1,16 +1,22 @@
 import { useState, useEffect, useCallback } from "react";
+import { Link, useLocation } from "react-router-dom";
 import navigationData from "../../data/navigation.json";
 import type { NavLink } from "../../types";
+import { EVENT_SLUG } from "../../data/events";
 
 const navigation = navigationData as { links: NavLink[] };
 
 export default function Header() {
+  const location = useLocation();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("");
+  const isHomePage = location.pathname === "/";
 
   // Throttled scroll handler for better performance
   useEffect(() => {
+    if (!isHomePage) return;
+
     let ticking = false;
 
     const handleScroll = () => {
@@ -76,7 +82,7 @@ export default function Header() {
       window.removeEventListener("scroll", handleScroll);
       window.removeEventListener("keydown", handleKeyDown);
     };
-  }, [isMobileMenuOpen]);
+  }, [isMobileMenuOpen, isHomePage]);
 
   // Handle body scroll lock with improved cleanup
   useEffect(() => {
@@ -105,32 +111,69 @@ export default function Header() {
     };
   }, [isMobileMenuOpen]);
 
-  const handleLinkClick = useCallback((href: string) => {
-    setIsMobileMenuOpen(false);
-    setActiveSection(href);
+  const handleLinkClick = useCallback(
+    (href: string) => {
+      setIsMobileMenuOpen(false);
+      setActiveSection(href);
 
-    // Smooth scroll to section with proper header offset
-    const element = document.querySelector(href);
-    if (element) {
-      // Header height: 64px (h-16) on mobile, 80px (h-20) on desktop
-      const headerHeight = window.innerWidth >= 768 ? 80 : 64;
-      const elementPosition = element.getBoundingClientRect().top;
-      const offsetPosition =
-        elementPosition + window.scrollY - headerHeight - 10; // Extra 10px padding
+      // Special handling for events - navigate to /events/:slug route
+      if (href === "#events") {
+        if (!isHomePage) {
+          window.location.href = `/events/${EVENT_SLUG}`;
+        } else {
+          // Smooth scroll to section with proper header offset
+          const element = document.querySelector(href);
+          if (element) {
+            const headerHeight = window.innerWidth >= 768 ? 80 : 64;
+            const elementPosition = element.getBoundingClientRect().top;
+            const offsetPosition =
+              elementPosition + window.scrollY - headerHeight - 10;
 
-      window.scrollTo({
-        top: Math.max(0, offsetPosition),
-        behavior: "smooth",
-      });
-    }
-  }, []);
+            window.scrollTo({
+              top: Math.max(0, offsetPosition),
+              behavior: "smooth",
+            });
+          }
+        }
+        return;
+      }
 
-  const handleLogoClick = useCallback((e: React.MouseEvent) => {
-    e.preventDefault();
-    setIsMobileMenuOpen(false);
-    setActiveSection("");
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  }, []);
+      // If we're not on the home page and clicking a hash link, navigate to home first
+      if (!isHomePage && href.startsWith("#")) {
+        window.location.href = `/${href}`;
+        return;
+      }
+
+      // Smooth scroll to section with proper header offset
+      const element = document.querySelector(href);
+      if (element) {
+        // Header height: 64px (h-16) on mobile, 80px (h-20) on desktop
+        const headerHeight = window.innerWidth >= 768 ? 80 : 64;
+        const elementPosition = element.getBoundingClientRect().top;
+        const offsetPosition =
+          elementPosition + window.scrollY - headerHeight - 10; // Extra 10px padding
+
+        window.scrollTo({
+          top: Math.max(0, offsetPosition),
+          behavior: "smooth",
+        });
+      }
+    },
+    [isHomePage]
+  );
+
+  const handleLogoClick = useCallback(
+    (e: React.MouseEvent) => {
+      setIsMobileMenuOpen(false);
+      setActiveSection("");
+      // If we're not on home page, Link will handle navigation
+      if (isHomePage) {
+        e.preventDefault();
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
+    },
+    [isHomePage]
+  );
 
   return (
     <>
@@ -148,8 +191,8 @@ export default function Header() {
         >
           <div className="flex items-center justify-between h-16 md:h-20">
             {/* Logo */}
-            <a
-              href="#"
+            <Link
+              to="/"
               className="flex items-center gap-2.5 group transition-all duration-300 ease-out hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-[#FF4500] focus:ring-offset-2 rounded-lg px-1 -ml-1"
               aria-label="PersiaJS Home"
               onClick={handleLogoClick}
@@ -165,7 +208,7 @@ export default function Header() {
               <span className="font-bold text-lg md:text-xl text-gray-900 tracking-tight transition-colors duration-300 ease-out group-hover:text-[#FF4500]">
                 PersiaJS
               </span>
-            </a>
+            </Link>
 
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center gap-2">

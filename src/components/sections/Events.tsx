@@ -1,0 +1,540 @@
+import Container from "../layout/Container";
+import SectionTitle from "../ui/SectionTitle";
+import Button from "../ui/Button";
+import socialData from "../../data/social.json";
+
+const social = socialData as {
+  speakerApplicationForm: string;
+  sponsorForm: string;
+};
+
+const eventData = {
+  title: "PersiaJS December 2025: Design Systems & Web Components",
+  date: "December 1st, 2025",
+  time: "6:00 PM - 8:30 PM GMT (UK Time)",
+  location: "Online",
+  platform: "Zoom / Teams / YouTube Live - TBD",
+  lumaLink: "https://lu.ma/event-id",
+  description:
+    "Join us for an exciting evening of technical talks focused on modern frontend development practices! This month's PersiaJS event brings together community experts to share their knowledge on design systems and web components—two critical topics for building scalable, maintainable web applications.",
+  highlights: [
+    "Deep dives into design system implementation strategies",
+    "Hands-on insights into modern web components",
+    "Q&A sessions with experienced speakers",
+    "Networking opportunities with the PersiaJS community",
+    "Live recording available on our YouTube channel",
+  ],
+  agenda: [
+    {
+      time: "6:00 PM",
+      title: "Welcome & Community Introduction",
+      type: "intro",
+      items: [
+        "PersiaJS community overview",
+        "Event introductions",
+        "How to participate and ask questions",
+      ],
+    },
+    {
+      time: "6:10 PM",
+      title: "How to Implement Design Systems",
+      type: "talk",
+      speaker: "Ehsan Gazar",
+      abstract:
+        "Learn the fundamentals of creating and maintaining design systems that scale. This talk will cover best practices, common pitfalls, and practical strategies for implementing design systems in your organization. We'll explore tools, processes, and methodologies that help teams work more efficiently while maintaining design consistency.",
+    },
+    {
+      time: "6:40 PM",
+      title: "Web Components",
+      type: "talk",
+      speaker: "Ali Parvizi",
+      abstract:
+        "Dive into the world of web components and discover how to build reusable, framework-agnostic UI elements. This session will cover the Web Components API, Shadow DOM, Custom Elements, and how to create components that work across different frameworks and libraries. Perfect for developers looking to build future-proof component libraries.",
+    },
+    {
+      time: "7:10 PM",
+      title: "Break & Networking",
+      type: "break",
+      items: [
+        "10-minute break",
+        "Community networking and discussion",
+        "Q&A preparation",
+      ],
+    },
+    {
+      time: "7:20 PM",
+      title: "[Speaker TBD - Apply Now!]",
+      type: "talk",
+      speaker: "Open Position",
+      abstract:
+        "We're looking for our third speaker! Are you passionate about frontend development, JavaScript, or web technologies? Share your knowledge with the PersiaJS community!",
+      isOpen: true,
+    },
+    {
+      time: "7:50 PM",
+      title: "Q&A Panel Session",
+      type: "qa",
+      items: [
+        "Open discussion with all speakers",
+        "Audience questions and answers",
+        "Community insights and best practices sharing",
+      ],
+    },
+    {
+      time: "8:20 PM",
+      title: "Closing Remarks & Next Steps",
+      type: "closing",
+      items: [
+        "Thank yous to speakers and attendees",
+        "Upcoming events and announcements",
+        "Community calls to action",
+        "Recording information",
+      ],
+    },
+  ],
+  speakers: [
+    {
+      name: "Ehsan Gazar",
+      title: "Co-Founder, PersiaJS",
+      bio: "Ehsan is a passionate developer and community builder with extensive experience in frontend development and design systems. As a co-founder of PersiaJS, he's dedicated to empowering the Persian-speaking developer community through knowledge sharing and collaboration.",
+      linkedin: "https://www.linkedin.com/in/gazar/",
+      topic: "How to Implement Design Systems",
+    },
+    {
+      name: "Ali Parvizi",
+      title: "Software Engineer",
+      bio: "Ali is an experienced software engineer specializing in modern web technologies and component architecture. With a strong focus on building scalable and maintainable applications, he brings practical insights from real-world projects.",
+      linkedin: "https://www.linkedin.com/in/ali-parvizi/",
+      topic: "Web Components",
+    },
+  ],
+  topics: [
+    "Design system architecture and implementation",
+    "Component-based development patterns",
+    "Web Components API and standards",
+    "Shadow DOM and Custom Elements",
+    "Cross-framework component development",
+    "Design system tooling and workflows",
+    "Best practices for scalable UI development",
+  ],
+  eventDetails: {
+    language: "Persian / English (Bilingual)",
+    level: "Intermediate to Advanced (all levels welcome)",
+    cost: "Free",
+    format: "Online via video conferencing platform",
+    capacity: "Unlimited (online event)",
+    recording:
+      "Yes - Event will be recorded and available on our YouTube channel",
+  },
+};
+
+export default function Events() {
+  return (
+    <section id="events" className="py-20 md:py-32 bg-white">
+      <Container>
+        <SectionTitle
+          label="EVENTS"
+          title="Upcoming Event"
+          subtitle="Join us for our monthly community meetups"
+        />
+
+        {/* Event Card */}
+        <div className="max-w-5xl mx-auto">
+          <div className="bg-gradient-to-br from-orange-50 to-red-50 rounded-2xl border border-orange-200 p-8 md:p-12 mb-12 shadow-lg">
+            <div className="grid md:grid-cols-2 gap-8 mb-8">
+              <div>
+                <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+                  {eventData.title}
+                </h2>
+                <div className="space-y-3 text-gray-700">
+                  <div className="flex items-start">
+                    <svg
+                      className="w-5 h-5 text-[#FF4500] mr-3 mt-0.5 flex-shrink-0"
+                      fill="none"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                    </svg>
+                    <span className="font-medium">{eventData.date}</span>
+                  </div>
+                  <div className="flex items-start">
+                    <svg
+                      className="w-5 h-5 text-[#FF4500] mr-3 mt-0.5 flex-shrink-0"
+                      fill="none"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    <span className="font-medium">{eventData.time}</span>
+                  </div>
+                  <div className="flex items-start">
+                    <svg
+                      className="w-5 h-5 text-[#FF4500] mr-3 mt-0.5 flex-shrink-0"
+                      fill="none"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                      <path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                    </svg>
+                    <span className="font-medium">{eventData.location}</span>
+                  </div>
+                </div>
+              </div>
+              <div className="flex flex-col justify-center">
+                <Button
+                  variant="primary"
+                  size="lg"
+                  onClick={() => window.open(eventData.lumaLink, "_blank")}
+                  className="w-full mb-4"
+                  rightIcon={
+                    <svg
+                      className="w-5 h-5"
+                      fill="none"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                    </svg>
+                  }
+                >
+                  RSVP on Luma
+                </Button>
+                <p className="text-sm text-gray-600 text-center">
+                  Registration deadline: November 30th, 2025
+                </p>
+              </div>
+            </div>
+
+            <p className="text-gray-700 leading-relaxed text-lg mb-6">
+              {eventData.description}
+            </p>
+
+            <div className="bg-white rounded-xl p-6 border border-orange-100">
+              <h3 className="font-bold text-gray-900 mb-4">What to expect:</h3>
+              <ul className="space-y-2">
+                {eventData.highlights.map((highlight, index) => (
+                  <li key={index} className="flex items-start text-gray-700">
+                    <span className="text-[#FF4500] mr-3 mt-1">•</span>
+                    <span>{highlight}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+
+          {/* Agenda */}
+          <div className="mb-12">
+            <h3 className="text-3xl font-bold text-gray-900 mb-8 text-center">
+              Agenda
+            </h3>
+            <div className="space-y-4">
+              {eventData.agenda.map((item, index) => (
+                <div
+                  key={index}
+                  className="bg-white rounded-2xl border border-gray-200 p-6 md:p-8 hover:border-orange-200 hover:shadow-lg transition-all duration-300"
+                >
+                  <div className="flex flex-col md:flex-row gap-4 md:gap-6">
+                    <div className="flex-shrink-0">
+                      <div className="inline-flex items-center gap-2 bg-orange-100 text-[#FF4500] px-4 py-2 rounded-lg font-semibold">
+                        <svg
+                          className="w-4 h-4"
+                          fill="none"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth="2"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                        >
+                          <path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        {item.time}
+                      </div>
+                    </div>
+                    <div className="flex-1">
+                      <h4 className="text-xl font-bold text-gray-900 mb-3">
+                        {item.title}
+                      </h4>
+                      {item.type === "talk" && item.speaker && (
+                        <p className="text-[#FF4500] font-semibold mb-3">
+                          Speaker: {item.speaker}
+                        </p>
+                      )}
+                      {item.abstract && (
+                        <p className="text-gray-700 leading-relaxed mb-4">
+                          {item.abstract}
+                        </p>
+                      )}
+                      {item.items && (
+                        <ul className="space-y-2">
+                          {item.items.map((subItem, subIndex) => (
+                            <li
+                              key={subIndex}
+                              className="flex items-start text-gray-700"
+                            >
+                              <span className="text-[#FF4500] mr-3 mt-1">
+                                •
+                              </span>
+                              <span>{subItem}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      )}
+                      {item.isOpen && (
+                        <div className="mt-4">
+                          <Button
+                            variant="outline"
+                            size="sm"
+                            onClick={() =>
+                              window.open(
+                                social.speakerApplicationForm,
+                                "_blank"
+                              )
+                            }
+                          >
+                            Apply to Speak →
+                          </Button>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Speakers */}
+          <div className="mb-12">
+            <h3 className="text-3xl font-bold text-gray-900 mb-8 text-center">
+              Speakers
+            </h3>
+            <div className="grid md:grid-cols-2 gap-6 mb-8">
+              {eventData.speakers.map((speaker, index) => (
+                <div
+                  key={index}
+                  className="bg-white rounded-2xl border border-gray-200 p-6 md:p-8 hover:border-orange-200 hover:shadow-lg transition-all duration-300"
+                >
+                  <h4 className="text-2xl font-bold text-gray-900 mb-2">
+                    {speaker.name}
+                  </h4>
+                  <p className="text-[#FF4500] font-semibold mb-3">
+                    {speaker.title}
+                  </p>
+                  <p className="text-gray-700 leading-relaxed mb-4">
+                    {speaker.bio}
+                  </p>
+                  <div className="mb-3">
+                    <span className="text-sm font-medium text-gray-600">
+                      Topic:
+                    </span>{" "}
+                    <span className="text-gray-900 font-semibold">
+                      {speaker.topic}
+                    </span>
+                  </div>
+                  <a
+                    href={speaker.linkedin}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center text-[#FF4500] hover:text-[#FF5414] font-semibold transition-colors duration-300"
+                  >
+                    LinkedIn Profile
+                    <svg
+                      className="w-4 h-4 ml-1"
+                      fill="none"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                    </svg>
+                  </a>
+                </div>
+              ))}
+            </div>
+
+            {/* Third Speaker Call-to-Action */}
+            <div className="bg-gradient-to-br from-orange-50 to-red-50 rounded-2xl border-2 border-dashed border-orange-300 p-8 text-center">
+              <h4 className="text-2xl font-bold text-gray-900 mb-4">
+                [Third Speaker - Apply Now!]
+              </h4>
+              <p className="text-gray-700 leading-relaxed mb-4">
+                We're looking for someone passionate about web development to
+                join our lineup! If you have expertise in frontend development,
+                JavaScript, or related technologies, we'd love to hear from you.
+              </p>
+              <div className="mb-6">
+                <p className="text-sm font-semibold text-gray-900 mb-3">
+                  Benefits of speaking:
+                </p>
+                <ul className="space-y-2 text-gray-700">
+                  <li>• Share your knowledge with the PersiaJS community</li>
+                  <li>• Build your professional profile</li>
+                  <li>• Connect with fellow developers</li>
+                  <li>
+                    • Contribute to the growth of Persian-speaking developers
+                    worldwide
+                  </li>
+                </ul>
+              </div>
+              <Button
+                variant="primary"
+                size="md"
+                onClick={() =>
+                  window.open(social.speakerApplicationForm, "_blank")
+                }
+              >
+                Apply to Speak →
+              </Button>
+            </div>
+          </div>
+
+          {/* Event Details */}
+          <div className="mb-12">
+            <h3 className="text-3xl font-bold text-gray-900 mb-8 text-center">
+              Event Details
+            </h3>
+            <div className="bg-white rounded-2xl border border-gray-200 p-6 md:p-8">
+              <div className="grid md:grid-cols-2 gap-6">
+                <div>
+                  <span className="text-sm font-semibold text-gray-600">
+                    Language:
+                  </span>{" "}
+                  <span className="text-gray-900">
+                    {eventData.eventDetails.language}
+                  </span>
+                </div>
+                <div>
+                  <span className="text-sm font-semibold text-gray-600">
+                    Level:
+                  </span>{" "}
+                  <span className="text-gray-900">
+                    {eventData.eventDetails.level}
+                  </span>
+                </div>
+                <div>
+                  <span className="text-sm font-semibold text-gray-600">
+                    Cost:
+                  </span>{" "}
+                  <span className="text-gray-900">
+                    {eventData.eventDetails.cost}
+                  </span>
+                </div>
+                <div>
+                  <span className="text-sm font-semibold text-gray-600">
+                    Format:
+                  </span>{" "}
+                  <span className="text-gray-900">
+                    {eventData.eventDetails.format}
+                  </span>
+                </div>
+                <div>
+                  <span className="text-sm font-semibold text-gray-600">
+                    Capacity:
+                  </span>{" "}
+                  <span className="text-gray-900">
+                    {eventData.eventDetails.capacity}
+                  </span>
+                </div>
+                <div>
+                  <span className="text-sm font-semibold text-gray-600">
+                    Recording:
+                  </span>{" "}
+                  <span className="text-gray-900">
+                    {eventData.eventDetails.recording}
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Topics Covered */}
+          <div className="mb-12">
+            <h3 className="text-3xl font-bold text-gray-900 mb-6 text-center">
+              Topics Covered
+            </h3>
+            <div className="bg-white rounded-2xl border border-gray-200 p-6 md:p-8">
+              <ul className="grid md:grid-cols-2 gap-3">
+                {eventData.topics.map((topic, index) => (
+                  <li key={index} className="flex items-start text-gray-700">
+                    <span className="text-[#FF4500] mr-3 mt-1">•</span>
+                    <span>{topic}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+
+          {/* Additional Info */}
+          <div className="bg-gradient-to-br from-gray-50 to-orange-50 rounded-2xl border border-gray-200 p-6 md:p-8">
+            <h3 className="text-2xl font-bold text-gray-900 mb-4">
+              Additional Information
+            </h3>
+            <ul className="space-y-3 text-gray-700">
+              <li className="flex items-start">
+                <span className="text-[#FF4500] mr-3 mt-1">•</span>
+                <span>
+                  <strong>Event Recording:</strong> The event will be recorded
+                  and published on our{" "}
+                  <a
+                    href="https://www.youtube.com/@persiajs"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-[#FF4500] hover:text-[#FF5414] font-semibold underline"
+                  >
+                    YouTube channel
+                  </a>{" "}
+                  within 48 hours
+                </span>
+              </li>
+              <li className="flex items-start">
+                <span className="text-[#FF4500] mr-3 mt-1">•</span>
+                <span>
+                  <strong>Slides:</strong> Speaker slides will be shared after
+                  the event via our Telegram group
+                </span>
+              </li>
+              <li className="flex items-start">
+                <span className="text-[#FF4500] mr-3 mt-1">•</span>
+                <span>
+                  <strong>Networking:</strong> Join our{" "}
+                  <a
+                    href="https://t.me/joinchat/BcZHTxkf2MoIC1pHxJ_xSw"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-[#FF4500] hover:text-[#FF5414] font-semibold underline"
+                  >
+                    Telegram group
+                  </a>{" "}
+                  for pre and post-event discussions
+                </span>
+              </li>
+              <li className="flex items-start">
+                <span className="text-[#FF4500] mr-3 mt-1">•</span>
+                <span>
+                  <strong>Future Events:</strong> Stay tuned for our next event
+                  announcements
+                </span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </Container>
+    </section>
+  );
+}

@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import socialData from "../../data/social.json";
 import navigationData from "../../data/navigation.json";
 import SocialIcon from "../ui/SocialIcon";
@@ -109,15 +110,15 @@ export default function Footer() {
                 </a>
               </li>
               <li>
-                <a
-                  href="#terms"
+                <Link
+                  to="/terms"
                   className="text-gray-400 hover:text-orange-500 transition-colors duration-300 ease-out flex items-center group"
                 >
                   <span className="mr-2 opacity-0 group-hover:opacity-100 transition-opacity">
                     →
                   </span>
                   Terms & Conditions
-                </a>
+                </Link>
               </li>
             </ul>
           </div>

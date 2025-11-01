@@ -15,7 +15,7 @@ export default function Community() {
               Connect With Us
             </span>
           </div>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 whitespace-nowrap">
             Join Our{" "}
             <span className="bg-gradient-to-r from-orange-500 to-red-600 bg-clip-text text-transparent">
               Community
@@ -26,16 +26,16 @@ export default function Community() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
+        <div className="flex flex-wrap justify-center gap-6 max-w-5xl mx-auto">
           {social.links.map((link) => (
             <a
               key={link.platform}
               href={link.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="group"
+              className="group flex-shrink-0"
             >
-              <div className="bg-white border border-gray-200 rounded-2xl p-8 hover:border-orange-500 hover:shadow-xl transition-all duration-300 ease-out hover:-translate-y-2">
+              <div className="bg-white border border-gray-200 rounded-2xl p-8 hover:border-orange-500 hover:shadow-xl transition-all duration-300 ease-out hover:-translate-y-2 w-full min-w-[200px] sm:min-w-[220px]">
                 <div className="flex flex-col items-center text-center space-y-4">
                   <div className="w-16 h-16 bg-gradient-to-br from-orange-500 to-red-600 rounded-2xl flex items-center justify-center shadow-lg group-hover:shadow-xl group-hover:scale-110 transition-all duration-300">
                     <SocialIcon

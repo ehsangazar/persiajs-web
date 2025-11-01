@@ -19,6 +19,11 @@
       "platform": "X",
       "url": "https://x.com/persiajs",
       "icon": "x"
+    },
+    {
+      "platform": "YouTube",
+      "url": "https://www.youtube.com/@persiajs",
+      "icon": "youtube"
     }
   ],
   "speakerApplicationForm": "https://forms.gle/KLJzyhcMYTfnhZpQA",
