@@ -1,2 +1,0 @@
-- Ehsan Gazar: Co-Founder: /public/images/the-team_img/Ehsan-Gazar.jpg: https://www.linkedin.com/in/gazar/
-- Ali Parvizi: Software Engineer: /public/images/the-team_img/Ali-Parvizi.jpg: https://www.linkedin.com/in/ali-parvizi/
