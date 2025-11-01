@@ -4,6 +4,21 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+      // GitHub Pages SPA redirect handler
+      // Immediately redirect to index.html with the current path preserved
+      var path = window.location.pathname;
+      var search = window.location.search;
+      var hash = window.location.hash;
+
+      // Only redirect if we're not already on index.html or root
+      if (path !== "/" && path !== "/index.html") {
+        // Redirect to index.html with the path as a query parameter
+        // Then React Router will handle the navigation
+        var redirectPath = encodeURIComponent(path + search + hash);
+        window.location.replace("/index.html?redirect=" + redirectPath);
+      }
+    </script>
 
     <!-- Primary Meta Tags -->
     <title>
