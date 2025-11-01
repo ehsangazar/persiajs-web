@@ -18,7 +18,7 @@ export default function ShareButtons({
   const encodedTitle = encodeURIComponent(title);
 
   const shareLinks = {
-    twitter: `https://twitter.com/intent/tweet?text=${encodedTitle}&url=${encodedUrl}`,
+    x: `https://twitter.com/intent/tweet?text=${encodedTitle}&url=${encodedUrl}`,
     facebook: `https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`,
     linkedin: `https://www.linkedin.com/sharing/share-offsite/?url=${encodedUrl}`,
     whatsapp: `https://wa.me/?text=${encodedTitle}%20${encodedUrl}`,
@@ -37,8 +37,8 @@ export default function ShareButtons({
 
   const shareButtons = [
     {
-      platform: "twitter",
-      label: "Twitter",
+      platform: "x",
+      label: "X (Twitter)",
       color: "hover:bg-[#1DA1F2] hover:text-white",
       iconColor: "text-[#1DA1F2] group-hover:text-white",
     },
