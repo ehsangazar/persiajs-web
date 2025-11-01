@@ -1,0 +1,18 @@
+{
+  "speakers": [
+    {
+      "id": "ehsan-gazar-speaker",
+      "name": "Ehsan Gazar",
+      "title": "Co-Founder",
+      "image": "/images/the-team_img/Ehsan-Gazar.jpg",
+      "linkedin": "https://www.linkedin.com/in/gazar/"
+    },
+    {
+      "id": "ali-parvizi-speaker",
+      "name": "Ali Parvizi",
+      "title": "Software Engineer",
+      "image": "/images/the-team_img/Ali-Parvizi.jpg",
+      "linkedin": "https://www.linkedin.com/in/ali-parvizi/"
+    }
+  ]
+}

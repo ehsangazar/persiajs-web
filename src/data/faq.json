@@ -1,0 +1,34 @@
+{
+  "items": [
+    {
+      "id": "suggest-topic",
+      "question": "Can I suggest a topic or be a speaker?",
+      "answer": "Absolutely! We welcome speaker proposals and topic suggestions. You can apply to become a speaker by filling out our speaker application form. We're always looking for passionate developers to share their knowledge with the community."
+    },
+    {
+      "id": "event-location",
+      "question": "Where are PersiaJS events held?",
+      "answer": "PersiaJS events are held both online and in various cities. We host virtual events accessible worldwide, and we also organize local meetups in different cities. Check our events page for upcoming locations and dates."
+    },
+    {
+      "id": "join-community",
+      "question": "How can I join the PersiaJS community?",
+      "answer": "You can join our community by following us on social media, especially Telegram which is our main communication channel. Join our Telegram group to connect with other developers, participate in discussions, and stay updated with the latest events and resources."
+    },
+    {
+      "id": "sponsor-opportunities",
+      "question": "How can I sponsor PersiaJS events?",
+      "answer": "We welcome sponsors who want to support the Persian-speaking developer community. Sponsorship opportunities include event sponsorship, content sponsorship, and community support. Fill out our sponsor form to learn more about available opportunities."
+    },
+    {
+      "id": "host-event",
+      "question": "Can I host a PersiaJS event in my city?",
+      "answer": "Yes! We encourage community members to organize local PersiaJS events in their cities. If you're interested in hosting an event, please reach out to us through our contact form or Telegram group. We'll provide guidance and support to help make your event successful."
+    },
+    {
+      "id": "open-source",
+      "question": "How can I contribute to open-source projects?",
+      "answer": "PersiaJS hosts and supports various open-source projects. You can contribute by checking out our GitHub repositories, reporting issues, submitting pull requests, or starting your own project within the community. Collaboration and code sharing are core values of our community."
+    }
+  ]
+}

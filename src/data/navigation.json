@@ -1,0 +1,29 @@
+{
+  "links": [
+    {
+      "label": "About",
+      "href": "#about",
+      "external": false
+    },
+    {
+      "label": "Events",
+      "href": "#events",
+      "external": false
+    },
+    {
+      "label": "Speakers",
+      "href": "#speakers",
+      "external": false
+    },
+    {
+      "label": "The Team",
+      "href": "#team",
+      "external": false
+    },
+    {
+      "label": "FAQ",
+      "href": "#faq",
+      "external": false
+    }
+  ]
+}

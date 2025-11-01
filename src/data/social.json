@@ -1,0 +1,27 @@
+{
+  "links": [
+    {
+      "platform": "Telegram",
+      "url": "https://t.me/joinchat/BcZHTxkf2MoIC1pHxJ_xSw",
+      "icon": "telegram"
+    },
+    {
+      "platform": "Instagram",
+      "url": "https://www.instagram.com/persiajs.dev/",
+      "icon": "instagram"
+    },
+    {
+      "platform": "LinkedIn",
+      "url": "https://www.linkedin.com/company/persiajs",
+      "icon": "linkedin"
+    },
+    {
+      "platform": "X",
+      "url": "https://x.com/persiajs",
+      "icon": "x"
+    }
+  ],
+  "speakerApplicationForm": "https://forms.gle/KLJzyhcMYTfnhZpQA",
+  "sponsorForm": "https://forms.gle/oarS9skyyqvNLCG46",
+  "note": "Telegram is our main contributor, so we want everyone to join Telegram"
+}

@@ -1,0 +1,32 @@
+{
+  "members": [
+    {
+      "id": "ehsan-gazar",
+      "name": "Ehsan Gazar",
+      "title": "Co-Founder",
+      "image": "/images/the-team_img/Ehsan-Gazar.jpg",
+      "linkedin": "https://www.linkedin.com/in/gazar/"
+    },
+    {
+      "id": "ruhollah-hosseini",
+      "name": "Ruhollah Hosseini",
+      "title": "Frontend Developer",
+      "image": "/images/the-team_img/Ruhollah-Hosseini.jpg",
+      "linkedin": "https://www.linkedin.com/in/ruhollah-hosseini-aa2123320/"
+    },
+    {
+      "id": "ali-parvizi",
+      "name": "Ali Parvizi",
+      "title": "Software Engineer",
+      "image": "/images/the-team_img/Ali-Parvizi.jpg",
+      "linkedin": "https://www.linkedin.com/in/ali-parvizi/"
+    },
+    {
+      "id": "ali-ahmadi",
+      "name": "Ali Ahmadi",
+      "title": "Software Engineer",
+      "image": "/images/the-team_img/Ali-Ahmadi.jpg",
+      "linkedin": "https://www.linkedin.com/in/ali-ahmadi-7a61a123b"
+    }
+  ]
+}

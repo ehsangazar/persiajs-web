@@ -1,0 +1,4 @@
+- Ehsan Gazar: Co-Founder: /public/images/the-team_img/Ehsan-Gazar.jpg: https://www.linkedin.com/in/gazar/
+- Ruhollah Hosseini: Front-ned Developer: /public/images/the-team_img/Ruhollah-Hosseini.jpg: https://www.linkedin.com/in/ruhollah-hosseini-aa2123320/
+- Ali Parvizi: Software Engineer: /public/images/the-team_img/Ali-Parvizi.jpg: https://www.linkedin.com/in/ali-parvizi/
+- Ali Ahmadi: Software Engineer: http://127.0.0.1:8080/public/images/the-team_img/Ali-Ahmadi.jpg: https://www.linkedin.com/in/ali-ahmadi-7a61a123b
