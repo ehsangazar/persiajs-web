@@ -211,7 +211,7 @@ export default function EventsPage() {
                             ))}
                           </ul>
                         )}
-                        {item.isOpen && (
+                        {"isOpen" in item && item.isOpen && (
                           <div className="mt-4">
                             <Button
                               variant="outline"
@@ -283,42 +283,6 @@ export default function EventsPage() {
                     </a>
                   </div>
                 ))}
-              </div>
-
-              {/* Third Speaker Call-to-Action */}
-              <div className="bg-gradient-to-br from-orange-50 to-red-50 rounded-2xl border-2 border-dashed border-orange-300 p-8 text-center">
-                <h4 className="text-2xl font-bold text-gray-900 mb-4">
-                  [Third Speaker - Apply Now!]
-                </h4>
-                <p className="text-gray-700 leading-relaxed mb-4">
-                  We're looking for someone passionate about web development to
-                  join our lineup! If you have expertise in frontend
-                  development, JavaScript, or related technologies, we'd love to
-                  hear from you.
-                </p>
-                <div className="mb-6">
-                  <p className="text-sm font-semibold text-gray-900 mb-3">
-                    Benefits of speaking:
-                  </p>
-                  <ul className="space-y-2 text-gray-700">
-                    <li>• Share your knowledge with the PersiaJS community</li>
-                    <li>• Build your professional profile</li>
-                    <li>• Connect with fellow developers</li>
-                    <li>
-                      • Contribute to the growth of Persian-speaking developers
-                      worldwide
-                    </li>
-                  </ul>
-                </div>
-                <Button
-                  variant="primary"
-                  size="md"
-                  onClick={() =>
-                    window.open(social.speakerApplicationForm, "_blank")
-                  }
-                >
-                  Apply to Speak →
-                </Button>
               </div>
             </div>
 
