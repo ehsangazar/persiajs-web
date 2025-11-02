@@ -211,7 +211,7 @@ export default function EventsPage() {
                             ))}
                           </ul>
                         )}
-                        {"isOpen" in item && item.isOpen && (
+                        {("isOpen" in item && (item as { isOpen?: boolean }).isOpen) && (
                           <div className="mt-4">
                             <Button
                               variant="outline"
