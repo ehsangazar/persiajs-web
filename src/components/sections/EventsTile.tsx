@@ -73,8 +73,9 @@ export default function EventsTile() {
                     </div>
                   </div>
                   <p className="text-gray-700 leading-relaxed">
-                    Join us for an exciting evening of technical talks focused
-                    on modern frontend development practices!
+                    Join us for an exciting evening of technical talks and insights! 
+                    From design systems and web components to engineering productivity 
+                    and peak performance strategies.
                   </p>
                 </div>
                 <div className="flex flex-col items-center justify-center">

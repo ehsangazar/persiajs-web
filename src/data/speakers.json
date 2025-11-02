@@ -13,6 +13,13 @@
       "title": "Software Engineer",
       "image": "/images/the-team_img/Ali-Parvizi.jpg",
       "linkedin": "https://www.linkedin.com/in/ali-parvizi/"
+    },
+    {
+      "id": "ali-ahmadi-speaker",
+      "name": "Ali Ahmadi",
+      "title": "Software Engineer",
+      "image": "/images/the-team_img/Ali-Ahmadi.jpg",
+      "linkedin": "https://www.linkedin.com/in/ali-ahmadi/"
     }
   ]
 }

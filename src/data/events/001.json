@@ -6,10 +6,12 @@
   "location": "Online",
   "platform": "Twitch",
   "lumaLink": "https://luma.com/rlbqpett",
-  "description": "Join us for an exciting evening of technical talks focused on modern frontend development practices! This month's PersiaJS event brings together community experts to share their knowledge on design systems and web components—two critical topics for building scalable, maintainable web applications. The event will be streamed live on Twitch, so join us there to participate in real-time discussions and Q&A sessions.",
+  "description": "Join us for an exciting evening of technical talks and insights! This month's PersiaJS event brings together community experts to share their knowledge on design systems, web components, and engineering productivity. From building scalable frontend architectures to applying ancient wisdom for modern developer excellence, our speakers will cover both technical practices and holistic approaches to engineering. The event will be streamed live on Twitch, so join us there to participate in real-time discussions and Q&A sessions.",
   "highlights": [
     "Deep dives into design system implementation strategies",
     "Hands-on insights into modern web components",
+    "Ancient Japanese philosophy applied to engineering productivity",
+    "Physiology and psychology for peak performance",
     "Q&A sessions with experienced speakers",
     "Networking opportunities with the PersiaJS community",
     "Live streaming on Twitch",
@@ -52,11 +54,10 @@
     },
     {
       "time": "7:20 PM",
-      "title": "[Speaker TBD - Apply Now!]",
+      "title": "The Warrior's Way: Ancient Japanese Philosophy for Modern Engineering Productivity",
       "type": "talk",
-      "speaker": "Open Position",
-      "abstract": "We're looking for our third speaker! Are you passionate about frontend development, JavaScript, or web technologies? Share your knowledge with the PersiaJS community!",
-      "isOpen": true
+      "speaker": "Ali Ahmadi",
+      "abstract": "Discover how ancient Japanese mental models—from Zanshin (remaining mind) to Kaizen (continuous improvement)—can transform your engineering practice and life quality. This talk explores the intersection of physiology, psychology, and sports science, showing how concepts like Mushin (no-mind), Fudoshin (immovable mind), and Shoshin (beginner's mind) can help engineers achieve peak performance, better focus, and sustainable productivity. Learn practical strategies for applying these timeless philosophies to modern software development."
     },
     {
       "time": "7:50 PM",
@@ -94,6 +95,13 @@
       "bio": "Ali is an experienced software engineer specializing in modern web technologies and component architecture. With a strong focus on building scalable and maintainable applications, he brings practical insights from real-world projects.",
       "linkedin": "https://www.linkedin.com/in/ali-parvizi/",
       "topic": "Web Components"
+    },
+    {
+      "name": "Ali Ahmadi",
+      "title": "Software Engineer",
+      "bio": "Ali is a software engineer passionate about productivity, wellness, and personal development. He explores the intersection of ancient wisdom and modern science to help engineers achieve peak performance and better life quality through practical mental models and physiological practices.",
+      "linkedin": "https://www.linkedin.com/in/ali-ahmadi/",
+      "topic": "The Warrior's Way: Ancient Japanese Philosophy for Modern Engineering Productivity"
     }
   ],
   "topics": [
@@ -103,7 +111,11 @@
     "Shadow DOM and Custom Elements",
     "Cross-framework component development",
     "Design system tooling and workflows",
-    "Best practices for scalable UI development"
+    "Best practices for scalable UI development",
+    "Japanese mental models for productivity (Zanshin, Mushin, Fudoshin)",
+    "Kaizen and continuous improvement in engineering",
+    "Physiology and psychology for peak performance",
+    "Work-life balance and sustainable productivity"
   ],
   "eventDetails": {
     "language": "Persian / English (Bilingual)",
