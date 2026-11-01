@@ -4,6 +4,7 @@ import Header from "../components/layout/Header";
 import Footer from "../components/layout/Footer.astro";
 import Container from "../components/layout/Container.astro";
 import SectionTitle from "../components/ui/SectionTitle.astro";
+import { withBase } from "../utils/url";
 
 const sections = [
   {
@@ -120,7 +121,7 @@ const headingClass = "text-2xl font-bold text-gray-900 mb-4 flex items-center";
               <p class="text-gray-700 leading-relaxed">
                 For any questions or concerns, please contact us through our{" "}
                 <a
-                  href="/#community"
+                  href={withBase("/#community")}
                   class="text-[#FF4500] hover:text-[#FF5414] font-semibold transition-colors duration-300 underline"
                   >community channels</a
                 >.

@@ -1,5 +1,6 @@
 ---
 import "../styles/global.css";
+import { withBase } from "../utils/url";
 
 interface Props {
   title?: string;
@@ -26,10 +27,11 @@ const dir = Astro.props.dir ?? (lang === "fa" ? "rtl" : "ltr");
 const canonical = Astro.site
   ? new URL(Astro.url.pathname, Astro.site).href
   : undefined;
+const imagePath = image.startsWith("http") ? image : withBase(image);
 const ogImage =
   Astro.site && !image.startsWith("http")
-    ? new URL(image, Astro.site).href
-    : image;
+    ? new URL(imagePath, Astro.site).href
+    : imagePath;
 ---
 
 <!doctype html>
@@ -38,8 +40,8 @@ const ogImage =
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="generator" content={Astro.generator} />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="icon" href="/favicon.ico" />
+    <link rel="icon" type="image/svg+xml" href={withBase("/favicon.svg")} />
+    <link rel="icon" href={withBase("/favicon.ico")} />
 
     <title>{title}</title>
     <meta name="title" content={title} />
@@ -69,7 +71,7 @@ const ogImage =
       rel="alternate"
       type="application/rss+xml"
       title="PersiaJS Articles"
-      href="/rss.xml"
+      href={withBase("/rss.xml")}
     />
     <slot name="head" />
   </head>

@@ -214,7 +214,7 @@ const handleLinkClick = useCallback(
           <div className="flex items-center justify-between h-16 md:h-20">
             {/* Logo */}
             <a
-              href="/"
+              href={homePath}
               className="flex items-center gap-2.5 group transition-all duration-300 ease-out hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-[#FF4500] focus:ring-offset-2 rounded-lg px-1 -ml-1"
               aria-label="PersiaJS Home"
               onClick={handleLogoClick}
@@ -335,7 +335,7 @@ const handleLinkClick = useCallback(
             <div className="flex items-center justify-between p-5 border-b border-gray-200 bg-gradient-to-r from-[#fef3c7]/30 to-white">
               <div className="flex items-center gap-2.5">
                 <img
-                  src="/logo.png"
+                  src={`${base}/logo.png`}
                   alt="PersiaJS"
                   className="h-8 w-8 object-contain"
                 />

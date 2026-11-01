@@ -2,6 +2,7 @@
 import socialData from "../../data/social.json";
 import navigationData from "../../data/navigation.json";
 import SocialIcon from "../ui/SocialIcon.astro";
+import { withBase } from "../../utils/url";
 import type { SocialLink, NavLink } from "../../types";
 
 const social = socialData as { links: SocialLink[] };
@@ -43,7 +44,7 @@ const underlineClass =
       <div class="col-span-1 md:col-span-2">
         <div class="flex items-center space-x-3 mb-6">
           <img
-            src="/logo.png"
+            src={withBase("/logo.png")}
             alt="PersiaJS Logo"
             class="h-12 w-12 object-contain"
           />
@@ -91,7 +92,7 @@ const underlineClass =
           {
             aboutLinks.map((link) => (
               <li>
-                <a href={`/${link.href}`} class={linkClass}>
+                <a href={withBase(`/${link.href}`)} class={linkClass}>
                   <span class={arrowClass}>→</span>
                   {link.label}
                 </a>
@@ -109,19 +110,19 @@ const underlineClass =
         </h3>
         <ul class="space-y-3">
           <li>
-            <a href="/articles" class={linkClass}>
+            <a href={withBase("/articles")} class={linkClass}>
               <span class={arrowClass}>→</span>
               Articles
             </a>
           </li>
           <li>
-            <a href="/#faq" class={linkClass}>
+            <a href={withBase("/#faq")} class={linkClass}>
               <span class={arrowClass}>→</span>
               FAQ
             </a>
           </li>
           <li>
-            <a href="/terms" class={linkClass}>
+            <a href={withBase("/terms")} class={linkClass}>
               <span class={arrowClass}>→</span>
               Terms &amp; Conditions
             </a>

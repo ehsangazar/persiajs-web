@@ -6,6 +6,7 @@ import Header from "../layout/Header";
 import Footer from "../layout/Footer.astro";
 import Container from "../layout/Container.astro";
 import Button from "../ui/Button.astro";
+import { withBase } from "../../utils/url";
 import {
   articlesBase,
   formatDate,
@@ -28,6 +29,12 @@ const dir = lang === "fa" ? "rtl" : "ltr";
 const base = articlesBase(lang);
 const minutes = getReadingMinutes(entry.body);
 const toc = headings.filter((h) => h.depth === 2 || h.depth === 3);
+
+// Links inside the Markdown body, like [text](/fa/articles/x), need the base path
+const bodyHtml = (await Astro.slots.render("default")).replace(
+  /href="(\/(?!\/)[^"]*)"/g,
+  (_, path) => `href="${withBase(path)}"`
+);
 
 const origin = Astro.site ?? Astro.url;
 const url = new URL(Astro.url.pathname, origin).href;
@@ -173,7 +180,7 @@ const jsonLd = {
             class="max-w-6xl mx-auto grid lg:grid-cols-[minmax(0,1fr)_16rem] gap-10"
           >
             <article class="article-body min-w-0 max-w-3xl w-full mx-auto">
-              <slot />
+              <Fragment set:html={bodyHtml} />
             </article>
 
             {

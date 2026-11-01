@@ -2,6 +2,7 @@
 import Container from "../layout/Container.astro";
 import SectionTitle from "../ui/SectionTitle.astro";
 import { EVENT_SLUG, EVENT_TITLE } from "../../data/events";
+import { withBase } from "../../utils/url";
 
 const iconProps = {
   class: "w-5 h-5 text-[#FF4500] mr-3 mt-0.5 flex-shrink-0",
@@ -18,7 +19,7 @@ const iconProps = {
 
     <!-- Event Tile -->
     <div class="max-w-4xl mx-auto">
-      <a href={`/events/${EVENT_SLUG}`} class="block group">
+      <a href={withBase(`/events/${EVENT_SLUG}`)} class="block group">
         <div
           class="bg-gradient-to-br from-orange-50 to-red-50 rounded-2xl border-2 border-orange-200 p-8 md:p-12 shadow-lg hover:shadow-xl hover:border-orange-300 transition-all duration-300"
         >

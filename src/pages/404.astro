@@ -4,6 +4,7 @@ import Header from "../components/layout/Header";
 import Footer from "../components/layout/Footer.astro";
 import Container from "../components/layout/Container.astro";
 import Button from "../components/ui/Button.astro";
+import { withBase } from "../utils/url";
 ---
 
 <BaseLayout
@@ -22,8 +23,8 @@ import Button from "../components/ui/Button.astro";
           The page you are looking for does not exist or has moved.
         </p>
         <div class="flex flex-wrap justify-center gap-3">
-          <Button href="/" variant="primary">Back to home</Button>
-          <Button href="/articles" variant="outline">Read articles</Button>
+          <Button href={withBase("/")} variant="primary">Back to home</Button>
+          <Button href={withBase("/articles")} variant="outline">Read articles</Button>
         </div>
       </Container>
     </main>

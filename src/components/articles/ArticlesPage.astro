@@ -7,6 +7,7 @@ import Container from "../layout/Container.astro";
 import SectionTitle from "../ui/SectionTitle.astro";
 import ArticleCard from "./ArticleCard.astro";
 import { ui, type Article, type Lang } from "../../utils/articles";
+import { withBase } from "../../utils/url";
 
 interface Props {
   lang: Lang;
@@ -74,7 +75,7 @@ const chip =
             </div>
             <p class="text-center">
               <a
-                href={t.switchHref}
+                href={withBase(t.switchHref)}
                 class="text-sm font-semibold text-[#FF4500] hover:text-[#FF5414] underline"
                 >{t.switchLang}</a
               >
