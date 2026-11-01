@@ -1,5 +1,6 @@
 ---
 import type { Person } from "../../types";
+import { withBase } from "../../utils/url";
 
 interface Props {
   person: Person;
@@ -30,7 +31,7 @@ const { person, class: className = "" } = Astro.props;
       <!-- bg-gray-200 is the placeholder while the image loads -->
       <div class="relative overflow-hidden bg-gray-200 w-full h-64">
         <img
-          src={`${import.meta.env.BASE_URL}/${person.image.replace(/^\/+/, "")}`}
+          src={withBase(`/${person.image.replace(/^\/+/, "")}`)}
           alt={person.name}
           loading="lazy"
           class="w-full h-64 object-cover grayscale group-hover:grayscale-0 group-hover:scale-110 transition-all duration-500"

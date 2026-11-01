@@ -1,4 +1,5 @@
 import { getCollection, type CollectionEntry } from "astro:content";
+import { withBase } from "./url";
 
 export type Lang = "fa" | "en";
 export type Article = CollectionEntry<"articles">;
@@ -38,12 +39,8 @@ export function formatNumber(n: number, lang: Lang): string {
   return new Intl.NumberFormat(locales[lang]).format(n);
 }
 
-const base = import.meta.env.BASE_URL;
-
 export const articlesBase = (lang: Lang) =>
-  lang === "fa"
-    ? `${base}/fa/articles`
-    : `${base}/articles`;
+  withBase(lang === "fa" ? "/fa/articles" : "/articles");
 
 export const ui = {
   fa: {
