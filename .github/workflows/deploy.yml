@@ -29,6 +29,11 @@ jobs:
 
       - name: Build Astro
         run: npm run build
+        env:
+          # TEST deploy at https://ddscode3.github.io/PersiaJS-Astro/
+          # For production (persiajs.dev) DELETE these two lines.
+          SITE_URL: https://ddscode3.github.io
+          BASE_PATH: /PersiaJS-Astro
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
