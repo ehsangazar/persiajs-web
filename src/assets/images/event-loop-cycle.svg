@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760" role="img" aria-labelledby="title desc">
+<title id="title">مرور ساده یک چرخه از Event Loop</title>
+<desc id="desc">ابتدا یک Task اجرا می‌شود، سپس صف Microtask تا خالی شدن کامل تخلیه می‌شود و در صورت نیاز مرورگر فرصت به‌روزرسانی رندر را دارد؛ سپس چرخه ادامه پیدا می‌کند.</desc>
+<defs>
+  <marker id="arrow" markerWidth="12" markerHeight="12" refX="9" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10" fill="none" stroke="#7dd3fc" stroke-width="1.8"/></marker>
+  <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#0b1224"/><stop offset="1" stop-color="#111c35"/></linearGradient>
+  <linearGradient id="task" x1="0" x2="1"><stop stop-color="#164e63"/><stop offset="1" stop-color="#155e75"/></linearGradient>
+  <linearGradient id="micro" x1="0" x2="1"><stop stop-color="#4c1d95"/><stop offset="1" stop-color="#6d28d9"/></linearGradient>
+  <linearGradient id="render" x1="0" x2="1"><stop stop-color="#14532d"/><stop offset="1" stop-color="#166534"/></linearGradient>
+</defs>
+<rect width="1200" height="760" rx="28" fill="url(#bg)"/>
+<text x="600" y="65" text-anchor="middle" fill="#f8fafc" font-size="32" font-family="Arial,sans-serif" font-weight="700">یک چرخه‌ی ساده از Event Loop</text>
+<text x="600" y="102" text-anchor="middle" fill="#94a3b8" font-size="17" font-family="Arial,sans-serif">مدل آموزشی برای مرورگر؛ جزئیات زمان‌بندی در استاندارد پیچیده‌تر است</text>
+
+<rect x="390" y="150" width="420" height="112" rx="18" fill="url(#task)" stroke="#22d3ee" stroke-width="2"/>
+<text x="600" y="194" text-anchor="middle" fill="#cffafe" font-size="27" font-family="Arial,sans-serif" font-weight="700">۱. اجرای یک Task</text>
+<text x="600" y="229" text-anchor="middle" fill="#e0f2fe" font-size="18" font-family="Arial,sans-serif">اسکریپت، رویداد، تایمر و ...</text>
+
+<path d="M600 263 V315" stroke="#7dd3fc" stroke-width="3" marker-end="url(#arrow)"/>
+<rect x="330" y="330" width="540" height="132" rx="18" fill="url(#micro)" stroke="#c4b5fd" stroke-width="2"/>
+<text x="600" y="376" text-anchor="middle" fill="#ede9fe" font-size="27" font-family="Arial,sans-serif" font-weight="700">۲. تخلیه‌ی Microtask Queue</text>
+<text x="600" y="414" text-anchor="middle" fill="#f5f3ff" font-size="18" font-family="Arial,sans-serif">Promise callbacks · queueMicrotask · MutationObserver</text>
+<text x="600" y="442" text-anchor="middle" fill="#ddd6fe" font-size="16" font-family="Arial,sans-serif">تا وقتی صف خالی شود؛ حتی Microtaskهای تازه‌ساخته‌شده</text>
+
+<path d="M600 463 V520" stroke="#7dd3fc" stroke-width="3" marker-end="url(#arrow)"/>
+<rect x="390" y="535" width="420" height="104" rx="18" fill="url(#render)" stroke="#86efac" stroke-width="2"/>
+<text x="600" y="576" text-anchor="middle" fill="#dcfce7" font-size="25" font-family="Arial,sans-serif" font-weight="700">۳. فرصت احتمالی برای Render</text>
+<text x="600" y="608" text-anchor="middle" fill="#f0fdf4" font-size="17" font-family="Arial,sans-serif">Style · Layout · Paint (در صورت نیاز)</text>
+
+<path d="M810 587 H1030 V206 H820" fill="none" stroke="#7dd3fc" stroke-width="3" stroke-dasharray="9 8" marker-end="url(#arrow)"/>
+<text x="1050" y="400" transform="rotate(90 1050 400)" text-anchor="middle" fill="#bae6fd" font-size="18" font-family="Arial,sans-serif">چرخه ادامه پیدا می‌کند</text>
+
+<rect x="70" y="335" width="190" height="120" rx="16" fill="#172554" stroke="#60a5fa" stroke-width="2"/>
+<text x="165" y="378" text-anchor="middle" fill="#dbeafe" font-size="21" font-family="Arial,sans-serif" font-weight="700">Call Stack</text>
+<text x="165" y="410" text-anchor="middle" fill="#bfdbfe" font-size="16" font-family="Arial,sans-serif">کد همگام</text>
+<text x="165" y="434" text-anchor="middle" fill="#bfdbfe" font-size="16" font-family="Arial,sans-serif">اجرا می‌شود</text>
+<path d="M260 395 H320" stroke="#7dd3fc" stroke-width="3" marker-end="url(#arrow)"/>
+
+<rect x="900" y="335" width="230" height="120" rx="16" fill="#312e81" stroke="#a5b4fc" stroke-width="2"/>
+<text x="1015" y="378" text-anchor="middle" fill="#e0e7ff" font-size="21" font-family="Arial,sans-serif" font-weight="700">Task Sources</text>
+<text x="1015" y="410" text-anchor="middle" fill="#c7d2fe" font-size="16" font-family="Arial,sans-serif">Timer · User Event</text>
+<text x="1015" y="434" text-anchor="middle" fill="#c7d2fe" font-size="16" font-family="Arial,sans-serif">Network · Message</text>
+<path d="M900 395 H880" stroke="#7dd3fc" stroke-width="3" marker-end="url(#arrow)"/>
+
+<text x="600" y="704" text-anchor="middle" fill="#94a3b8" font-size="16" font-family="Arial,sans-serif">نکته: Event Loop فقط یک صف ساده‌ی FIFO نیست؛ مرورگر چندین task source و قواعد زمان‌بندی دارد.</text>
+</svg>
