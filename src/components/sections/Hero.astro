@@ -12,7 +12,7 @@ const telegramUrl = social.links.find((l) => l.platform === "Telegram")?.url;
 <section
   class="relative min-h-screen flex items-center justify-center overflow-hidden pt-16"
   id="hero"
-  aria-label="Hero section"
+  aria-label="معرفی PersiaJS"
 >
   <!-- Background Gradient - Enhanced -->
   <div
@@ -100,7 +100,7 @@ const telegramUrl = social.links.find((l) => l.platform === "Telegram")?.url;
       target="_blank"
       rel="noopener noreferrer"
       class="hero-fade-down inline-flex items-center justify-center gap-2 bg-white rounded-full px-5 py-2.5 mb-10 border border-gray-200 transition-all duration-300 hover:border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#FF4500] focus:ring-offset-2"
-      aria-label="Join our growing community on Telegram"
+      aria-label="پیوستن به گروه تلگرام PersiaJS"
     >
       <span class="relative flex h-2.5 w-2.5 shrink-0">
         <span
@@ -112,7 +112,7 @@ const telegramUrl = social.links.find((l) => l.platform === "Telegram")?.url;
       <span
         class="text-sm font-semibold text-gray-900 hover:text-[#FF4500] transition-colors duration-300 whitespace-nowrap"
       >
-        Join Our Growing Community
+        به گروه تلگرام ما بپیوندید
       </span>
     </a>
 
@@ -121,7 +121,7 @@ const telegramUrl = social.links.find((l) => l.platform === "Telegram")?.url;
       class="hero-fade-up text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-extrabold mb-6 sm:mb-8 leading-[0.9]"
       style="animation-delay: 100ms"
     >
-      <span class="block text-gray-900 font-heading">Persia JS</span>
+      <span class="block text-gray-900 font-heading" dir="ltr">Persia JS</span>
     </h1>
 
     <!-- Tagline -->
@@ -129,18 +129,24 @@ const telegramUrl = social.links.find((l) => l.platform === "Telegram")?.url;
       class="hero-fade-up text-lg md:text-xl lg:text-2xl text-gray-600 max-w-3xl mx-auto mb-10 leading-relaxed text-center"
       style="animation-delay: 200ms"
     >
-      Empowering the <span class="font-semibold text-[#FF4500]"
-        >Persian-speaking</span
-      > Developer Community
+      جامعه‌ی توسعه‌دهندگان <span class="font-semibold text-[#FF4500]"
+        >فارسی‌زبان</span
+      > جاوااسکریپت
     </p>
 
-    <!-- Stats -->
+    {/* Facts, kept checkable: the member count is the Telegram group
+        (@persiajs) via Bot API getChatMemberCount, 296 on 16 Nov 2026.
+        Events have not run on a fixed schedule; never call them monthly. */}
     <div
       class="hero-fade-up flex flex-wrap justify-center items-center gap-x-6 sm:gap-x-8 gap-y-4 mb-12"
       style="animation-delay: 300ms"
     >
       {
-        ["500+ Members", "Monthly Events", "Expert Speakers"].map((text) => (
+        [
+          "حدود ۳۰۰ عضو در تلگرام",
+          "مقاله‌های فارسی",
+          "رویدادها و سخنرانی‌های آنلاین",
+        ].map((text) => (
           <div class="flex items-center gap-2 text-gray-900">
             <span class="text-[#FF4500] text-sm">●</span>
             <span class="text-sm md:text-base font-medium">{text}</span>
@@ -161,10 +167,10 @@ const telegramUrl = social.links.find((l) => l.platform === "Telegram")?.url;
         size="md"
         class="w-full sm:w-auto"
       >
-        Learn More
+        بیشتر بدانید
         <svg
           slot="right-icon"
-          class="w-5 h-5"
+          class="w-5 h-5 rtl:rotate-180"
           fill="none"
           stroke-linecap="round"
           stroke-linejoin="round"
@@ -182,7 +188,7 @@ const telegramUrl = social.links.find((l) => l.platform === "Telegram")?.url;
         size="md"
         class="w-full sm:w-auto"
       >
-        Meet Our Speakers
+        سخنرانان
         <svg
           slot="left-icon"
           class="w-5 h-5"
@@ -206,7 +212,7 @@ const telegramUrl = social.links.find((l) => l.platform === "Telegram")?.url;
       style="animation-delay: 500ms"
     >
       <span class="text-sm text-gray-600 font-medium whitespace-nowrap">
-        Connect with us:
+        ما را دنبال کنید:
       </span>
       <div class="flex gap-3">
         {
@@ -216,7 +222,7 @@ const telegramUrl = social.links.find((l) => l.platform === "Telegram")?.url;
               target="_blank"
               rel="noopener noreferrer"
               class="w-10 h-10 rounded-md bg-white border border-gray-200 flex items-center justify-center text-gray-900 hover:bg-[#FF4500] hover:text-white hover:border-[#FF4500] transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-[#FF4500] focus:ring-offset-2"
-              aria-label={`Visit our ${link.platform} page`}
+              aria-label={`PersiaJS در ${link.platform}`}
             >
               <SocialIcon
                 platform={link.icon ?? "linkedin"}
@@ -235,10 +241,10 @@ const telegramUrl = social.links.find((l) => l.platform === "Telegram")?.url;
       href="#about"
       data-scroll
       class="flex flex-col items-center text-gray-600 hover:text-[#FF4500] transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-[#FF4500] focus:ring-offset-2 rounded-md p-2"
-      aria-label="Scroll to content"
+      aria-label="رفتن به ادامه‌ی صفحه"
     >
       <span class="text-xs font-medium mb-1.5 whitespace-nowrap">
-        Scroll to explore
+        ادامه
       </span>
       <div class="relative">
         <svg

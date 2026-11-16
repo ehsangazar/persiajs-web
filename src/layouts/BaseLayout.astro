@@ -12,15 +12,16 @@ interface Props {
 }
 
 const {
-  title = "PersiaJS - Empowering the Persian-speaking Developer Community",
-  description = "Join PersiaJS, a thriving community of Persian-speaking developers. Share knowledge, attend events, and grow your skills in JavaScript and web development.",
-  lang = "en",
+  title = "PersiaJS | جامعه‌ی توسعه‌دهندگان فارسی‌زبان جاوااسکریپت",
+  description = "PersiaJS جامعه‌ی توسعه‌دهندگان فارسی‌زبان جاوااسکریپت است: مقاله‌های فارسی، رویدادهای آنلاین و یک گروه تلگرامی که اعضا در آن به هم کمک می‌کنند.",
+  // The site is Persian-first; only /en and English articles pass "en"
+  lang = "fa",
   image = "/logo.png",
   type = "website",
 } = Astro.props;
 
-// Pages can force a direction (article pages keep the site chrome LTR
-// and set RTL only on the article container)
+// Pages can force a direction. The site chrome follows the page language;
+// English content inside a Persian page sets dir="ltr" on its own container.
 const dir = Astro.props.dir ?? (lang === "fa" ? "rtl" : "ltr");
 
 // Canonical + absolute image URLs only work once `site` is set in astro.config.mjs
@@ -64,7 +65,7 @@ const ogImage =
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Montserrat:wght@600;700;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&family=Montserrat:wght@600;700;800&display=swap"
       rel="stylesheet"
     />
     <link

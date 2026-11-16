@@ -1,7 +1,10 @@
 // TypeScript type definitions for PersiaJS website data structures
 
 export interface NavLink {
+  /** Persian label (the default UI language) */
   label: string;
+  /** Label shown on the English page (/en) */
+  labelEn?: string;
   href: string;
   external?: boolean;
 }

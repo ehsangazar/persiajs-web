@@ -113,3 +113,12 @@ textarea,
 .cursor-default {
   cursor: default;
 }
+
+/* Persian text uses Vazirmatn. English blocks inside Persian ones keep the
+   default sans so Latin text does not render in a Persian face. */
+[lang="fa"] {
+  font-family: "Vazirmatn", "Segoe UI", Tahoma, sans-serif;
+}
+[lang="fa"] [lang="en"] {
+  font-family: ui-sans-serif, system-ui, sans-serif;
+}

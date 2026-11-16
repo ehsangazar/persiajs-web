@@ -11,19 +11,22 @@ const navigation = navigationData as { links: NavLink[] };
 const currentYear = new Date().getFullYear();
 
 // "/#team" works from every page, not only from the home page
-const aboutLinks = navigation.links.filter(
-  (link) => link.label === "The Team" || link.label === "Speakers"
+const aboutLinks = navigation.links.filter((link) =>
+  ["#team", "#speakers", "#courses"].includes(link.href)
 );
 
 const linkClass =
   "text-gray-400 hover:text-orange-500 transition-colors duration-300 ease-out flex items-center group";
 const arrowClass =
-  "mr-2 opacity-0 group-hover:opacity-100 transition-opacity";
+  "me-2 opacity-0 group-hover:opacity-100 transition-opacity";
 const underlineClass =
-  "absolute bottom-0 left-0 w-12 h-1 bg-gradient-to-r from-orange-500 to-red-600 rounded-full";
+  "absolute bottom-0 start-0 w-12 h-1 bg-gradient-to-r from-orange-500 to-red-600 rounded-full";
 ---
 
+<!-- The footer is Persian on every page, including the English ones -->
 <footer
+  dir="rtl"
+  lang="fa"
   class="relative bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-gray-300 overflow-hidden"
 >
   <!-- Decorative Elements -->
@@ -42,7 +45,7 @@ const underlineClass =
     <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
       <!-- Logo and Description -->
       <div class="col-span-1 md:col-span-2">
-        <div class="flex items-center space-x-3 mb-6">
+        <div class="flex items-center gap-3 mb-6">
           <img
             src={withBase("/logo.png")}
             alt="PersiaJS Logo"
@@ -52,17 +55,16 @@ const underlineClass =
             <span class="font-bold text-2xl text-white font-heading">
               PersiaJS
             </span>
-            <span class="text-sm text-gray-400">Developer Community</span>
+            <span class="text-sm text-gray-400">جامعه‌ی توسعه‌دهندگان</span>
           </div>
         </div>
         <p class="text-gray-400 max-w-md leading-relaxed mb-6">
-          Empowering the Persian-speaking Developer Community through knowledge
-          sharing, collaboration, and innovation in the world of JavaScript and
-          beyond.
+          جامعه‌ی توسعه‌دهندگان فارسی‌زبان جاوااسکریپت: مقاله‌های فارسی،
+          رویدادهای آنلاین و گروهی در تلگرام که اعضا در آن به هم کمک می‌کنند.
         </p>
 
         <!-- Social Links -->
-        <div class="flex space-x-3">
+        <div class="flex flex-wrap gap-3">
           {
             social.links.map((link) => (
               <a
@@ -85,7 +87,7 @@ const underlineClass =
       <!-- About Links -->
       <div>
         <h3 class="text-white font-bold text-lg mb-6 relative inline-block">
-          About
+          PersiaJS
           <span class={underlineClass}></span>
         </h3>
         <ul class="space-y-3">
@@ -93,7 +95,7 @@ const underlineClass =
             aboutLinks.map((link) => (
               <li>
                 <a href={withBase(`/${link.href}`)} class={linkClass}>
-                  <span class={arrowClass}>→</span>
+                  <span class={arrowClass}>←</span>
                   {link.label}
                 </a>
               </li>
@@ -105,26 +107,32 @@ const underlineClass =
       <!-- Resources Links -->
       <div>
         <h3 class="text-white font-bold text-lg mb-6 relative inline-block">
-          Resources
+          منابع
           <span class={underlineClass}></span>
         </h3>
         <ul class="space-y-3">
           <li>
-            <a href={withBase("/articles")} class={linkClass}>
-              <span class={arrowClass}>→</span>
-              Articles
+            <a href={withBase("/fa/articles")} class={linkClass}>
+              <span class={arrowClass}>←</span>
+              مقالات
             </a>
           </li>
           <li>
             <a href={withBase("/#faq")} class={linkClass}>
-              <span class={arrowClass}>→</span>
-              FAQ
+              <span class={arrowClass}>←</span>
+              پرسش‌های رایج
             </a>
           </li>
           <li>
             <a href={withBase("/terms")} class={linkClass}>
-              <span class={arrowClass}>→</span>
-              Terms &amp; Conditions
+              <span class={arrowClass}>←</span>
+              قوانین و شرایط
+            </a>
+          </li>
+          <li>
+            <a href={withBase("/en")} lang="en" class={linkClass}>
+              <span class={arrowClass}>←</span>
+              About PersiaJS in English
             </a>
           </li>
         </ul>
@@ -136,15 +144,15 @@ const underlineClass =
       <div
         class="flex flex-col md:flex-row justify-between items-center gap-4"
       >
-        <div class="text-sm text-gray-500 text-center md:text-left">
-          <p>© {currentYear} PersiaJS. All rights reserved.</p>
+        <div class="text-sm text-gray-500 text-center md:text-start">
+          <p>© {currentYear} PersiaJS. همه‌ی حقوق محفوظ است.</p>
           <p class="mt-1">
-            Designed &amp; Developed with <span class="text-orange-500">❤️</span>{" "}
-            by Ruhollah Hosseini
+            طراحی و توسعه با <span class="text-orange-500">❤️</span> توسط{" "}
+            روح‌الله حسینی (<span lang="en">Ruhollah Hosseini</span>)
           </p>
         </div>
 
-        <div class="flex items-center space-x-2 text-sm text-gray-500">
+        <div class="flex items-center gap-2 text-sm text-gray-500" dir="ltr" lang="en">
           <span>Made with</span>
           <svg
             class="w-4 h-4 text-orange-500"

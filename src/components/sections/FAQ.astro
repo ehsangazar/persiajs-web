@@ -10,9 +10,9 @@ const faq = faqData as { items: FAQItem[] };
 <section id="faq" class="py-20 md:py-32 bg-white">
   <Container>
     <SectionTitle
-      label="FAQ"
-      title="Frequently Asked Questions"
-      subtitle="Everything you need to know about PersiaJS"
+      label="پرسش‌های رایج"
+      title="پرسش‌های رایج"
+      subtitle="آنچه باید درباره‌ی PersiaJS بدانید"
     />
     <div class="max-w-3xl mx-auto space-y-4">
       {
@@ -22,12 +22,12 @@ const faq = faqData as { items: FAQItem[] };
             name="faq"
             class="bg-white rounded-2xl border border-gray-200 overflow-hidden transition-all duration-300 hover:border-orange-200 hover:shadow-lg"
           >
-            <summary class="group/q w-full px-6 md:px-8 py-5 md:py-6 text-left flex items-center justify-between cursor-pointer list-none [&::-webkit-details-marker]:hidden hover:bg-orange-50/50 transition-colors duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FF4500] focus-visible:ring-offset-2">
-              <div class="flex items-start space-x-3 md:space-x-4 flex-1">
+            <summary class="group/q w-full px-6 md:px-8 py-5 md:py-6 text-start flex items-center justify-between cursor-pointer list-none [&::-webkit-details-marker]:hidden hover:bg-orange-50/50 transition-colors duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FF4500] focus-visible:ring-offset-2">
+              <div class="flex items-start gap-3 md:gap-4 flex-1">
                 <div class="faq-badge flex-shrink-0 w-7 h-7 md:w-8 md:h-8 rounded-lg flex items-center justify-center text-xs md:text-sm font-bold transition-all duration-300 bg-gray-100 text-gray-600 group-hover/q:bg-orange-100 group-hover/q:text-orange-600">
                   {index + 1}
                 </div>
-                <span class="font-semibold text-gray-900 pr-4 text-base md:text-lg group-hover/q:text-orange-600 transition-colors duration-300">
+                <span class="font-semibold text-gray-900 pe-4 text-base md:text-lg group-hover/q:text-orange-600 transition-colors duration-300">
                   {item.question}
                 </span>
               </div>

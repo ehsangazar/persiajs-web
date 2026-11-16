@@ -1,136 +1,132 @@
 ---
 import Container from "../layout/Container.astro";
 import SectionTitle from "../ui/SectionTitle.astro";
-import { EVENT_SLUG, EVENT_TITLE } from "../../data/events";
+import Button from "../ui/Button.astro";
+import { PAST_EVENTS, PAST_TOTALS } from "../../data/events";
+import socialData from "../../data/social.json";
 import { withBase } from "../../utils/url";
 
+const telegramUrl = socialData.links.find((l) => l.platform === "Telegram")?.url;
+
 const iconProps = {
-  class: "w-5 h-5 text-[#FF4500] mr-3 mt-0.5 flex-shrink-0",
+  class: "w-5 h-5 text-[#FF4500] me-3 mt-0.5 flex-shrink-0",
 };
 ---
 
 <section id="events" class="py-20 md:py-32 bg-white">
   <Container>
     <SectionTitle
-      label="EVENTS"
-      title="Upcoming Event"
-      subtitle="Join us for our monthly community meetups"
+      label="رویدادها"
+      title="رویدادهای گذشته"
+      subtitle="رویدادهای PersiaJS برنامه‌ی ثابتی ندارند. خبر رویداد بعدی در گروه تلگرام اعلام می‌شود."
     />
 
-    <!-- Event Tile -->
-    <div class="max-w-4xl mx-auto">
-      <a href={withBase(`/events/${EVENT_SLUG}`)} class="block group">
-        <div
-          class="bg-gradient-to-br from-orange-50 to-red-50 rounded-2xl border-2 border-orange-200 p-8 md:p-12 shadow-lg hover:shadow-xl hover:border-orange-300 transition-all duration-300"
-        >
-          <div class="grid md:grid-cols-2 gap-8 items-center">
-            <div>
-              <div class="inline-block mb-4">
-                <span
-                  class="text-orange-600 font-bold text-sm uppercase tracking-wider bg-orange-100 px-4 py-2 rounded-full shadow-sm"
-                >
-                  December 2025
-                </span>
-              </div>
-              <h2
-                class="text-3xl md:text-4xl font-bold text-gray-900 mb-4 group-hover:text-[#FF4500] transition-colors duration-300"
-              >
-                {EVENT_TITLE}
-              </h2>
-              <div class="space-y-3 text-gray-700 mb-6">
-                <div class="flex items-start">
-                  <svg
-                    {...iconProps}
-                    fill="none"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
-                    ></path>
-                  </svg>
-                  <span class="font-medium">December 1st, 2025</span>
+    <div class="max-w-4xl mx-auto space-y-6">
+      {
+        PAST_EVENTS.map((event) => {
+          const Tag = event.href ? "a" : "div";
+          return (
+            <Tag
+              href={event.href ? withBase(event.href) : undefined}
+              class="block group"
+            >
+              <div class="bg-gradient-to-br from-orange-50 to-red-50 rounded-2xl border-2 border-orange-200 p-6 md:p-8 shadow-lg hover:border-orange-300 transition-all duration-300">
+                <div class="flex flex-col md:flex-row md:items-center justify-between gap-6">
+                  <div>
+                    <span class="inline-block mb-3 text-orange-600 font-bold text-sm bg-orange-100 px-4 py-2 rounded-full shadow-sm">
+                      برگزار شد
+                    </span>
+                    <h3
+                      dir="ltr"
+                      lang="en"
+                      class="text-2xl md:text-3xl font-bold text-gray-900 mb-4 text-start group-hover:text-[#FF4500] transition-colors duration-300"
+                    >
+                      <bdi>{event.title}</bdi>
+                    </h3>
+                    <div class="flex flex-wrap gap-x-6 gap-y-2 text-gray-700">
+                      <div class="flex items-start">
+                        <svg
+                          {...iconProps}
+                          fill="none"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                        >
+                          <path d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                        </svg>
+                        <span class="font-medium">{event.date}</span>
+                      </div>
+                      <div class="flex items-start">
+                        <svg
+                          {...iconProps}
+                          fill="none"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                        >
+                          <path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                          <path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                        </svg>
+                        <span class="font-medium">{event.location}</span>
+                      </div>
+                    </div>
+                  </div>
+                  {event.href && (
+                    <span class="text-[#FF4500] font-semibold text-lg flex items-center whitespace-nowrap">
+                      جزئیات رویداد
+                      <svg
+                        class="w-5 h-5 ms-2 rtl:rotate-180"
+                        fill="none"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path d="M9 5l7 7-7 7" />
+                      </svg>
+                    </span>
+                  )}
                 </div>
-                <div class="flex items-start">
-                  <svg
-                    {...iconProps}
-                    fill="none"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
-                    ></path>
-                  </svg>
-                  <span class="font-medium">6:00 PM - 8:30 PM GMT</span>
-                </div>
-                <div class="flex items-start">
-                  <svg
-                    {...iconProps}
-                    fill="none"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
-                    ></path>
-                    <path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                  </svg>
-                  <span class="font-medium">Online</span>
-                </div>
               </div>
-              <p class="text-gray-700 leading-relaxed">
-                Join us for an exciting evening of technical talks and insights!
-                From design systems and web components to engineering
-                productivity and peak performance strategies.
-              </p>
-            </div>
-            <div class="flex flex-col items-center justify-center">
-              <div
-                class="w-24 h-24 bg-gradient-to-br from-orange-500 to-red-600 rounded-2xl flex items-center justify-center mb-4 shadow-lg group-hover:scale-110 transition-transform duration-300"
-              >
-                <svg
-                  class="w-12 h-12 text-white"
-                  fill="none"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
-                  ></path>
-                </svg>
+            </Tag>
+          );
+        })
+      }
+
+      <!-- Past totals, as the old PersiaJS site showed them -->
+      <div class="rounded-2xl border border-gray-200 bg-gray-50 p-6 md:p-8">
+        <p class="font-bold text-gray-900 mb-1">آمار رویدادهای گذشته</p>
+        <p class="text-sm text-gray-600 mb-6">
+          مجموع رویدادهای پیشین، به نقل از سایت قبلی PersiaJS
+        </p>
+        <div class="grid grid-cols-2 sm:grid-cols-5 gap-4 text-center">
+          {
+            PAST_TOTALS.map((item) => (
+              <div>
+                <p class="text-3xl font-bold text-[#FF4500]">{item.value}</p>
+                <p class="text-gray-700">{item.label}</p>
               </div>
-              <span
-                class="text-[#FF4500] font-semibold text-lg group-hover:text-[#FF5414] transition-colors duration-300 flex items-center"
-              >
-                View Event Details
-                <svg
-                  class="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300"
-                  fill="none"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path d="M9 5l7 7-7 7"></path>
-                </svg>
-              </span>
-            </div>
-          </div>
+            ))
+          }
         </div>
-      </a>
+      </div>
+
+      <div class="text-center pt-4">
+        <Button
+          href={telegramUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          variant="primary"
+          size="md"
+        >
+          خبر رویداد بعدی را در تلگرام بگیرید
+        </Button>
+      </div>
     </div>
   </Container>
 </section>

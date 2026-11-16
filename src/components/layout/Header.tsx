@@ -19,7 +19,40 @@ function scrollToSection(href: string) {
   window.scrollTo({ top: Math.max(0, offsetPosition), behavior: "smooth" });
 }
 
-export default function Header({ currentPath = "/" }: { currentPath?: string }) {
+// The site is Persian-first; the English page (/en) passes lang="en"
+const strings = {
+  fa: {
+    home: "صفحه‌ی اصلی PersiaJS",
+    nav: "منوی اصلی",
+    menu: "منو",
+    openMenu: "باز کردن منو",
+    closeMenu: "بستن منو",
+    switchLabel: "English",
+    switchHref: "/en",
+    switchLang: "en",
+  },
+  en: {
+    home: "PersiaJS Home",
+    nav: "Main navigation",
+    menu: "Menu",
+    openMenu: "Open menu",
+    closeMenu: "Close menu",
+    switchLabel: "فارسی",
+    switchHref: "/",
+    switchLang: "fa",
+  },
+} as const;
+
+export default function Header({
+  currentPath = "/",
+  lang = "fa",
+}: {
+  currentPath?: string;
+  lang?: "fa" | "en";
+}) {
+  const t = strings[lang];
+  const labelOf = (link: NavLink) =>
+    lang === "en" ? link.labelEn ?? link.label : link.label;
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("");
@@ -209,14 +242,14 @@ const handleLinkClick = useCallback(
       >
         <nav
           className="container mx-auto px-4 sm:px-6 lg:px-8"
-          aria-label="Main navigation"
+          aria-label={t.nav}
         >
           <div className="flex items-center justify-between h-16 md:h-20">
             {/* Logo */}
             <a
               href={homePath}
-              className="flex items-center gap-2.5 group transition-all duration-300 ease-out hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-[#FF4500] focus:ring-offset-2 rounded-lg px-1 -ml-1"
-              aria-label="PersiaJS Home"
+              className="flex items-center gap-2.5 group transition-all duration-300 ease-out hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-[#FF4500] focus:ring-offset-2 rounded-lg px-1 -ms-1"
+              aria-label={t.home}
               onClick={handleLogoClick}
             >
               <div className="relative">
@@ -252,7 +285,7 @@ const handleLinkClick = useCallback(
                       handleLinkClick(link.href);
                     }}
                   >
-                    {link.label}
+                    {labelOf(link)}
                     {isActive && (
                       <span
                         className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-1 h-1 bg-[#FF4500] rounded-full transition-all duration-300"
@@ -262,13 +295,20 @@ const handleLinkClick = useCallback(
                   </a>
                 );
               })}
+              <a
+                href={`${base}${t.switchHref}`}
+                lang={t.switchLang}
+                className="ms-2 px-3 py-2 text-sm font-semibold rounded-lg border border-gray-200 text-gray-700 hover:text-[#FF4500] hover:border-[#FF4500] transition-all duration-300 ease-out focus:outline-none focus:ring-2 focus:ring-[#FF4500] focus:ring-offset-2"
+              >
+                {t.switchLabel}
+              </a>
             </div>
 
             {/* Mobile Menu Button */}
             <button
               className="md:hidden p-2.5 text-gray-700 hover:bg-gray-100 active:bg-gray-200 rounded-lg transition-all duration-300 ease-out focus:outline-none focus:ring-2 focus:ring-[#FF4500] focus:ring-offset-2 min-w-[44px] min-h-[44px] flex items-center justify-center"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
+              aria-label={isMobileMenuOpen ? t.closeMenu : t.openMenu}
               aria-expanded={isMobileMenuOpen}
             >
               <div className="relative w-6 h-6">
@@ -328,7 +368,7 @@ const handleLinkClick = useCallback(
           onClick={(e) => e.stopPropagation()}
           role="dialog"
           aria-modal="true"
-          aria-label="Navigation menu"
+          aria-label={t.menu}
         >
           <div className="flex flex-col h-full">
             {/* Mobile Menu Header */}
@@ -339,12 +379,12 @@ const handleLinkClick = useCallback(
                   alt="PersiaJS"
                   className="h-8 w-8 object-contain"
                 />
-                <span className="font-bold text-lg text-gray-900">Menu</span>
+                <span className="font-bold text-lg text-gray-900">{t.menu}</span>
               </div>
               <button
                 onClick={() => setIsMobileMenuOpen(false)}
                 className="p-2 text-gray-500 hover:text-gray-900 hover:bg-gray-100 active:bg-gray-200 rounded-lg transition-all duration-300 ease-out focus:outline-none focus:ring-2 focus:ring-[#FF4500] focus:ring-offset-2 min-w-[44px] min-h-[44px] flex items-center justify-center"
-                aria-label="Close menu"
+                aria-label={t.closeMenu}
               >
                 <svg
                   className="w-6 h-6"
@@ -363,7 +403,7 @@ const handleLinkClick = useCallback(
             {/* Navigation Links */}
             <nav
               className="flex-1 overflow-y-auto py-4 px-3"
-              aria-label="Mobile navigation"
+              aria-label={t.nav}
             >
               {navigation.links.map((link, index) => {
                 const isActive = link.href.startsWith("#")
@@ -387,10 +427,10 @@ const handleLinkClick = useCallback(
                     }}
                   >
                     <span className="relative">
-                      {link.label}
+                      {labelOf(link)}
                       {isActive && (
                         <span
-                          className="absolute -right-2 top-1/2 transform -translate-y-1/2 w-2 h-2 bg-[#FF4500] rounded-full"
+                          className="absolute -end-3 top-1/2 transform -translate-y-1/2 w-2 h-2 bg-[#FF4500] rounded-full"
                           aria-hidden="true"
                         />
                       )}
@@ -398,6 +438,13 @@ const handleLinkClick = useCallback(
                   </a>
                 );
               })}
+              <a
+                href={`${base}${t.switchHref}`}
+                lang={t.switchLang}
+                className="flex items-center px-4 py-3.5 mt-2 text-base font-semibold rounded-lg border border-gray-200 text-gray-700 hover:text-[#FF4500] hover:border-[#FF4500] transition-all duration-300 ease-out min-h-[44px]"
+              >
+                {t.switchLabel}
+              </a>
             </nav>
           </div>
         </div>

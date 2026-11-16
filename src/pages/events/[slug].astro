@@ -24,7 +24,11 @@ interface AgendaItem {
   isOpen?: boolean;
 }
 
-const social = socialData as { speakerApplicationForm: string };
+const social = socialData as {
+  speakerApplicationForm: string;
+  links: { platform: string; url: string }[];
+};
+const telegramUrl = social.links.find((l) => l.platform === "Telegram")?.url;
 const eventData = eventDataJson;
 const agenda = eventData.agenda as AgendaItem[];
 
@@ -54,13 +58,25 @@ const linkClass =
       <Container>
         <SectionTitle
           as="div"
-          label="EVENTS"
-          title="Upcoming Event"
-          subtitle="Join us for our monthly community meetups"
+          label="رویدادها"
+          title="رویداد گذشته"
+          subtitle={`این رویداد در ${eventData.dateFa} برگزار شد. رویدادهای PersiaJS برنامه‌ی ثابتی ندارند؛ خبر رویداد بعدی در گروه تلگرام اعلام می‌شود.`}
         />
 
-        <!-- Event Card -->
-        <div class="max-w-5xl mx-auto">
+        <div class="text-center mb-12">
+          <Button
+            href={telegramUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            variant="primary"
+            size="md"
+          >
+            خبر رویداد بعدی را در تلگرام بگیرید
+          </Button>
+        </div>
+
+        <!-- Event Card. The event record itself is in English, so it reads LTR. -->
+        <div class="max-w-5xl mx-auto" dir="ltr" lang="en">
           <div
             class="bg-gradient-to-br from-orange-50 to-red-50 rounded-2xl border border-orange-200 p-8 md:p-12 mb-12 shadow-lg"
           >
@@ -129,7 +145,7 @@ const linkClass =
                   size="lg"
                   class="w-full mb-4"
                 >
-                  RSVP on Luma
+                  Event page on Luma
                   <svg
                     slot="right-icon"
                     class="w-5 h-5"
@@ -146,7 +162,7 @@ const linkClass =
                   </svg>
                 </Button>
                 <p class="text-sm text-gray-600 text-center mb-4">
-                  Registration deadline: November 30th, 2025
+                  This event has ended.
                 </p>
                 <ShareButtons url={shareUrl} title={eventData.title} />
               </div>
@@ -349,22 +365,19 @@ const linkClass =
               <li class="flex items-start">
                 <span class={bullet}>•</span>
                 <span>
-                  <strong>Event Recording:</strong> The event will be recorded and
-                  published on our{" "}
+                  <strong>Recordings:</strong> check the PersiaJS{" "}
                   <a
                     href="https://www.youtube.com/@persiajs"
                     target="_blank"
                     rel="noopener noreferrer"
                     class={linkClass}>YouTube channel</a
-                  >{" "}
-                  within 48 hours
+                  >
                 </span>
               </li>
               <li class="flex items-start">
                 <span class={bullet}>•</span>
                 <span>
-                  <strong>Slides:</strong> Speaker slides will be shared after the
-                  event via our Telegram group
+                  <strong>Slides:</strong> ask in our Telegram group
                 </span>
               </li>
               <li class="flex items-start">
@@ -377,14 +390,15 @@ const linkClass =
                     rel="noopener noreferrer"
                     class={linkClass}>Telegram group</a
                   >{" "}
-                  for pre and post-event discussions
+                  to talk with other members
                 </span>
               </li>
               <li class="flex items-start">
                 <span class={bullet}>•</span>
                 <span>
-                  <strong>Future Events:</strong> Stay tuned for our next event
-                  announcements
+                  <strong>Next event:</strong> PersiaJS events do not run on a
+                  fixed schedule; the next one will be announced in the Telegram
+                  group
                 </span>
               </li>
             </ul>

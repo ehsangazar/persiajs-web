@@ -1,32 +1,44 @@
 {
   "links": [
     {
-      "label": "About",
+      "label": "درباره ما",
+      "labelEn": "About",
       "href": "#about",
       "external": false
     },
     {
-      "label": "Events",
+      "label": "رویدادها",
+      "labelEn": "Events",
       "href": "#events",
       "external": false
     },
     {
-      "label": "Speakers",
+      "label": "سخنرانان",
+      "labelEn": "Speakers",
       "href": "#speakers",
       "external": false
     },
     {
-      "label": "The Team",
+      "label": "تیم",
+      "labelEn": "The Team",
       "href": "#team",
       "external": false
     },
     {
-      "label": "Articles",
-      "href": "/articles",
+      "label": "دوره‌ها",
+      "labelEn": "Courses",
+      "href": "#courses",
       "external": false
     },
     {
-      "label": "FAQ",
+      "label": "مقالات",
+      "labelEn": "Articles",
+      "href": "/fa/articles",
+      "external": false
+    },
+    {
+      "label": "پرسش‌های رایج",
+      "labelEn": "FAQ",
       "href": "#faq",
       "external": false
     }

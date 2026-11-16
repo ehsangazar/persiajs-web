@@ -66,12 +66,14 @@ const cardClass =
 const headingClass = "text-2xl font-bold text-gray-900 mb-4 flex items-center";
 ---
 
+<!-- The terms are written in English, so the page is English and LTR -->
 <BaseLayout
+  lang="en"
   title="Terms & Conditions | PersiaJS"
   description="Understand the guidelines for participating in the PersiaJS community, events, and educational resources."
 >
   <div class="min-h-screen bg-gray-50">
-    <Header client:load currentPath={Astro.url.pathname} />
+    <Header client:load currentPath={Astro.url.pathname} lang="en" />
     <section class="py-20 md:py-32 bg-gray-50">
       <Container>
         <SectionTitle

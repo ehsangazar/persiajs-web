@@ -1,0 +1,46 @@
+---
+import Container from "../layout/Container.astro";
+import SectionTitle from "../ui/SectionTitle.astro";
+import { courses, courseUrl } from "../../data/courses";
+---
+
+<section id="courses" class="py-20 md:py-32 bg-gray-50">
+  <Container>
+    <SectionTitle
+      label="دوره‌ها"
+      title="دوره‌های آموزشی در مکتب‌خونه"
+      subtitle="دوره‌های ویدیویی جاوااسکریپت، ری‌اکت، Node.js و فرانت‌اند که هم‌بنیان‌گذار PersiaJS در مکتب‌خونه تدریس می‌کند."
+    />
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      {
+        courses.map((course) => (
+          <a
+            href={courseUrl(course.slug)}
+            target="_blank"
+            rel="noopener"
+            class="group flex flex-col justify-between bg-white rounded-2xl border border-gray-200 p-6 hover:border-orange-300 hover:shadow-lg transition-all duration-300"
+          >
+            <div>
+              {course.free && (
+                <span class="inline-block mb-3 text-xs font-semibold text-green-700 bg-green-100 px-3 py-1 rounded-full">
+                  رایگان
+                </span>
+              )}
+              <h3 class="text-lg font-bold text-gray-900 leading-relaxed group-hover:text-[#FF4500] transition-colors duration-300">
+                {course.title}
+              </h3>
+            </div>
+            <span class="mt-6 text-sm font-semibold text-[#FF4500]">
+              مشاهده در مکتب‌خونه
+            </span>
+          </a>
+        ))
+      }
+    </div>
+
+    <p class="mt-8 text-center text-sm text-gray-500">
+      این لینک‌ها کد معرفی مدرس را دارند.
+    </p>
+  </Container>
+</section>

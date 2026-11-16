@@ -2,28 +2,28 @@
   "items": [
     {
       "id": "suggest-topic",
-      "question": "Can I suggest a topic or be a speaker?",
-      "answer": "Absolutely! We welcome speaker proposals and topic suggestions. You can apply to become a speaker by filling out our speaker application form. We're always looking for passionate developers to share their knowledge with the community."
+      "question": "می‌توانم موضوعی پیشنهاد بدهم یا سخنران شوم؟",
+      "answer": "بله. فرم درخواست سخنرانی را پر کنید یا پیشنهادتان را در گروه تلگرام بنویسید. از سخنرانی درباره‌ی هر موضوعی در جاوااسکریپت و وب استقبال می‌کنیم."
     },
     {
       "id": "event-location",
-      "question": "Where are PersiaJS events held?",
-      "answer": "PersiaJS events are held both online and in various cities. We host virtual events accessible worldwide, and we also organize local meetups in different cities. Check our events page for upcoming locations and dates."
+      "question": "رویدادهای PersiaJS کجا برگزار می‌شوند؟",
+      "answer": "رویدادهای اخیر PersiaJS آنلاین برگزار شده‌اند و آخرینشان در دسامبر ۲۰۲۵ بود. برنامه‌ی ثابتی برای رویدادها نداریم؛ خبر رویداد بعدی در گروه تلگرام اعلام می‌شود."
     },
     {
       "id": "join-community",
-      "question": "How can I join the PersiaJS community?",
-      "answer": "You can join our community by following us on social media, especially Telegram which is our main communication channel. Join our Telegram group to connect with other developers, participate in discussions, and stay updated with the latest events and resources."
+      "question": "چطور به جامعه‌ی PersiaJS بپیوندم؟",
+      "answer": "به گروه تلگرام PersiaJS بپیوندید. کانال اصلی ارتباط ما همان‌جاست: اعضا سؤال می‌پرسند و به هم کمک می‌کنند، و خبرهای جامعه هم همان‌جا اعلام می‌شود."
     },
     {
       "id": "sponsor-opportunities",
-      "question": "How can I sponsor PersiaJS events?",
-      "answer": "We welcome sponsors who want to support the Persian-speaking developer community. Sponsorship opportunities include event sponsorship, content sponsorship, and community support. Fill out our sponsor form to learn more about available opportunities."
+      "question": "چطور می‌توانم حامی PersiaJS شوم؟",
+      "answer": "اگر می‌خواهید از جامعه‌ی توسعه‌دهندگان فارسی‌زبان حمایت کنید، فرم حامیان را پر کنید یا در گروه تلگرام با ما در ارتباط باشید."
     },
     {
-      "id": "open-source",
-      "question": "How can I contribute to open-source projects?",
-      "answer": "PersiaJS hosts and supports various open-source projects. You can contribute by checking out our GitHub repositories, reporting issues, submitting pull requests, or starting your own project within the community. Collaboration and code sharing are core values of our community."
+      "id": "contribute",
+      "question": "چطور می‌توانم مقاله بنویسم یا در سایت مشارکت کنم؟",
+      "answer": "کد این سایت روی گیت‌هاب است (github.com/ehsangazar/persiajs-web) و هر مقاله یک فایل Markdown در همین مخزن است. می‌توانید Issue باز کنید یا Pull Request بفرستید، یا ایده‌ی مقاله‌تان را در گروه تلگرام مطرح کنید."
     }
   ]
 }
