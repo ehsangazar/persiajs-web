@@ -43,12 +43,12 @@ const shorten = (text: string, max = 155) => {
 const pageTitle = `${eventData.title} | PersiaJS`;
 const metaDescription = shorten(eventData.description);
 
-const iconClass = "w-5 h-5 text-brand-ink mr-3 mt-0.5 flex-shrink-0";
-const bullet = "text-brand-ink mr-3 mt-1";
+const iconClass = "w-5 h-5 text-ink mr-3 mt-0.5 flex-shrink-0";
+const bullet = "text-ink mr-3 mt-1";
 const cardClass =
   "card p-5 sm:p-6 md:p-8";
 const linkClass =
-  "text-ink font-semibold underline decoration-brand-strong decoration-[3px] underline-offset-4 hover:bg-brand-soft";
+  "text-ink font-semibold underline decoration-line-strong decoration-1 underline-offset-4 hover:decoration-ink";
 ---
 
 <BaseLayout title={pageTitle} description={metaDescription}>
@@ -78,7 +78,7 @@ const linkClass =
         <!-- Event Card. The event record itself is in English, so it reads LTR. -->
         <div class="max-w-5xl mx-auto" dir="ltr" lang="en">
           <div
-            class="bg-brand-soft rounded-2xl border border-line p-5 sm:p-8 md:p-12 mb-12 shadow-card"
+            class="card p-5 sm:p-8 md:p-12 mb-12"
           >
             <div class="grid md:grid-cols-2 gap-8 mb-8">
               <div>
@@ -141,7 +141,7 @@ const linkClass =
                   href={eventData.lumaLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  variant="primary"
+                  variant="outline"
                   size="lg"
                   class="w-full mb-4"
                 >
@@ -198,7 +198,7 @@ const linkClass =
                   <div class={cardClass}>
                     <div class="flex flex-col md:flex-row gap-4 md:gap-6">
                       <div class="flex-shrink-0">
-                        <div class="inline-flex items-center gap-2 bg-brand-soft text-ink px-4 py-2 rounded-lg font-semibold">
+                        <div class="inline-flex items-center gap-2 bg-canvas text-ink px-4 py-2 rounded-lg font-semibold">
                           <svg
                             class="w-4 h-4"
                             fill="none"
@@ -218,7 +218,7 @@ const linkClass =
                           {item.title}
                         </h4>
                         {item.type === "talk" && item.speaker && (
-                          <p class="text-brand-ink font-semibold mb-3">
+                          <p class="text-ink font-semibold mb-3">
                             Speaker: {item.speaker}
                           </p>
                         )}
@@ -270,7 +270,7 @@ const linkClass =
                     <h4 class="text-2xl font-bold text-ink mb-2">
                       {speaker.name}
                     </h4>
-                    <p class="text-brand-ink font-semibold mb-3">
+                    <p class="text-ink font-semibold mb-3">
                       {speaker.title}
                     </p>
                     <p class="text-ink-soft leading-relaxed mb-4">
@@ -286,7 +286,7 @@ const linkClass =
                       href={speaker.linkedin}
                       target="_blank"
                       rel="noopener noreferrer"
-                      class="inline-flex items-center text-brand-ink hover:text-brand-ink font-semibold transition-colors duration-300"
+                      class="inline-flex items-center text-ink hover:text-ink font-semibold transition-colors duration-300"
                     >
                       LinkedIn Profile
                       <svg

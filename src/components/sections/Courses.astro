@@ -14,31 +14,18 @@ import { courses, courseUrl } from "../../data/courses";
 
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-5">
       {
-        courses.map((course, i) => (
+        courses.map((course) => (
           <a
             href={courseUrl(course.slug)}
             target="_blank"
             rel="noopener"
-            class="card group flex flex-col p-5 transition-shadow duration-200 hover:shadow-lift"
+            class="card group flex flex-col p-5 transition-colors duration-200 hover:border-line-strong"
           >
-            <div class="flex items-center justify-between">
-              <span
-                class="flex h-10 w-10 items-center justify-center rounded-lg bg-ink font-mono text-sm font-bold text-brand"
-                dir="ltr"
-                aria-hidden="true"
-              >
-                {String(i + 1).padStart(2, "0")}
-              </span>
-              {course.free && (
-                <span class="rounded-full bg-[#dcfce7] px-3 py-1 text-xs font-bold text-[#166534]">
-                  رایگان
-                </span>
-              )}
-            </div>
-            <h3 class="mt-4 flex-1 text-base font-bold leading-7 text-ink">
+            <h3 class="flex-1 text-base font-bold leading-7 text-ink">
               {course.title}
+              {course.free && <span class="ms-1 text-sm font-normal text-muted">(رایگان)</span>}
             </h3>
-            <span class="mt-4 inline-flex items-center gap-1.5 text-sm font-bold text-brand-ink">
+            <span class="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-muted group-hover:text-ink">
               مشاهده در مکتب‌خونه
               <span aria-hidden="true" class="transition-transform group-hover:-translate-x-1">←</span>
             </span>

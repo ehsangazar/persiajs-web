@@ -32,7 +32,7 @@ export default function ScrollProgress() {
       {/* Scroll Progress Bar */}
       <div className="fixed top-0 left-0 right-0 z-[60] h-1 bg-transparent">
         <div
-          className="h-full bg-brand transition-[width] duration-150 ease-out"
+          className="h-full bg-ink transition-[width] duration-150 ease-out"
           style={{ width: `${scrollProgress}%` }}
         />
       </div>
@@ -41,7 +41,7 @@ export default function ScrollProgress() {
       {showBackToTop && (
         <button
           onClick={scrollToTop}
-          className="fixed bottom-5 left-5 z-50 w-12 h-12 bg-ink text-brand rounded-2xl shadow-lift hover:bg-ink-soft transition-colors duration-200 flex items-center justify-center group"
+          className="fixed bottom-5 left-5 z-50 w-12 h-12 bg-ink text-white rounded-2xl shadow-card hover:bg-ink-soft transition-colors duration-200 flex items-center justify-center group"
           aria-label="بازگشت به بالا"
         >
           <svg

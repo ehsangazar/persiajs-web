@@ -16,7 +16,7 @@ const aboutLinks = navigation.links.filter((link) =>
 );
 
 const linkClass =
-  "inline-flex min-h-[40px] items-center text-[#c9cdd4] transition-colors duration-200 hover:text-brand";
+  "inline-flex min-h-[40px] items-center text-[#c9cdd4] transition-colors duration-200 hover:text-white";
 const headingClass = "mb-4 font-display text-base font-bold text-white";
 ---
 
@@ -47,7 +47,7 @@ const headingClass = "mb-4 font-display text-base font-bold text-white";
                 href={link.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                class="flex h-11 w-11 items-center justify-center rounded-xl border border-white/15 text-white transition-colors hover:border-brand hover:bg-brand hover:text-ink"
+                class="flex h-11 w-11 items-center justify-center rounded-xl border border-white/15 text-white transition-colors hover:border-white hover:bg-white hover:text-ink"
                 aria-label={link.platform}
               >
                 <SocialIcon platform={link.icon || "linkedin"} class="h-5 w-5" />

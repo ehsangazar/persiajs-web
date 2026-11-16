@@ -101,7 +101,7 @@ const jsonLd = {
           <div class="max-w-3xl mx-auto">
             <a
               href={base}
-              class="inline-flex items-center gap-2 text-sm font-semibold text-muted hover:text-brand-ink transition-colors duration-300 mb-6"
+              class="inline-flex items-center gap-2 text-sm font-semibold text-muted hover:text-ink transition-colors duration-300 mb-6"
             >
               <span aria-hidden="true">{lang === "fa" ? "→" : "←"}</span>
               {t.back}
@@ -112,7 +112,7 @@ const jsonLd = {
                 d.tags.map((tag) => (
                   <a
                     href={`${base}?tag=${encodeURIComponent(tag)}`}
-                    class="text-xs font-semibold text-brand-ink bg-brand-soft px-3 py-1 rounded-full hover:bg-brand transition-colors duration-300"
+                    class="text-sm text-muted hover:text-ink transition-colors duration-200"
                   >
                     <bdi dir="ltr">#{tag}</bdi>
                   </a>
@@ -135,7 +135,7 @@ const jsonLd = {
                     href={d.authorLinkedIn}
                     target="_blank"
                     rel="noopener noreferrer"
-                    class="font-semibold text-ink hover:text-brand-ink"
+                    class="font-semibold text-ink hover:text-ink"
                   >
                     {d.author}
                   </a>
@@ -199,7 +199,7 @@ const jsonLd = {
                           <a
                             href={`#${h.slug}`}
                             data-toc-link
-                            class="block text-muted hover:text-brand-ink transition-colors duration-300 data-[active=true]:text-ink data-[active=true]:font-semibold"
+                            class="block text-muted hover:text-ink transition-colors duration-300 data-[active=true]:text-ink data-[active=true]:font-semibold"
                           >
                             {h.text}
                           </a>
@@ -223,7 +223,7 @@ const jsonLd = {
                     href={d.authorLinkedIn}
                     target="_blank"
                     rel="noopener noreferrer"
-                    class="inline-block mt-3 text-ink font-semibold underline decoration-brand-strong decoration-[3px] underline-offset-4 hover:bg-brand-soft"
+                    class="inline-block mt-3 text-ink font-semibold underline decoration-line-strong decoration-1 underline-offset-4 hover:decoration-ink"
                   >
                     {t.linkedinProfile}
                   </a>
@@ -233,7 +233,7 @@ const jsonLd = {
 
             {
               (d.linkedinUrl || d.telegramUrl) && (
-                <div class="rounded-2xl border border-line bg-brand-soft p-6">
+                <div class="rounded-2xl border border-line bg-canvas p-6">
                   <p class="font-bold text-ink mb-4">{t.discuss}</p>
                   <div class="flex flex-wrap gap-3">
                     {d.linkedinUrl && (

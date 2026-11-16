@@ -51,23 +51,23 @@
 .article-body li + li {
   margin-top: 0.5rem;
 }
-/* Links: ink text with a yellow underline; yellow itself never carries text */
+/* Links: ink text with a quiet underline that darkens on hover */
 .article-body a {
   color: var(--color-ink);
   font-weight: 600;
   text-decoration: underline;
-  text-decoration-color: var(--color-brand-strong);
-  text-decoration-thickness: 3px;
+  text-decoration-color: var(--color-line-strong);
+  text-decoration-thickness: 1px;
   text-underline-offset: 4px;
 }
 .article-body a:hover {
-  background: var(--color-brand-soft);
+  text-decoration-color: var(--color-ink);
 }
 .article-body strong {
   color: var(--color-ink);
 }
 .article-body blockquote {
-  border-inline-start: 4px solid var(--color-brand);
+  border-inline-start: 3px solid var(--color-line-strong);
   background: var(--color-canvas);
   padding: 0.85rem 1.25rem;
   border-radius: 0.75rem;

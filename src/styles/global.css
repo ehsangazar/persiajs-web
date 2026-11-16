@@ -3,11 +3,12 @@
 /*
  * PersiaJS design tokens.
  *
- * One accent, JavaScript yellow, on a calm warm-neutral base. Yellow is a
- * BACKGROUND colour only (buttons, chips, markers) with ink text on it; it
- * fails contrast as text on white, so yellow-family text uses brand-ink.
+ * Calm and editorial: ink on a warm-neutral base, and JavaScript yellow used
+ * sparingly, only as the background of the primary button and the one
+ * highlighter stroke in the hero. Never on text or numbers (group feedback,
+ * 16 Nov 2026: yellow text read as generic "AI landing page").
  * Contrast, measured: ink on white 17.8:1, muted on canvas 5.8:1,
- * brand-ink on white 6.1:1, ink on brand 13.1:1.
+ * ink on brand 13.1:1.
  *
  * Light only: the site has no theme toggle, and every token below is the
  * one place a dark mode would be added later.
@@ -15,8 +16,6 @@
 @theme {
   --color-brand: #f7df1e;
   --color-brand-strong: #e9cf0b;
-  --color-brand-soft: #fdf6c3;
-  --color-brand-ink: #7a5e00;
 
   --color-ink: #16181d;
   --color-ink-soft: #2a2e36;
@@ -32,7 +31,6 @@
   --font-mono: "JetBrains Mono", "Fira Code", ui-monospace, Consolas, monospace;
 
   --shadow-card: 0 1px 2px rgb(22 24 29 / 0.04), 0 1px 1px rgb(22 24 29 / 0.03);
-  --shadow-lift: 0 12px 32px -12px rgb(22 24 29 / 0.18);
 }
 
 /* The shared card: soft 16px radius, hairline border, a whisper of shadow */
@@ -52,12 +50,6 @@
     transparent 92%
   );
   padding-inline: 0.1em;
-}
-
-/* Kept for article.css, which reads these */
-:root {
-  --primary: var(--color-ink);
-  --primary-hover: var(--color-brand-ink);
 }
 
 html {

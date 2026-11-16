@@ -7,35 +7,11 @@ interface Props {
   class?: string;
 }
 
-const iconMap: Record<string, string> = {
-  microphone:
-    "M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z",
-  location:
-    "M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z M15 11a3 3 0 11-6 0 3 3 0 016 0z",
-  lightning: "M13 10V3L4 14h7v7l9-11h-7z",
-  paperPlane: "M12 19l9 2-9-18-9 18 9-2zm0 0v-8",
-};
-
 const { card, class: className = "" } = Astro.props;
-const iconPath = iconMap[card.icon] || iconMap.paperPlane;
 ---
 
 <div class={`card flex h-full flex-col items-start p-6 md:p-8 ${className}`}>
-  <span class="flex h-12 w-12 items-center justify-center rounded-xl bg-brand text-ink">
-    <svg
-      class="h-6 w-6"
-      fill="none"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-      stroke-width="2"
-      viewBox="0 0 24 24"
-      stroke="currentColor"
-      aria-hidden="true"
-    >
-      <path d={iconPath}></path>
-    </svg>
-  </span>
-  <h3 class="mt-5 text-xl font-bold text-ink">{card.title}</h3>
+  <h3 class="text-xl font-bold text-ink">{card.title}</h3>
   <p class="mt-2 mb-6 flex-1 text-base leading-7 text-muted">{card.description}</p>
   <Button
     href={card.buttonLink}

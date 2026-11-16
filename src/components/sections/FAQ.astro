@@ -3,7 +3,6 @@ import Container from "../layout/Container.astro";
 import SectionTitle from "../ui/SectionTitle.astro";
 import faqData from "../../data/faq.json";
 import type { FAQItem } from "../../types";
-import { formatNumber } from "../../utils/articles";
 
 const faq = faqData as { items: FAQItem[] };
 ---
@@ -17,16 +16,13 @@ const faq = faqData as { items: FAQItem[] };
     />
     <div class="mx-auto max-w-3xl space-y-3">
       {
-        faq.items.map((item, index) => (
+        faq.items.map((item) => (
           // name="faq" makes the browser keep only one item open at a time
           <details
             name="faq"
-            class="group rounded-2xl border border-line bg-canvas transition-colors open:border-line-strong open:bg-surface open:shadow-card"
+            class="group rounded-2xl border border-line bg-surface transition-colors open:border-line-strong"
           >
             <summary class="flex min-h-[56px] cursor-pointer list-none items-center gap-4 px-4 py-4 text-start sm:px-6 [&::-webkit-details-marker]:hidden">
-              <span class="faq-badge flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-surface text-sm font-bold text-muted border border-line">
-                {formatNumber(index + 1, "fa")}
-              </span>
               <span class="flex-1 text-base font-bold leading-7 text-ink md:text-lg">
                 {item.question}
               </span>
@@ -44,7 +40,7 @@ const faq = faqData as { items: FAQItem[] };
               </svg>
             </summary>
 
-            <div class="px-4 pb-5 sm:px-6 sm:ps-[4.5rem]">
+            <div class="px-4 pb-5 sm:px-6">
               <p class="text-base leading-8 text-ink-soft">{item.answer}</p>
             </div>
           </details>
@@ -55,12 +51,7 @@ const faq = faqData as { items: FAQItem[] };
 </section>
 
 <style>
-  /* Open state: numbered badge turns yellow and the arrow flips */
-  details[open] .faq-badge {
-    background: var(--color-brand);
-    border-color: var(--color-brand);
-    color: var(--color-ink);
-  }
+  /* Open state: the arrow flips */
   details[open] .faq-chevron {
     transform: rotate(180deg);
   }

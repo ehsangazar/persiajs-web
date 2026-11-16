@@ -62,7 +62,7 @@ const lastUpdated = new Date().toLocaleDateString("en-US", {
 });
 
 const cardClass =
-  "bg-surface rounded-2xl border border-line p-6 md:p-8 hover:shadow-lift transition-shadow duration-300";
+  "bg-surface rounded-2xl border border-line p-6 md:p-8  transition-shadow duration-300";
 const headingClass = "text-2xl font-bold text-ink mb-4 flex items-center";
 ---
 
@@ -85,7 +85,7 @@ const headingClass = "text-2xl font-bold text-ink mb-4 flex items-center";
 
         <div class="max-w-4xl mx-auto prose prose-lg max-w-none">
           <div
-            class="bg-brand-soft rounded-2xl p-6 md:p-8 mb-8 border border-line"
+            class="bg-canvas rounded-2xl p-6 md:p-8 mb-8 border border-line"
           >
             <p class="text-ink-soft leading-relaxed text-lg md:text-xl mb-0">
               Welcome to PersiaJS. By accessing or participating in our website,
@@ -99,13 +99,13 @@ const headingClass = "text-2xl font-bold text-ink mb-4 flex items-center";
               sections.map((section, index) => (
                 <div class={cardClass}>
                   <h3 class={headingClass}>
-                    <span class="text-brand-ink mr-3">{index + 1}.</span>
+                    <span class="text-ink mr-3">{index + 1}.</span>
                     {section.title}
                   </h3>
                   <ul class="space-y-3 text-ink-soft leading-relaxed">
                     {section.items.map((item) => (
                       <li class="flex items-start">
-                        <span class="text-brand-ink mr-3 mt-1">•</span>
+                        <span class="text-ink mr-3 mt-1">•</span>
                         <span>{item}</span>
                       </li>
                     ))}
@@ -117,14 +117,14 @@ const headingClass = "text-2xl font-bold text-ink mb-4 flex items-center";
             <!-- Contact -->
             <div class={cardClass}>
               <h3 class={headingClass}>
-                <span class="text-brand-ink mr-3">{sections.length + 1}.</span>
+                <span class="text-ink mr-3">{sections.length + 1}.</span>
                 Contact
               </h3>
               <p class="text-ink-soft leading-relaxed">
                 For any questions or concerns, please contact us through our{" "}
                 <a
                   href={withBase("/#community")}
-                  class="text-brand-ink hover:text-brand-ink font-semibold transition-colors duration-300 underline"
+                  class="text-ink hover:text-ink font-semibold transition-colors duration-300 underline"
                   >community channels</a
                 >.
               </p>

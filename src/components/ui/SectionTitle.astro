@@ -7,39 +7,17 @@ interface Props {
   as?: "h1" | "h2" | "div";
 }
 
+// Quiet on purpose: a small muted eyebrow, an ink heading, a muted subtitle.
+// No pills and no coloured words; typography and whitespace carry it.
 const { label, title, subtitle, class: className = "", as: Tag = "h2" } = Astro.props;
-
-// Words that get the yellow highlighter stroke
-const highlightWords = ["JS", "JavaScript", "PersiaJS", "Team", "Community"];
-const words = title.split(" ").map((word) => ({
-  word,
-  highlight: highlightWords.some((hw) => word.includes(hw)),
-}));
 ---
 
 <div class={`text-center mb-10 md:mb-14 ${className}`}>
-  {
-    label && (
-      <span class="inline-flex items-center gap-2 mb-4 rounded-full bg-brand-soft px-3.5 py-1.5 text-sm font-semibold text-brand-ink">
-        <span class="h-1.5 w-1.5 rounded-full bg-brand-ink" aria-hidden="true" />
-        {label}
-      </span>
-    )
-  }
+  {label && <p class="mb-3 text-sm font-semibold text-muted">{label}</p>}
   <Tag
-    class="font-display text-3xl sm:text-4xl md:text-5xl font-extrabold text-ink leading-[1.35] text-balance"
+    class="font-display text-3xl sm:text-4xl md:text-[2.75rem] font-extrabold text-ink leading-[1.4] text-balance"
   >
-    {
-      words.map(({ word, highlight }) =>
-        highlight ? (
-          <>
-            <span class="hl-marker">{word}</span>{" "}
-          </>
-        ) : (
-          <>{word} </>
-        )
-      )
-    }
+    {title}
   </Tag>
   {
     subtitle && (

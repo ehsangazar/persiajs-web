@@ -260,7 +260,7 @@ const handleLinkClick = useCallback(
                   loading="eager"
                 />
               </div>
-              <span className="font-bold text-lg md:text-xl text-ink tracking-tight transition-colors duration-300 ease-out group-hover:text-brand-ink">
+              <span className="font-bold text-lg md:text-xl text-ink tracking-tight transition-colors duration-300 ease-out group-hover:text-ink">
                 PersiaJS
               </span>
             </a>
@@ -277,7 +277,7 @@ const handleLinkClick = useCallback(
                     href={navHref(link.href)}
                     className={`relative px-3 py-2 text-sm font-semibold transition-all duration-300 ease-out rounded-lg group ${
                       isActive
-                        ? "text-ink bg-brand-soft"
+                        ? "text-ink bg-canvas"
                         : "text-ink-soft hover:text-ink hover:bg-canvas"
                     }`}
                     onClick={(e) => {
@@ -288,7 +288,7 @@ const handleLinkClick = useCallback(
                     {labelOf(link)}
                     {isActive && (
                       <span
-                        className="absolute bottom-0.5 left-1/2 -translate-x-1/2 w-1 h-1 bg-brand-ink rounded-full"
+                        className="absolute bottom-0.5 left-1/2 -translate-x-1/2 w-1 h-1 bg-ink rounded-full"
                         aria-hidden="true"
                       />
                     )}
@@ -419,7 +419,7 @@ const handleLinkClick = useCallback(
                     }}
                     className={`group flex items-center px-4 py-3.5 mb-1 text-base font-semibold rounded-xl transition-all duration-300 ease-out min-h-[44px] ${
                       isActive
-                        ? "text-ink bg-brand-soft"
+                        ? "text-ink bg-canvas"
                         : "text-ink-soft hover:text-ink hover:bg-canvas"
                     }`}
                     style={{
@@ -430,7 +430,7 @@ const handleLinkClick = useCallback(
                       {labelOf(link)}
                       {isActive && (
                         <span
-                          className="absolute -end-3 top-1/2 -translate-y-1/2 w-2 h-2 bg-brand-ink rounded-full"
+                          className="absolute -end-3 top-1/2 -translate-y-1/2 w-2 h-2 bg-ink rounded-full"
                           aria-hidden="true"
                         />
                       )}

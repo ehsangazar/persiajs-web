@@ -26,7 +26,7 @@ const minutes = getReadingMinutes(article.body);
   data-search={`${d.title} ${d.description}`.toLowerCase()}
   dir={d.lang === "fa" ? "rtl" : "ltr"}
   lang={d.lang}
-  class={`${d.lang === "fa" ? "font-fa" : ""} card group flex flex-col overflow-hidden transition-shadow duration-200 hover:shadow-lift`}
+  class={`${d.lang === "fa" ? "font-fa" : ""} card group flex flex-col overflow-hidden transition-shadow duration-200 `}
 >
   {
     d.coverImage ? (
@@ -39,7 +39,7 @@ const minutes = getReadingMinutes(article.body);
       />
     ) : (
       <div
-        class="aspect-[16/9] w-full bg-ink flex items-center justify-center text-brand font-mono text-5xl font-bold"
+        class="aspect-[16/9] w-full bg-canvas flex items-center justify-center text-muted font-mono text-5xl font-bold"
         aria-hidden="true"
       >
         {"{ }"}
@@ -47,13 +47,13 @@ const minutes = getReadingMinutes(article.body);
     )
   }
   <div class="flex flex-col flex-1 p-5 sm:p-6">
-    <div class="flex flex-wrap gap-2 mb-3">
-      <span class="text-xs font-semibold text-muted bg-canvas px-2.5 py-1 rounded-full">
+    <div class="flex flex-wrap gap-x-3 gap-y-1 mb-3 text-xs text-muted">
+      <span class="font-semibold">
         {d.lang === "fa" ? "فارسی" : "English"}
       </span>
       {
         d.tags.map((tag) => (
-          <span class="text-xs font-semibold text-brand-ink bg-brand-soft px-2.5 py-1 rounded-full">
+          <span>
             <bdi dir="ltr">#{tag}</bdi>
           </span>
         ))

@@ -1,150 +1,53 @@
 ---
 import Container from "../layout/Container.astro";
-import SocialIcon from "../ui/SocialIcon.astro";
 import Button from "../ui/Button.astro";
 import socialData from "../../data/social.json";
 import type { SocialLink } from "../../types";
 import { withBase } from "../../utils/url";
-import { formatNumber, getArticles } from "../../utils/articles";
 
 const social = socialData as { links: SocialLink[] };
 const telegramUrl = social.links.find((l) => l.platform === "Telegram")?.url;
 
-// Facts, kept checkable: the member count is the Telegram group (@persiajs)
-// via Bot API getChatMemberCount, 296 on 16 Nov 2026. Events have not run on a
-// fixed schedule, so never call them monthly.
-// The article count is read from the collection so it never goes stale; the
-// speaker count is the old site's past total (see PAST_TOTALS in data/events).
-const faArticles = await getArticles("fa");
-const facts = [
-  { value: "~۳۰۰", label: "عضو در گروه تلگرام" },
-  { value: formatNumber(faArticles.length, "fa"), label: "مقاله‌ی فارسی در سایت" },
-  { value: "۱۷", label: "سخنران در رویدادهای گذشته" },
-];
 ---
 
 <section
   id="hero"
   aria-label="معرفی PersiaJS"
-  class="relative overflow-hidden bg-canvas pt-28 pb-16 md:pt-36 md:pb-24"
+  class="bg-canvas pt-32 pb-20 md:pt-44 md:pb-28"
 >
-  <!-- Quiet dotted grid, faded towards the edges -->
-  <div
-    class="pointer-events-none absolute inset-0 opacity-60 [background-image:radial-gradient(var(--color-line-strong)_1px,transparent_1px)] [background-size:22px_22px] [mask-image:radial-gradient(ellipse_at_top,black_30%,transparent_75%)]"
-    aria-hidden="true"
-  >
-  </div>
-
-  <Container class="relative">
-    <div class="grid items-center gap-12 lg:grid-cols-[1.15fr_1fr] lg:gap-16">
-      <div class="min-w-0 text-center lg:text-start">
-        <a
-          href={telegramUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          class="hero-in inline-flex items-center gap-2 rounded-full border border-line bg-surface px-4 py-2 text-sm font-semibold text-ink shadow-card transition-colors hover:border-ink"
-        >
-          <span class="relative flex h-2 w-2" aria-hidden="true">
-            <span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-brand opacity-80"></span>
-            <span class="relative inline-flex h-2 w-2 rounded-full bg-brand-ink"></span>
-          </span>
-          به گروه تلگرام PersiaJS بپیوندید
-        </a>
-
-        <h1
-          class="hero-in mt-6 font-display text-[2.1rem] leading-[1.4] font-extrabold text-ink sm:text-5xl sm:leading-[1.35] lg:text-6xl text-balance"
-          style="animation-delay: 80ms"
-        >
-          جامعه‌ی توسعه‌دهندگان فارسی‌زبان
-          <span class="hl-marker">جاوااسکریپت</span>
-        </h1>
-
-        <p
-          class="hero-in mx-auto mt-5 max-w-xl text-base leading-8 text-muted sm:text-lg lg:mx-0"
-          style="animation-delay: 160ms"
-        >
-          مقاله‌های فارسی، رویدادها و سخنرانی‌های آنلاین، و گروهی در تلگرام که
-          اعضا در آن سؤال می‌پرسند و به هم کمک می‌کنند.
-        </p>
-
-        <div
-          class="hero-in mt-8 flex flex-col gap-3 sm:flex-row sm:justify-center lg:justify-start"
-          style="animation-delay: 240ms"
-        >
-          <Button
-            href={telegramUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            variant="primary"
-            size="lg"
-          >
-            پیوستن به گروه تلگرام
-          </Button>
-          <Button href={withBase("/fa/articles")} variant="outline" size="lg">
-            خواندن مقاله‌ها
-          </Button>
-        </div>
-
-        <div
-          class="hero-in mt-8 flex flex-wrap items-center justify-center gap-2 lg:justify-start"
-          style="animation-delay: 320ms"
-        >
-          {
-            social.links.map((link) => (
-              <a
-                href={link.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={`PersiaJS در ${link.platform}`}
-                class="flex h-11 w-11 items-center justify-center rounded-xl border border-line bg-surface text-ink transition-colors hover:border-ink hover:bg-brand"
-              >
-                <SocialIcon platform={link.icon ?? "linkedin"} class="h-5 w-5" />
-              </a>
-            ))
-          }
-        </div>
-      </div>
-
-      <!-- A small editor window: the brand's nod to JavaScript. LTR on purpose. -->
-      <div class="hero-in mx-auto w-full min-w-0 max-w-md lg:max-w-none" style="animation-delay: 200ms">
-        <div
-          dir="ltr"
-          lang="en"
-          class="overflow-hidden rounded-2xl border border-ink/10 bg-ink shadow-lift"
-        >
-          <div class="flex items-center gap-2 border-b border-white/10 px-4 py-3">
-            <span class="h-3 w-3 rounded-full bg-[#ff5f57]"></span>
-            <span class="h-3 w-3 rounded-full bg-[#febc2e]"></span>
-            <span class="h-3 w-3 rounded-full bg-[#28c840]"></span>
-            <span class="ms-auto rounded-md bg-brand px-1.5 py-0.5 font-mono text-[11px] font-bold text-ink">JS</span>
-          </div>
-          <pre
-            class="overflow-x-auto px-4 py-5 font-mono text-[12px] leading-7 text-[#e6edf3] sm:px-5 sm:text-sm"><code><span class="text-[#8b949e]">// persiajs.dev</span>
-<span class="text-[#ff7b72]">const</span> community = {"{"}
-  language: <span class="text-[#a5d6ff]">"Persian"</span>,
-  topics: [<span class="text-[#a5d6ff]">"JS"</span>, <span class="text-[#a5d6ff]">"React"</span>, <span class="text-[#a5d6ff]">"Node"</span>],
-  home: <span class="text-[#a5d6ff]">"Telegram"</span>,
-{"}"};
-
-<span class="text-[#ff7b72]">await</span> community.<span class="text-[#d2a8ff]">join</span>(<span class="text-[#a5d6ff]">"you"</span>);</code></pre>
-        </div>
-      </div>
-    </div>
-
-    <!-- Facts -->
-    <ul
-      class="hero-in mt-14 grid grid-cols-1 gap-3 sm:grid-cols-3 md:mt-20"
-      style="animation-delay: 400ms"
+  <Container class="text-center">
+    <h1
+      class="hero-in mx-auto max-w-3xl font-display text-[2.1rem] leading-[1.45] font-extrabold text-ink sm:text-5xl sm:leading-[1.4] lg:text-6xl text-balance"
     >
-      {
-        facts.map((fact) => (
-          <li class="card flex items-center gap-4 px-5 py-4">
-            <bdi dir="ltr" class="font-display text-3xl font-extrabold text-ink">{fact.value}</bdi>
-            <span class="text-sm leading-6 text-muted">{fact.label}</span>
-          </li>
-        ))
-      }
-    </ul>
+      جامعه‌ی توسعه‌دهندگان فارسی‌زبان
+      <span class="hl-marker">جاوااسکریپت</span>
+    </h1>
+
+    <p
+      class="hero-in mx-auto mt-6 max-w-xl text-base leading-8 text-muted sm:text-lg"
+      style="animation-delay: 100ms"
+    >
+      مقاله‌های فارسی، رویدادها و سخنرانی‌های آنلاین، و گروهی در تلگرام که
+      اعضا در آن سؤال می‌پرسند و به هم کمک می‌کنند.
+    </p>
+
+    <div
+      class="hero-in mt-9 flex flex-col gap-3 sm:flex-row sm:justify-center"
+      style="animation-delay: 200ms"
+    >
+      <Button
+        href={telegramUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        variant="primary"
+        size="lg"
+      >
+        پیوستن به گروه تلگرام
+      </Button>
+      <Button href={withBase("/fa/articles")} variant="outline" size="lg">
+        خواندن مقاله‌ها
+      </Button>
+    </div>
   </Container>
 </section>
 
@@ -152,7 +55,7 @@ const facts = [
   @keyframes hero-in {
     from {
       opacity: 0;
-      transform: translateY(12px);
+      transform: translateY(8px);
     }
     to {
       opacity: 1;
@@ -160,6 +63,6 @@ const facts = [
     }
   }
   .hero-in {
-    animation: hero-in 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+    animation: hero-in 0.6s ease-out both;
   }
 </style>
