@@ -4,7 +4,7 @@ import SectionTitle from "../ui/SectionTitle.astro";
 import { courses, courseUrl } from "../../data/courses";
 ---
 
-<section id="courses" class="py-20 md:py-32 bg-gray-50">
+<section id="courses" class="py-16 md:py-28">
   <Container>
     <SectionTitle
       label="دوره‌ها"
@@ -12,34 +12,42 @@ import { courses, courseUrl } from "../../data/courses";
       subtitle="دوره‌های ویدیویی جاوااسکریپت، ری‌اکت، Node.js و فرانت‌اند که هم‌بنیان‌گذار PersiaJS در مکتب‌خونه تدریس می‌کند."
     />
 
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-5">
       {
-        courses.map((course) => (
+        courses.map((course, i) => (
           <a
             href={courseUrl(course.slug)}
             target="_blank"
             rel="noopener"
-            class="group flex flex-col justify-between bg-white rounded-2xl border border-gray-200 p-6 hover:border-orange-300 hover:shadow-lg transition-all duration-300"
+            class="card group flex flex-col p-5 transition-shadow duration-200 hover:shadow-lift"
           >
-            <div>
+            <div class="flex items-center justify-between">
+              <span
+                class="flex h-10 w-10 items-center justify-center rounded-lg bg-ink font-mono text-sm font-bold text-brand"
+                dir="ltr"
+                aria-hidden="true"
+              >
+                {String(i + 1).padStart(2, "0")}
+              </span>
               {course.free && (
-                <span class="inline-block mb-3 text-xs font-semibold text-green-700 bg-green-100 px-3 py-1 rounded-full">
+                <span class="rounded-full bg-[#dcfce7] px-3 py-1 text-xs font-bold text-[#166534]">
                   رایگان
                 </span>
               )}
-              <h3 class="text-lg font-bold text-gray-900 leading-relaxed group-hover:text-[#FF4500] transition-colors duration-300">
-                {course.title}
-              </h3>
             </div>
-            <span class="mt-6 text-sm font-semibold text-[#FF4500]">
+            <h3 class="mt-4 flex-1 text-base font-bold leading-7 text-ink">
+              {course.title}
+            </h3>
+            <span class="mt-4 inline-flex items-center gap-1.5 text-sm font-bold text-brand-ink">
               مشاهده در مکتب‌خونه
+              <span aria-hidden="true" class="transition-transform group-hover:-translate-x-1">←</span>
             </span>
           </a>
         ))
       }
     </div>
 
-    <p class="mt-8 text-center text-sm text-gray-500">
+    <p class="mt-8 text-center text-sm text-muted">
       این لینک‌ها کد معرفی مدرس را دارند.
     </p>
   </Container>

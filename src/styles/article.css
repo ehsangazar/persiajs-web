@@ -3,23 +3,33 @@
   font-family: "Vazirmatn", "Segoe UI", Tahoma, sans-serif;
 }
 
+/* Reading column: about 70 characters wide, generous line height for Persian */
 .article-body {
-  font-size: 1.125rem;
+  font-size: 1.0625rem;
   line-height: 1.9;
-  color: #374151;
+  color: var(--color-ink-soft);
+  max-width: 70ch;
+  margin-inline: auto;
   overflow-wrap: break-word;
 }
+@media (min-width: 768px) {
+  .article-body {
+    font-size: 1.125rem;
+  }
+}
 [lang="fa"] .article-body {
-  line-height: 2.1;
+  line-height: 1.95;
+  text-align: start;
 }
 .article-body > * + * {
   margin-top: 1.25rem;
 }
 .article-body h2,
 .article-body h3 {
-  color: #111827;
-  font-weight: 700;
-  line-height: 1.4;
+  color: var(--color-ink);
+  font-family: var(--font-display);
+  font-weight: 800;
+  line-height: 1.5;
   scroll-margin-top: 6rem;
 }
 .article-body h2 {
@@ -41,23 +51,27 @@
 .article-body li + li {
   margin-top: 0.5rem;
 }
+/* Links: ink text with a yellow underline; yellow itself never carries text */
 .article-body a {
-  color: var(--primary);
+  color: var(--color-ink);
   font-weight: 600;
   text-decoration: underline;
+  text-decoration-color: var(--color-brand-strong);
+  text-decoration-thickness: 3px;
+  text-underline-offset: 4px;
 }
 .article-body a:hover {
-  color: var(--primary-hover);
+  background: var(--color-brand-soft);
 }
 .article-body strong {
-  color: #111827;
+  color: var(--color-ink);
 }
 .article-body blockquote {
-  border-inline-start: 4px solid var(--primary);
-  background: #fff7ed;
-  padding: 0.75rem 1.25rem;
-  border-radius: 0.5rem;
-  color: #4b5563;
+  border-inline-start: 4px solid var(--color-brand);
+  background: var(--color-canvas);
+  padding: 0.85rem 1.25rem;
+  border-radius: 0.75rem;
+  color: var(--color-ink-soft);
 }
 .article-body img {
   max-width: 100%;
@@ -66,7 +80,7 @@
 }
 .article-body hr {
   border: 0;
-  border-top: 1px solid #e5e7eb;
+  border-top: 1px solid var(--color-line);
   margin: 2.5rem 0;
 }
 .article-body table {
@@ -77,7 +91,7 @@
 }
 .article-body th,
 .article-body td {
-  border: 1px solid #e5e7eb;
+  border: 1px solid var(--color-line);
   padding: 0.5rem 0.75rem;
 }
 
@@ -89,8 +103,9 @@
   font-size: 0.9rem;
   line-height: 1.7;
   padding: 1rem 1.25rem;
-  border-radius: 0.75rem;
+  border-radius: 1rem;
   overflow-x: auto;
+  max-width: 100%;
 }
 .article-body pre code {
   direction: ltr;
@@ -101,12 +116,14 @@
   padding: 0;
 }
 .article-body :not(pre) > code {
+  overflow-wrap: anywhere;
   direction: ltr;
   unicode-bidi: isolate;
   font-family: "JetBrains Mono", "Fira Code", ui-monospace, Consolas, monospace;
   font-size: 0.9em;
-  background: #f3f4f6;
-  color: #c2410c;
+  background: var(--color-canvas);
+  border: 1px solid var(--color-line);
+  color: var(--color-ink);
   padding: 0.15rem 0.4rem;
   border-radius: 0.375rem;
 }

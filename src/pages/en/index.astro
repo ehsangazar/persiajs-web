@@ -12,7 +12,7 @@ import { EVENT_SLUG } from "../../data/events";
 import { withBase } from "../../utils/url";
 
 const telegramUrl = socialData.links.find((l) => l.platform === "Telegram")?.url;
-const linkClass = "text-[#FF4500] hover:text-[#FF5414] font-semibold underline";
+const linkClass = "text-ink font-semibold underline decoration-brand-strong decoration-[3px] underline-offset-4 hover:bg-brand-soft";
 ---
 
 <BaseLayout
@@ -20,9 +20,9 @@ const linkClass = "text-[#FF4500] hover:text-[#FF5414] font-semibold underline";
   title="About PersiaJS | Persian-speaking JavaScript developers"
   description="PersiaJS is a community of Persian-speaking JavaScript and web developers: Persian articles, past online events and a Telegram group where members help each other."
 >
-  <div class="min-h-screen bg-white">
+  <div class="min-h-screen">
     <Header client:load currentPath={Astro.url.pathname} lang="en" />
-    <main class="py-20 md:py-32">
+    <main class="pt-28 pb-16 md:pt-36 md:pb-24">
       <Container>
         <SectionTitle
           as="h1"
@@ -31,7 +31,7 @@ const linkClass = "text-[#FF4500] hover:text-[#FF5414] font-semibold underline";
           subtitle="A community of Persian-speaking JavaScript and web developers"
         />
 
-        <div class="max-w-3xl mx-auto space-y-6 text-gray-700 text-lg leading-relaxed">
+        <div class="max-w-3xl mx-auto space-y-6 text-ink-soft text-lg leading-relaxed">
           <p>
             PersiaJS brings together Persian-speaking developers who work with
             JavaScript and the web. Its centre is a Telegram group of about 300

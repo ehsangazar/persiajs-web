@@ -4,328 +4,162 @@ import SocialIcon from "../ui/SocialIcon.astro";
 import Button from "../ui/Button.astro";
 import socialData from "../../data/social.json";
 import type { SocialLink } from "../../types";
+import { withBase } from "../../utils/url";
+import { formatNumber, getArticles } from "../../utils/articles";
 
 const social = socialData as { links: SocialLink[] };
 const telegramUrl = social.links.find((l) => l.platform === "Telegram")?.url;
+
+// Facts, kept checkable: the member count is the Telegram group (@persiajs)
+// via Bot API getChatMemberCount, 296 on 16 Nov 2026. Events have not run on a
+// fixed schedule, so never call them monthly.
+// The article count is read from the collection so it never goes stale; the
+// speaker count is the old site's past total (see PAST_TOTALS in data/events).
+const faArticles = await getArticles("fa");
+const facts = [
+  { value: "~۳۰۰", label: "عضو در گروه تلگرام" },
+  { value: formatNumber(faArticles.length, "fa"), label: "مقاله‌ی فارسی در سایت" },
+  { value: "۱۷", label: "سخنران در رویدادهای گذشته" },
+];
 ---
 
 <section
-  class="relative min-h-screen flex items-center justify-center overflow-hidden pt-16"
   id="hero"
   aria-label="معرفی PersiaJS"
+  class="relative overflow-hidden bg-canvas pt-28 pb-16 md:pt-36 md:pb-24"
 >
-  <!-- Background Gradient - Enhanced -->
+  <!-- Quiet dotted grid, faded towards the edges -->
   <div
-    class="absolute inset-0 bg-gradient-to-br from-orange-50 via-white via-40% to-red-50"
+    class="pointer-events-none absolute inset-0 opacity-60 [background-image:radial-gradient(var(--color-line-strong)_1px,transparent_1px)] [background-size:22px_22px] [mask-image:radial-gradient(ellipse_at_top,black_30%,transparent_75%)]"
+    aria-hidden="true"
   >
   </div>
 
-  <!-- Radial gradient overlay for depth -->
-  <div
-    class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-orange-100/40 via-transparent to-transparent"
-  >
-  </div>
-
-  <!-- Geometric Pattern Overlay - Enhanced -->
-  <div class="absolute inset-0 opacity-[0.03]">
-    <svg class="w-full h-full" xmlns="http://www.w3.org/2000/svg">
-      <defs>
-        <pattern
-          id="grid"
-          width="60"
-          height="60"
-          patternUnits="userSpaceOnUse"
+  <Container class="relative">
+    <div class="grid items-center gap-12 lg:grid-cols-[1.15fr_1fr] lg:gap-16">
+      <div class="min-w-0 text-center lg:text-start">
+        <a
+          href={telegramUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="hero-in inline-flex items-center gap-2 rounded-full border border-line bg-surface px-4 py-2 text-sm font-semibold text-ink shadow-card transition-colors hover:border-ink"
         >
-          <path
-            d="M 60 0 L 0 0 0 60"
-            fill="none"
-            stroke="#F59E0B"
-            stroke-width="1.5"></path>
-          <circle cx="0" cy="0" r="2" fill="#F59E0B"></circle>
-        </pattern>
-      </defs>
-      <rect width="100%" height="100%" fill="url(#grid)"></rect>
-    </svg>
-  </div>
+          <span class="relative flex h-2 w-2" aria-hidden="true">
+            <span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-brand opacity-80"></span>
+            <span class="relative inline-flex h-2 w-2 rounded-full bg-brand-ink"></span>
+          </span>
+          به گروه تلگرام PersiaJS بپیوندید
+        </a>
 
-  <!-- Animated Background Elements with Parallax -->
-  <div
-    data-parallax
-    class="absolute inset-0 opacity-10 transition-transform duration-1000 ease-out"
-  >
-    <div
-      class="absolute top-20 left-10 w-72 h-72 bg-gradient-to-br from-orange-400 to-orange-600 rounded-full blur-3xl animate-pulse"
-    >
-    </div>
-    <div
-      class="absolute bottom-20 right-10 w-96 h-96 bg-gradient-to-br from-red-400 to-red-600 rounded-full blur-3xl animate-pulse"
-      style="animation-delay: 1s"
-    >
-    </div>
-    <div
-      class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-gradient-to-br from-amber-300 to-orange-400 rounded-full blur-3xl animate-pulse"
-      style="animation-delay: 2s"
-    >
-    </div>
-  </div>
+        <h1
+          class="hero-in mt-6 font-display text-[2.1rem] leading-[1.4] font-extrabold text-ink sm:text-5xl sm:leading-[1.35] lg:text-6xl text-balance"
+          style="animation-delay: 80ms"
+        >
+          جامعه‌ی توسعه‌دهندگان فارسی‌زبان
+          <span class="hl-marker">جاوااسکریپت</span>
+        </h1>
 
-  <!-- Floating Elements -->
-  <div class="absolute inset-0 overflow-hidden pointer-events-none">
-    <div
-      class="absolute top-1/4 left-1/4 w-4 h-4 bg-orange-400 rounded-full opacity-20 animate-float"
-    >
-    </div>
-    <div
-      class="absolute top-1/3 right-1/4 w-3 h-3 bg-red-400 rounded-full opacity-30 animate-float-delayed"
-    >
-    </div>
-    <div
-      class="absolute bottom-1/3 left-1/3 w-5 h-5 bg-amber-400 rounded-full opacity-15 animate-float"
-      style="animation-delay: 1.5s"
-    >
-    </div>
-    <div
-      class="absolute top-1/2 right-1/3 w-2 h-2 bg-orange-500 rounded-full opacity-25 animate-float-delayed"
-    >
-    </div>
-  </div>
+        <p
+          class="hero-in mx-auto mt-5 max-w-xl text-base leading-8 text-muted sm:text-lg lg:mx-0"
+          style="animation-delay: 160ms"
+        >
+          مقاله‌های فارسی، رویدادها و سخنرانی‌های آنلاین، و گروهی در تلگرام که
+          اعضا در آن سؤال می‌پرسند و به هم کمک می‌کنند.
+        </p>
 
-  <!-- Content -->
-  <Container
-    class="relative z-10 flex flex-col items-center justify-center text-center py-20 md:py-32"
-  >
-    <!-- Badge -->
-    <a
-      href={telegramUrl}
-      target="_blank"
-      rel="noopener noreferrer"
-      class="hero-fade-down inline-flex items-center justify-center gap-2 bg-white rounded-full px-5 py-2.5 mb-10 border border-gray-200 transition-all duration-300 hover:border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#FF4500] focus:ring-offset-2"
-      aria-label="پیوستن به گروه تلگرام PersiaJS"
-    >
-      <span class="relative flex h-2.5 w-2.5 shrink-0">
-        <span
-          class="animate-ping absolute inline-flex h-full w-full rounded-full bg-orange-400 opacity-75"
-        ></span>
-        <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-orange-500"
-        ></span>
-      </span>
-      <span
-        class="text-sm font-semibold text-gray-900 hover:text-[#FF4500] transition-colors duration-300 whitespace-nowrap"
-      >
-        به گروه تلگرام ما بپیوندید
-      </span>
-    </a>
+        <div
+          class="hero-in mt-8 flex flex-col gap-3 sm:flex-row sm:justify-center lg:justify-start"
+          style="animation-delay: 240ms"
+        >
+          <Button
+            href={telegramUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            variant="primary"
+            size="lg"
+          >
+            پیوستن به گروه تلگرام
+          </Button>
+          <Button href={withBase("/fa/articles")} variant="outline" size="lg">
+            خواندن مقاله‌ها
+          </Button>
+        </div>
 
-    <!-- Main Heading -->
-    <h1
-      class="hero-fade-up text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-extrabold mb-6 sm:mb-8 leading-[0.9]"
-      style="animation-delay: 100ms"
-    >
-      <span class="block text-gray-900 font-heading" dir="ltr">Persia JS</span>
-    </h1>
+        <div
+          class="hero-in mt-8 flex flex-wrap items-center justify-center gap-2 lg:justify-start"
+          style="animation-delay: 320ms"
+        >
+          {
+            social.links.map((link) => (
+              <a
+                href={link.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`PersiaJS در ${link.platform}`}
+                class="flex h-11 w-11 items-center justify-center rounded-xl border border-line bg-surface text-ink transition-colors hover:border-ink hover:bg-brand"
+              >
+                <SocialIcon platform={link.icon ?? "linkedin"} class="h-5 w-5" />
+              </a>
+            ))
+          }
+        </div>
+      </div>
 
-    <!-- Tagline -->
-    <p
-      class="hero-fade-up text-lg md:text-xl lg:text-2xl text-gray-600 max-w-3xl mx-auto mb-10 leading-relaxed text-center"
-      style="animation-delay: 200ms"
-    >
-      جامعه‌ی توسعه‌دهندگان <span class="font-semibold text-[#FF4500]"
-        >فارسی‌زبان</span
-      > جاوااسکریپت
-    </p>
-
-    {/* Facts, kept checkable: the member count is the Telegram group
-        (@persiajs) via Bot API getChatMemberCount, 296 on 16 Nov 2026.
-        Events have not run on a fixed schedule; never call them monthly. */}
-    <div
-      class="hero-fade-up flex flex-wrap justify-center items-center gap-x-6 sm:gap-x-8 gap-y-4 mb-12"
-      style="animation-delay: 300ms"
-    >
-      {
-        [
-          "حدود ۳۰۰ عضو در تلگرام",
-          "مقاله‌های فارسی",
-          "رویدادها و سخنرانی‌های آنلاین",
-        ].map((text) => (
-          <div class="flex items-center gap-2 text-gray-900">
-            <span class="text-[#FF4500] text-sm">●</span>
-            <span class="text-sm md:text-base font-medium">{text}</span>
+      <!-- A small editor window: the brand's nod to JavaScript. LTR on purpose. -->
+      <div class="hero-in mx-auto w-full min-w-0 max-w-md lg:max-w-none" style="animation-delay: 200ms">
+        <div
+          dir="ltr"
+          lang="en"
+          class="overflow-hidden rounded-2xl border border-ink/10 bg-ink shadow-lift"
+        >
+          <div class="flex items-center gap-2 border-b border-white/10 px-4 py-3">
+            <span class="h-3 w-3 rounded-full bg-[#ff5f57]"></span>
+            <span class="h-3 w-3 rounded-full bg-[#febc2e]"></span>
+            <span class="h-3 w-3 rounded-full bg-[#28c840]"></span>
+            <span class="ms-auto rounded-md bg-brand px-1.5 py-0.5 font-mono text-[11px] font-bold text-ink">JS</span>
           </div>
-        ))
-      }
+          <pre
+            class="overflow-x-auto px-4 py-5 font-mono text-[12px] leading-7 text-[#e6edf3] sm:px-5 sm:text-sm"><code><span class="text-[#8b949e]">// persiajs.dev</span>
+<span class="text-[#ff7b72]">const</span> community = {"{"}
+  language: <span class="text-[#a5d6ff]">"Persian"</span>,
+  topics: [<span class="text-[#a5d6ff]">"JS"</span>, <span class="text-[#a5d6ff]">"React"</span>, <span class="text-[#a5d6ff]">"Node"</span>],
+  home: <span class="text-[#a5d6ff]">"Telegram"</span>,
+{"}"};
+
+<span class="text-[#ff7b72]">await</span> community.<span class="text-[#d2a8ff]">join</span>(<span class="text-[#a5d6ff]">"you"</span>);</code></pre>
+        </div>
+      </div>
     </div>
 
-    <!-- Call to Action Buttons -->
-    <div
-      class="hero-fade-up relative flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center mb-12"
+    <!-- Facts -->
+    <ul
+      class="hero-in mt-14 grid grid-cols-1 gap-3 sm:grid-cols-3 md:mt-20"
       style="animation-delay: 400ms"
     >
-      <Button
-        href="#about"
-        data-scroll
-        variant="primary"
-        size="md"
-        class="w-full sm:w-auto"
-      >
-        بیشتر بدانید
-        <svg
-          slot="right-icon"
-          class="w-5 h-5 rtl:rotate-180"
-          fill="none"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="2"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-        >
-          <path d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
-        </svg>
-      </Button>
-      <Button
-        href="#speakers"
-        data-scroll
-        variant="outline"
-        size="md"
-        class="w-full sm:w-auto"
-      >
-        سخنرانان
-        <svg
-          slot="left-icon"
-          class="w-5 h-5"
-          fill="none"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="2"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-        >
-          <path
-            d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
-          ></path>
-        </svg>
-      </Button>
-    </div>
-
-    <!-- Social Links - Quick Access -->
-    <div
-      class="hero-fade-up flex flex-col sm:flex-row justify-center items-center gap-4"
-      style="animation-delay: 500ms"
-    >
-      <span class="text-sm text-gray-600 font-medium whitespace-nowrap">
-        ما را دنبال کنید:
-      </span>
-      <div class="flex gap-3">
-        {
-          social.links.map((link) => (
-            <a
-              href={link.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              class="w-10 h-10 rounded-md bg-white border border-gray-200 flex items-center justify-center text-gray-900 hover:bg-[#FF4500] hover:text-white hover:border-[#FF4500] transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-[#FF4500] focus:ring-offset-2"
-              aria-label={`PersiaJS در ${link.platform}`}
-            >
-              <SocialIcon
-                platform={link.icon ?? "linkedin"}
-                class="w-4 h-4 sm:w-5 sm:h-5"
-              />
-            </a>
-          ))
-        }
-      </div>
-    </div>
+      {
+        facts.map((fact) => (
+          <li class="card flex items-center gap-4 px-5 py-4">
+            <bdi dir="ltr" class="font-display text-3xl font-extrabold text-ink">{fact.value}</bdi>
+            <span class="text-sm leading-6 text-muted">{fact.label}</span>
+          </li>
+        ))
+      }
+    </ul>
   </Container>
-
-  <!-- Scroll Indicator -->
-  <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20">
-    <a
-      href="#about"
-      data-scroll
-      class="flex flex-col items-center text-gray-600 hover:text-[#FF4500] transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-[#FF4500] focus:ring-offset-2 rounded-md p-2"
-      aria-label="رفتن به ادامه‌ی صفحه"
-    >
-      <span class="text-xs font-medium mb-1.5 whitespace-nowrap">
-        ادامه
-      </span>
-      <div class="relative">
-        <svg
-          class="w-5 h-5"
-          fill="none"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="2"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-        >
-          <path d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
-        </svg>
-      </div>
-    </a>
-  </div>
-
-  <!-- Decorative elements at edges -->
-  <div
-    class="absolute top-0 left-0 w-40 h-40 bg-gradient-to-br from-orange-200/30 to-transparent rounded-full blur-3xl"
-  >
-  </div>
-  <div
-    class="absolute bottom-0 right-0 w-40 h-40 bg-gradient-to-tl from-red-200/30 to-transparent rounded-full blur-3xl"
-  >
-  </div>
 </section>
 
 <style>
-  /* Replaces the old isVisible + transition fade-in (no JavaScript needed) */
-  @keyframes hero-fade-up {
+  @keyframes hero-in {
     from {
       opacity: 0;
-      transform: translateY(1rem);
+      transform: translateY(12px);
     }
     to {
       opacity: 1;
-      transform: translateY(0);
+      transform: none;
     }
   }
-  @keyframes hero-fade-down {
-    from {
-      opacity: 0;
-      transform: translateY(-1rem);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-  .hero-fade-up {
-    animation: hero-fade-up 1s ease-out both;
-  }
-  .hero-fade-down {
-    animation: hero-fade-down 0.3s ease-out both;
+  .hero-in {
+    animation: hero-in 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) both;
   }
 </style>
-
-<script>
-  // 1) Mouse parallax for the blurred background circles
-  const layer = document.querySelector<HTMLElement>("[data-parallax]");
-  if (layer) {
-    window.addEventListener(
-      "mousemove",
-      (e: MouseEvent) => {
-        const x = (e.clientX / window.innerWidth - 0.5) * 20;
-        const y = (e.clientY / window.innerHeight - 0.5) * 20;
-        layer.style.transform = `translate(${x}px, ${y}px)`;
-      },
-      { passive: true }
-    );
-  }
-
-  // 2) Smooth scroll for links marked with data-scroll
-  document.querySelectorAll<HTMLAnchorElement>("a[data-scroll]").forEach((a) => {
-    a.addEventListener("click", (e) => {
-      const target = document.querySelector(a.getAttribute("href") ?? "");
-      if (target) {
-        e.preventDefault();
-        target.scrollIntoView({ behavior: "smooth" });
-      }
-    });
-  });
-</script>

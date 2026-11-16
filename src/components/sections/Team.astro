@@ -25,7 +25,7 @@ const joinTeamCard: ActionCard = {
 };
 ---
 
-<section id="team" class="py-20 md:py-32 bg-white">
+<section id="team" class="py-16 md:py-28 bg-surface border-y border-line">
   <Container>
     <SectionTitle
       label="تیم"
@@ -35,7 +35,7 @@ const joinTeamCard: ActionCard = {
 
     <!-- Team Member Cards -->
     <div
-      class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mb-12"
+      class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-5 mb-12"
     >
       {
         team.members.map((member) => (

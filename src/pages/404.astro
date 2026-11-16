@@ -11,15 +11,15 @@ import { withBase } from "../utils/url";
   title="صفحه پیدا نشد | PersiaJS"
   description="صفحه‌ای که دنبالش هستید وجود ندارد."
 >
-  <div class="min-h-screen bg-white flex flex-col">
+  <div class="min-h-screen flex flex-col">
     <Header client:load currentPath={Astro.url.pathname} />
     <main class="flex-1 flex items-center justify-center py-32">
       <Container class="text-center">
-        <p class="text-[#FF4500] font-bold text-lg mb-2">404</p>
-        <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+        <p class="text-brand-ink font-bold text-lg mb-2">404</p>
+        <h1 class="text-4xl md:text-5xl font-bold text-ink mb-4">
           صفحه پیدا نشد
         </h1>
-        <p class="text-gray-700 text-lg mb-8 max-w-xl mx-auto">
+        <p class="text-ink-soft text-lg mb-8 max-w-xl mx-auto">
           صفحه‌ای که دنبالش هستید وجود ندارد یا جابه‌جا شده است.
         </p>
         <div class="flex flex-wrap justify-center gap-3">

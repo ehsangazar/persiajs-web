@@ -43,18 +43,18 @@ const shorten = (text: string, max = 155) => {
 const pageTitle = `${eventData.title} | PersiaJS`;
 const metaDescription = shorten(eventData.description);
 
-const iconClass = "w-5 h-5 text-[#FF4500] mr-3 mt-0.5 flex-shrink-0";
-const bullet = "text-[#FF4500] mr-3 mt-1";
+const iconClass = "w-5 h-5 text-brand-ink mr-3 mt-0.5 flex-shrink-0";
+const bullet = "text-brand-ink mr-3 mt-1";
 const cardClass =
-  "bg-white rounded-2xl border border-gray-200 p-6 md:p-8 hover:border-orange-200 hover:shadow-lg transition-all duration-300";
+  "card p-5 sm:p-6 md:p-8";
 const linkClass =
-  "text-[#FF4500] hover:text-[#FF5414] font-semibold underline";
+  "text-ink font-semibold underline decoration-brand-strong decoration-[3px] underline-offset-4 hover:bg-brand-soft";
 ---
 
 <BaseLayout title={pageTitle} description={metaDescription}>
-  <div class="min-h-screen bg-white">
+  <div class="min-h-screen">
     <Header client:load currentPath={Astro.url.pathname} />
-    <section class="py-20 md:py-32 bg-white">
+    <section class="pt-28 pb-16 md:pt-36 md:pb-24">
       <Container>
         <SectionTitle
           as="div"
@@ -78,14 +78,14 @@ const linkClass =
         <!-- Event Card. The event record itself is in English, so it reads LTR. -->
         <div class="max-w-5xl mx-auto" dir="ltr" lang="en">
           <div
-            class="bg-gradient-to-br from-orange-50 to-red-50 rounded-2xl border border-orange-200 p-8 md:p-12 mb-12 shadow-lg"
+            class="bg-brand-soft rounded-2xl border border-line p-5 sm:p-8 md:p-12 mb-12 shadow-card"
           >
             <div class="grid md:grid-cols-2 gap-8 mb-8">
               <div>
-                <h1 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+                <h1 class="text-3xl md:text-4xl font-bold text-ink mb-6">
                   {eventData.title}
                 </h1>
-                <div class="space-y-3 text-gray-700">
+                <div class="space-y-3 text-ink-soft">
                   <div class="flex items-start">
                     <svg
                       class={iconClass}
@@ -161,23 +161,23 @@ const linkClass =
                     ></path>
                   </svg>
                 </Button>
-                <p class="text-sm text-gray-600 text-center mb-4">
+                <p class="text-sm text-muted text-center mb-4">
                   This event has ended.
                 </p>
                 <ShareButtons url={shareUrl} title={eventData.title} />
               </div>
             </div>
 
-            <p class="text-gray-700 leading-relaxed text-lg mb-6">
+            <p class="text-ink-soft leading-relaxed text-lg mb-6">
               {eventData.description}
             </p>
 
-            <div class="bg-white rounded-xl p-6 border border-orange-100">
-              <h3 class="font-bold text-gray-900 mb-4">What to expect:</h3>
+            <div class="bg-surface rounded-xl p-6 border border-line">
+              <h3 class="font-bold text-ink mb-4">What to expect:</h3>
               <ul class="space-y-2">
                 {
                   eventData.highlights.map((highlight) => (
-                    <li class="flex items-start text-gray-700">
+                    <li class="flex items-start text-ink-soft">
                       <span class={bullet}>•</span>
                       <span>{highlight}</span>
                     </li>
@@ -189,7 +189,7 @@ const linkClass =
 
           <!-- Agenda -->
           <div class="mb-12">
-            <h3 class="text-3xl font-bold text-gray-900 mb-8 text-center">
+            <h3 class="text-3xl font-bold text-ink mb-8 text-center">
               Agenda
             </h3>
             <div class="space-y-4">
@@ -198,7 +198,7 @@ const linkClass =
                   <div class={cardClass}>
                     <div class="flex flex-col md:flex-row gap-4 md:gap-6">
                       <div class="flex-shrink-0">
-                        <div class="inline-flex items-center gap-2 bg-orange-100 text-[#FF4500] px-4 py-2 rounded-lg font-semibold">
+                        <div class="inline-flex items-center gap-2 bg-brand-soft text-ink px-4 py-2 rounded-lg font-semibold">
                           <svg
                             class="w-4 h-4"
                             fill="none"
@@ -214,23 +214,23 @@ const linkClass =
                         </div>
                       </div>
                       <div class="flex-1">
-                        <h4 class="text-xl font-bold text-gray-900 mb-3">
+                        <h4 class="text-xl font-bold text-ink mb-3">
                           {item.title}
                         </h4>
                         {item.type === "talk" && item.speaker && (
-                          <p class="text-[#FF4500] font-semibold mb-3">
+                          <p class="text-brand-ink font-semibold mb-3">
                             Speaker: {item.speaker}
                           </p>
                         )}
                         {item.abstract && (
-                          <p class="text-gray-700 leading-relaxed mb-4">
+                          <p class="text-ink-soft leading-relaxed mb-4">
                             {item.abstract}
                           </p>
                         )}
                         {item.items && (
                           <ul class="space-y-2">
                             {item.items.map((subItem) => (
-                              <li class="flex items-start text-gray-700">
+                              <li class="flex items-start text-ink-soft">
                                 <span class={bullet}>•</span>
                                 <span>{subItem}</span>
                               </li>
@@ -260,25 +260,25 @@ const linkClass =
 
           <!-- Speakers -->
           <div class="mb-12">
-            <h3 class="text-3xl font-bold text-gray-900 mb-8 text-center">
+            <h3 class="text-3xl font-bold text-ink mb-8 text-center">
               Speakers
             </h3>
             <div class="grid md:grid-cols-2 gap-6 mb-8">
               {
                 eventData.speakers.map((speaker) => (
                   <div class={cardClass}>
-                    <h4 class="text-2xl font-bold text-gray-900 mb-2">
+                    <h4 class="text-2xl font-bold text-ink mb-2">
                       {speaker.name}
                     </h4>
-                    <p class="text-[#FF4500] font-semibold mb-3">
+                    <p class="text-brand-ink font-semibold mb-3">
                       {speaker.title}
                     </p>
-                    <p class="text-gray-700 leading-relaxed mb-4">
+                    <p class="text-ink-soft leading-relaxed mb-4">
                       {speaker.bio}
                     </p>
                     <div class="mb-3">
-                      <span class="text-sm font-medium text-gray-600">Topic:</span>{" "}
-                      <span class="text-gray-900 font-semibold">
+                      <span class="text-sm font-medium text-muted">Topic:</span>{" "}
+                      <span class="text-ink font-semibold">
                         {speaker.topic}
                       </span>
                     </div>
@@ -286,7 +286,7 @@ const linkClass =
                       href={speaker.linkedin}
                       target="_blank"
                       rel="noopener noreferrer"
-                      class="inline-flex items-center text-[#FF4500] hover:text-[#FF5414] font-semibold transition-colors duration-300"
+                      class="inline-flex items-center text-brand-ink hover:text-brand-ink font-semibold transition-colors duration-300"
                     >
                       LinkedIn Profile
                       <svg
@@ -309,10 +309,10 @@ const linkClass =
 
           <!-- Event Details -->
           <div class="mb-12">
-            <h3 class="text-3xl font-bold text-gray-900 mb-8 text-center">
+            <h3 class="text-3xl font-bold text-ink mb-8 text-center">
               Event Details
             </h3>
-            <div class="bg-white rounded-2xl border border-gray-200 p-6 md:p-8">
+            <div class="bg-surface rounded-2xl border border-line p-6 md:p-8">
               <div class="grid md:grid-cols-2 gap-6">
                 {
                   [
@@ -324,10 +324,10 @@ const linkClass =
                     ["Recording:", eventData.eventDetails.recording],
                   ].map(([label, value]) => (
                     <div>
-                      <span class="text-sm font-semibold text-gray-600">
+                      <span class="text-sm font-semibold text-muted">
                         {label}
                       </span>{" "}
-                      <span class="text-gray-900">{value}</span>
+                      <span class="text-ink">{value}</span>
                     </div>
                   ))
                 }
@@ -337,14 +337,14 @@ const linkClass =
 
           <!-- Topics Covered -->
           <div class="mb-12">
-            <h3 class="text-3xl font-bold text-gray-900 mb-6 text-center">
+            <h3 class="text-3xl font-bold text-ink mb-6 text-center">
               Topics Covered
             </h3>
-            <div class="bg-white rounded-2xl border border-gray-200 p-6 md:p-8">
+            <div class="bg-surface rounded-2xl border border-line p-6 md:p-8">
               <ul class="grid md:grid-cols-2 gap-3">
                 {
                   eventData.topics.map((topic) => (
-                    <li class="flex items-start text-gray-700">
+                    <li class="flex items-start text-ink-soft">
                       <span class={bullet}>•</span>
                       <span>{topic}</span>
                     </li>
@@ -356,12 +356,12 @@ const linkClass =
 
           <!-- Additional Info -->
           <div
-            class="bg-gradient-to-br from-gray-50 to-orange-50 rounded-2xl border border-gray-200 p-6 md:p-8"
+            class="bg-canvas rounded-2xl border border-line p-6 md:p-8"
           >
-            <h3 class="text-2xl font-bold text-gray-900 mb-4">
+            <h3 class="text-2xl font-bold text-ink mb-4">
               Additional Information
             </h3>
-            <ul class="space-y-3 text-gray-700">
+            <ul class="space-y-3 text-ink-soft">
               <li class="flex items-start">
                 <span class={bullet}>•</span>
                 <span>

@@ -18,12 +18,16 @@ export const PAST_EVENTS = [
   {
     title: EVENT_TITLE,
     date: "۱ دسامبر ۲۰۲۵",
+    day: "۱",
+    month: "دسامبر ۲۵",
     location: "آنلاین",
     href: `/events/${EVENT_SLUG}`,
   },
   {
     title: "PersiaJS #11: Devconnect Argentina Warmup",
     date: "۱۲ اکتبر ۲۰۲۵",
+    day: "۱۲",
+    month: "اکتبر ۲۵",
     location: "آنلاین",
   },
 ];

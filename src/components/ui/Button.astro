@@ -16,22 +16,23 @@ const {
 } = Astro.props;
 
 const baseStyles =
-  "inline-flex items-center justify-center rounded-lg font-medium transition-all duration-300 ease-out focus:outline-none focus:ring-2 focus:ring-[#FF4500] focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed";
+  "inline-flex items-center justify-center text-center rounded-xl font-semibold transition-colors duration-200 ease-out disabled:opacity-50 disabled:cursor-not-allowed";
 
+// Tap targets: 44px minimum, 48px for the large size
 const sizes = {
-  sm: "px-4 py-2.5 text-sm min-h-[40px] gap-2",
-  md: "px-6 py-3 text-base min-h-[44px] gap-2.5",
-  lg: "px-8 py-3.5 text-base min-h-[48px] gap-2.5",
+  sm: "px-4 py-2 text-sm min-h-[44px] gap-2",
+  md: "px-5 py-3 text-base min-h-[48px] gap-2.5",
+  lg: "px-7 py-3.5 text-base min-h-[52px] gap-2.5",
 };
 
+// Primary is yellow with ink text: yellow is never used as a text colour
 const variants = {
   primary:
-    "bg-[#FF4500] text-white hover:bg-[#FF5414] active:bg-[#E03D00] shadow-md hover:shadow-lg",
-  secondary:
-    "bg-[#0079D3] text-white hover:bg-[#3394DC] active:bg-[#005BA1] shadow-md hover:shadow-lg",
-  ghost: "bg-transparent text-gray-900 hover:bg-[#EDEFF1] active:bg-[#DAE0E6]",
+    "bg-brand text-ink hover:bg-brand-strong active:bg-brand-strong shadow-card",
+  secondary: "bg-ink text-white hover:bg-ink-soft active:bg-ink-soft",
+  ghost: "bg-transparent text-ink hover:bg-brand-soft",
   outline:
-    "bg-white text-gray-900 border border-gray-200 hover:bg-[#F7F9FA] active:bg-[#EDEFF1] shadow-sm hover:shadow-md",
+    "bg-surface text-ink border border-line-strong hover:border-ink active:bg-canvas",
 };
 
 const classes = `${baseStyles} ${sizes[size]} ${variants[variant]} ${className}`;
@@ -47,7 +48,7 @@ const hasRightIcon = Astro.slots.has("right-icon");
           <slot name="left-icon" />
         </span>
       )}
-      <span class="whitespace-nowrap">
+      <span>
         <slot />
       </span>
       {hasRightIcon && (
@@ -63,7 +64,7 @@ const hasRightIcon = Astro.slots.has("right-icon");
           <slot name="left-icon" />
         </span>
       )}
-      <span class="whitespace-nowrap">
+      <span>
         <slot />
       </span>
       {hasRightIcon && (

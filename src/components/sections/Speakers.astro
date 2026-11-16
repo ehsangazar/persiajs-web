@@ -8,7 +8,7 @@ import type { Speaker } from "../../types";
 const speakers = speakersData as { speakers: Speaker[] };
 ---
 
-<section id="speakers" class="py-20 md:py-32 bg-gray-50">
+<section id="speakers" class="py-16 md:py-28">
   <Container>
     <SectionTitle
       label="سخنرانان"
@@ -18,7 +18,7 @@ const speakers = speakersData as { speakers: Speaker[] };
 
     <!-- Speaker Cards -->
     <div
-      class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"
+      class="mx-auto grid max-w-3xl grid-cols-2 md:grid-cols-3 gap-3 sm:gap-5"
     >
       {
         speakers.speakers.map((speaker) => (

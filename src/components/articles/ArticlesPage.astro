@@ -23,7 +23,7 @@ const tags = [...new Set(articles.flatMap((a) => a.data.tags))].sort((a, b) =>
 );
 
 const chip =
-  "px-4 py-2 rounded-full text-sm font-medium border border-gray-200 bg-white text-gray-700 hover:border-orange-300 hover:text-[#FF4500] transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-[#FF4500] focus:ring-offset-2 data-[active=true]:bg-[#FF4500] data-[active=true]:text-white data-[active=true]:border-[#FF4500]";
+  "min-h-[40px] px-4 py-2 rounded-full text-sm font-semibold border border-line bg-surface text-ink-soft hover:border-ink transition-colors duration-200 data-[active=true]:bg-ink data-[active=true]:text-white data-[active=true]:border-ink";
 ---
 
 <!-- Persian site chrome; the list container below carries the page's lang/dir -->
@@ -39,9 +39,9 @@ const chip =
     />
   </Fragment>
 
-  <div class="min-h-screen bg-gray-50">
+  <div class="min-h-screen">
     <Header client:load currentPath={Astro.url.pathname} />
-    <section class="py-20 md:py-32">
+    <section class="pt-28 pb-16 md:pt-36 md:pb-24">
       <Container>
         <div
           data-articles
@@ -59,7 +59,7 @@ const chip =
               type="search"
               placeholder={t.search}
               aria-label={t.search}
-              class="w-full rounded-xl border border-gray-200 bg-white px-5 py-3 text-base text-gray-900 shadow-sm focus:outline-none focus:ring-2 focus:ring-[#FF4500] focus:border-transparent"
+              class="w-full min-h-[52px] rounded-2xl border border-line bg-surface px-5 py-3 text-base text-ink placeholder:text-muted shadow-card focus:border-ink"
             />
             <div class="flex flex-wrap justify-center gap-2">
               <button type="button" data-tag="" data-active="true" class={chip}>
@@ -76,7 +76,7 @@ const chip =
             <p class="text-center">
               <a
                 href={withBase(t.switchHref)}
-                class="text-sm font-semibold text-[#FF4500] hover:text-[#FF5414] underline"
+                class="text-sm font-semibold text-ink underline decoration-brand decoration-2 underline-offset-4 hover:text-brand-ink"
                 >{t.switchLang}</a
               >
             </p>
@@ -84,14 +84,14 @@ const chip =
 
           <div
             data-grid
-            class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+            class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6"
           >
             {articles.map((article) => <ArticleCard article={article} />)}
           </div>
 
           <p
             data-empty
-            class={`${articles.length ? "hidden" : ""} text-center text-gray-600 text-lg py-16`}
+            class={`${articles.length ? "hidden" : ""} text-center text-muted text-lg py-16`}
           >
             {t.empty}
           </p>
@@ -127,7 +127,7 @@ const chip =
     input.value = params.get("q") ?? "";
 
     const pagerBtn =
-      "min-w-10 h-10 px-3 rounded-lg border border-gray-200 bg-white text-sm font-medium text-gray-700 hover:border-orange-300 hover:text-[#FF4500] disabled:opacity-40 disabled:pointer-events-none data-[active=true]:bg-[#FF4500] data-[active=true]:text-white data-[active=true]:border-[#FF4500]";
+      "min-w-11 h-11 px-3 rounded-xl border border-line bg-surface text-sm font-semibold text-ink-soft hover:border-ink disabled:opacity-40 disabled:pointer-events-none data-[active=true]:bg-ink data-[active=true]:text-white data-[active=true]:border-ink";
 
     function addPagerButton(label: string, target: number, opts: { active?: boolean; disabled?: boolean } = {}) {
       const b = document.createElement("button");

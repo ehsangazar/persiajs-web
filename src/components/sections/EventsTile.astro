@@ -7,13 +7,9 @@ import socialData from "../../data/social.json";
 import { withBase } from "../../utils/url";
 
 const telegramUrl = socialData.links.find((l) => l.platform === "Telegram")?.url;
-
-const iconProps = {
-  class: "w-5 h-5 text-[#FF4500] me-3 mt-0.5 flex-shrink-0",
-};
 ---
 
-<section id="events" class="py-20 md:py-32 bg-white">
+<section id="events" class="py-16 md:py-28">
   <Container>
     <SectionTitle
       label="رویدادها"
@@ -21,111 +17,72 @@ const iconProps = {
       subtitle="رویدادهای PersiaJS برنامه‌ی ثابتی ندارند. خبر رویداد بعدی در گروه تلگرام اعلام می‌شود."
     />
 
-    <div class="max-w-4xl mx-auto space-y-6">
-      {
-        PAST_EVENTS.map((event) => {
-          const Tag = event.href ? "a" : "div";
-          return (
-            <Tag
-              href={event.href ? withBase(event.href) : undefined}
-              class="block group"
-            >
-              <div class="bg-gradient-to-br from-orange-50 to-red-50 rounded-2xl border-2 border-orange-200 p-6 md:p-8 shadow-lg hover:border-orange-300 transition-all duration-300">
-                <div class="flex flex-col md:flex-row md:items-center justify-between gap-6">
-                  <div>
-                    <span class="inline-block mb-3 text-orange-600 font-bold text-sm bg-orange-100 px-4 py-2 rounded-full shadow-sm">
-                      برگزار شد
-                    </span>
-                    <h3
-                      dir="ltr"
-                      lang="en"
-                      class="text-2xl md:text-3xl font-bold text-gray-900 mb-4 text-start group-hover:text-[#FF4500] transition-colors duration-300"
-                    >
-                      <bdi>{event.title}</bdi>
-                    </h3>
-                    <div class="flex flex-wrap gap-x-6 gap-y-2 text-gray-700">
-                      <div class="flex items-start">
-                        <svg
-                          {...iconProps}
-                          fill="none"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="2"
-                          viewBox="0 0 24 24"
-                          stroke="currentColor"
-                        >
-                          <path d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                        </svg>
-                        <span class="font-medium">{event.date}</span>
-                      </div>
-                      <div class="flex items-start">
-                        <svg
-                          {...iconProps}
-                          fill="none"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="2"
-                          viewBox="0 0 24 24"
-                          stroke="currentColor"
-                        >
-                          <path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                          <path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                        </svg>
-                        <span class="font-medium">{event.location}</span>
-                      </div>
-                    </div>
+    <div class="mx-auto grid max-w-5xl gap-6 lg:grid-cols-[1.4fr_1fr]">
+      <div class="space-y-4">
+        {
+          PAST_EVENTS.map((event) => {
+            const Tag = event.href ? "a" : "div";
+            return (
+              <Tag
+                href={event.href ? withBase(event.href) : undefined}
+                class={`card group flex gap-4 p-5 sm:p-6 ${event.href ? "transition-shadow duration-200 hover:shadow-lift" : ""}`}
+              >
+                <div class="flex h-16 w-16 shrink-0 flex-col items-center justify-center rounded-xl bg-brand text-ink">
+                  <span class="font-display text-xl font-extrabold leading-none">{event.day}</span>
+                  <span class="mt-1 text-xs font-semibold">{event.month}</span>
+                </div>
+                <div class="min-w-0 flex-1">
+                  <div class="flex flex-wrap items-center gap-2 text-xs font-semibold">
+                    <span class="rounded-full bg-canvas px-2.5 py-1 text-muted">برگزار شد</span>
+                    <span class="rounded-full bg-canvas px-2.5 py-1 text-muted">{event.location}</span>
                   </div>
+                  <h3
+                    dir="ltr"
+                    lang="en"
+                    class="mt-3 text-start text-lg font-bold leading-snug text-ink sm:text-xl"
+                  >
+                    {event.title}
+                  </h3>
+                  <p class="mt-1 text-sm text-muted">{event.date}</p>
                   {event.href && (
-                    <span class="text-[#FF4500] font-semibold text-lg flex items-center whitespace-nowrap">
-                      جزئیات رویداد
-                      <svg
-                        class="w-5 h-5 ms-2 rtl:rotate-180"
-                        fill="none"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path d="M9 5l7 7-7 7" />
-                      </svg>
+                    <span class="mt-3 inline-flex items-center gap-1.5 text-sm font-bold text-brand-ink">
+                      جزئیات و سخنرانی‌ها
+                      <span aria-hidden="true" class="transition-transform group-hover:-translate-x-1">←</span>
                     </span>
                   )}
                 </div>
-              </div>
-            </Tag>
-          );
-        })
-      }
+              </Tag>
+            );
+          })
+        }
+      </div>
 
       <!-- Past totals, as the old PersiaJS site showed them -->
-      <div class="rounded-2xl border border-gray-200 bg-gray-50 p-6 md:p-8">
-        <p class="font-bold text-gray-900 mb-1">آمار رویدادهای گذشته</p>
-        <p class="text-sm text-gray-600 mb-6">
-          مجموع رویدادهای پیشین، به نقل از سایت قبلی PersiaJS
-        </p>
-        <div class="grid grid-cols-2 sm:grid-cols-5 gap-4 text-center">
+      <div class="flex flex-col rounded-2xl bg-ink p-6 text-white sm:p-8">
+        <p class="font-display text-lg font-bold">در رویدادهای گذشته</p>
+        <p class="mt-1 text-sm text-[#c9cdd4]">مجموع، به نقل از سایت قبلی PersiaJS</p>
+        <div class="mt-6 grid grid-cols-2 gap-x-4 gap-y-5">
           {
             PAST_TOTALS.map((item) => (
               <div>
-                <p class="text-3xl font-bold text-[#FF4500]">{item.value}</p>
-                <p class="text-gray-700">{item.label}</p>
+                <p class="font-display text-3xl font-extrabold text-brand">{item.value}</p>
+                <p class="text-sm text-[#c9cdd4]">{item.label}</p>
               </div>
             ))
           }
         </div>
-      </div>
-
-      <div class="text-center pt-4">
-        <Button
-          href={telegramUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          variant="primary"
-          size="md"
-        >
-          خبر رویداد بعدی را در تلگرام بگیرید
-        </Button>
+        <div class="mt-8 pt-2 lg:mt-auto">
+          <Button
+            href={telegramUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            variant="primary"
+            size="md"
+            class="w-full"
+          >
+            خبر رویداد بعدی در تلگرام
+          </Button>
+        </div>
       </div>
     </div>
   </Container>

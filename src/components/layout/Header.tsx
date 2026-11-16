@@ -235,8 +235,8 @@ const handleLinkClick = useCallback(
       <header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-out ${
           isScrolled
-            ? "bg-white/95 backdrop-blur-md shadow-md border-b border-gray-200/50"
-            : "bg-white/80 backdrop-blur-sm"
+            ? "bg-surface/90 backdrop-blur-md border-b border-line"
+            : "bg-canvas/80 backdrop-blur-sm border-b border-transparent"
         }`}
         role="banner"
       >
@@ -248,7 +248,7 @@ const handleLinkClick = useCallback(
             {/* Logo */}
             <a
               href={homePath}
-              className="flex items-center gap-2.5 group transition-all duration-300 ease-out hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-[#FF4500] focus:ring-offset-2 rounded-lg px-1 -ms-1"
+              className="flex items-center gap-2.5 group transition-all duration-300 ease-out hover:opacity-90 rounded-lg px-1 -ms-1"
               aria-label={t.home}
               onClick={handleLogoClick}
             >
@@ -260,13 +260,13 @@ const handleLinkClick = useCallback(
                   loading="eager"
                 />
               </div>
-              <span className="font-bold text-lg md:text-xl text-gray-900 tracking-tight transition-colors duration-300 ease-out group-hover:text-[#FF4500]">
+              <span className="font-bold text-lg md:text-xl text-ink tracking-tight transition-colors duration-300 ease-out group-hover:text-brand-ink">
                 PersiaJS
               </span>
             </a>
 
             {/* Desktop Navigation */}
-            <div className="hidden md:flex items-center gap-2">
+            <div className="hidden lg:flex items-center gap-1">
               {navigation.links.map((link) => {
                 const isActive = link.href.startsWith("#")
                   ? activeSection === link.href
@@ -275,10 +275,10 @@ const handleLinkClick = useCallback(
                   <a
                     key={link.href}
                     href={navHref(link.href)}
-                    className={`relative px-4 py-2.5 text-sm font-medium transition-all duration-300 ease-out rounded-lg group focus:outline-none focus:ring-2 focus:ring-[#FF4500] focus:ring-offset-2 ${
+                    className={`relative px-3 py-2 text-sm font-semibold transition-all duration-300 ease-out rounded-lg group ${
                       isActive
-                        ? "text-[#FF4500] bg-[#fef3c7]/50"
-                        : "text-gray-700 hover:text-[#FF4500] hover:bg-gray-50"
+                        ? "text-ink bg-brand-soft"
+                        : "text-ink-soft hover:text-ink hover:bg-canvas"
                     }`}
                     onClick={(e) => {
                       e.preventDefault();
@@ -288,7 +288,7 @@ const handleLinkClick = useCallback(
                     {labelOf(link)}
                     {isActive && (
                       <span
-                        className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-1 h-1 bg-[#FF4500] rounded-full transition-all duration-300"
+                        className="absolute bottom-0.5 left-1/2 -translate-x-1/2 w-1 h-1 bg-brand-ink rounded-full"
                         aria-hidden="true"
                       />
                     )}
@@ -298,7 +298,7 @@ const handleLinkClick = useCallback(
               <a
                 href={`${base}${t.switchHref}`}
                 lang={t.switchLang}
-                className="ms-2 px-3 py-2 text-sm font-semibold rounded-lg border border-gray-200 text-gray-700 hover:text-[#FF4500] hover:border-[#FF4500] transition-all duration-300 ease-out focus:outline-none focus:ring-2 focus:ring-[#FF4500] focus:ring-offset-2"
+                className="ms-2 px-3 py-2 text-sm font-bold rounded-xl bg-ink text-white hover:bg-ink-soft transition-colors duration-200"
               >
                 {t.switchLabel}
               </a>
@@ -306,7 +306,7 @@ const handleLinkClick = useCallback(
 
             {/* Mobile Menu Button */}
             <button
-              className="md:hidden p-2.5 text-gray-700 hover:bg-gray-100 active:bg-gray-200 rounded-lg transition-all duration-300 ease-out focus:outline-none focus:ring-2 focus:ring-[#FF4500] focus:ring-offset-2 min-w-[44px] min-h-[44px] flex items-center justify-center"
+              className="lg:hidden p-2.5 text-ink hover:bg-canvas active:bg-line rounded-xl transition-all duration-300 ease-out min-w-[44px] min-h-[44px] flex items-center justify-center"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               aria-label={isMobileMenuOpen ? t.closeMenu : t.openMenu}
               aria-expanded={isMobileMenuOpen}
@@ -350,7 +350,7 @@ const handleLinkClick = useCallback(
 
       {/* Mobile Menu Overlay */}
       <div
-        className={`fixed inset-0 z-40 md:hidden transition-opacity duration-300 ease-out ${
+        className={`fixed inset-0 z-40 lg:hidden transition-opacity duration-300 ease-out ${
           isMobileMenuOpen
             ? "opacity-100 pointer-events-auto"
             : "opacity-0 pointer-events-none"
@@ -358,11 +358,11 @@ const handleLinkClick = useCallback(
         onClick={() => setIsMobileMenuOpen(false)}
         aria-hidden={!isMobileMenuOpen}
       >
-        <div className="absolute inset-0 bg-black/40 backdrop-blur-sm" />
+        <div className="absolute inset-0 bg-ink/40 backdrop-blur-sm" />
 
         {/* Mobile Menu Drawer */}
         <div
-          className={`absolute right-0 top-0 h-full w-72 max-w-[85vw] bg-white shadow-2xl transform transition-transform duration-300 ease-out ${
+          className={`absolute right-0 top-0 h-full w-72 max-w-[85vw] bg-surface shadow-2xl rounded-l-2xl transform transition-transform duration-300 ease-out ${
             isMobileMenuOpen ? "translate-x-0" : "translate-x-full"
           }`}
           onClick={(e) => e.stopPropagation()}
@@ -372,18 +372,18 @@ const handleLinkClick = useCallback(
         >
           <div className="flex flex-col h-full">
             {/* Mobile Menu Header */}
-            <div className="flex items-center justify-between p-5 border-b border-gray-200 bg-gradient-to-r from-[#fef3c7]/30 to-white">
+            <div className="flex items-center justify-between p-5 border-b border-line">
               <div className="flex items-center gap-2.5">
                 <img
                   src={`${base}/logo.png`}
                   alt="PersiaJS"
                   className="h-8 w-8 object-contain"
                 />
-                <span className="font-bold text-lg text-gray-900">{t.menu}</span>
+                <span className="font-bold text-lg text-ink">{t.menu}</span>
               </div>
               <button
                 onClick={() => setIsMobileMenuOpen(false)}
-                className="p-2 text-gray-500 hover:text-gray-900 hover:bg-gray-100 active:bg-gray-200 rounded-lg transition-all duration-300 ease-out focus:outline-none focus:ring-2 focus:ring-[#FF4500] focus:ring-offset-2 min-w-[44px] min-h-[44px] flex items-center justify-center"
+                className="p-2 text-muted hover:text-ink hover:bg-canvas active:bg-line rounded-xl transition-all duration-300 ease-out min-w-[44px] min-h-[44px] flex items-center justify-center"
                 aria-label={t.closeMenu}
               >
                 <svg
@@ -417,10 +417,10 @@ const handleLinkClick = useCallback(
                       e.preventDefault();
                       handleLinkClick(link.href);
                     }}
-                    className={`group flex items-center px-4 py-3.5 mb-1 text-base font-medium rounded-lg transition-all duration-300 ease-out focus:outline-none focus:ring-2 focus:ring-[#FF4500] focus:ring-offset-2 min-h-[44px] ${
+                    className={`group flex items-center px-4 py-3.5 mb-1 text-base font-semibold rounded-xl transition-all duration-300 ease-out min-h-[44px] ${
                       isActive
-                        ? "text-[#FF4500] bg-[#fef3c7]/50 shadow-sm"
-                        : "text-gray-700 hover:text-[#FF4500] hover:bg-gray-50"
+                        ? "text-ink bg-brand-soft"
+                        : "text-ink-soft hover:text-ink hover:bg-canvas"
                     }`}
                     style={{
                       animationDelay: `${index * 50}ms`,
@@ -430,7 +430,7 @@ const handleLinkClick = useCallback(
                       {labelOf(link)}
                       {isActive && (
                         <span
-                          className="absolute -end-3 top-1/2 transform -translate-y-1/2 w-2 h-2 bg-[#FF4500] rounded-full"
+                          className="absolute -end-3 top-1/2 -translate-y-1/2 w-2 h-2 bg-brand-ink rounded-full"
                           aria-hidden="true"
                         />
                       )}
@@ -441,7 +441,7 @@ const handleLinkClick = useCallback(
               <a
                 href={`${base}${t.switchHref}`}
                 lang={t.switchLang}
-                className="flex items-center px-4 py-3.5 mt-2 text-base font-semibold rounded-lg border border-gray-200 text-gray-700 hover:text-[#FF4500] hover:border-[#FF4500] transition-all duration-300 ease-out min-h-[44px]"
+                className="flex items-center justify-center px-4 py-3.5 mt-3 text-base font-bold rounded-xl bg-ink text-white hover:bg-ink-soft transition-colors duration-200 min-h-[48px]"
               >
                 {t.switchLabel}
               </a>
