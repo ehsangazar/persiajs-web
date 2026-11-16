@@ -2,43 +2,36 @@
   "links": [
     {
       "label": "درباره ما",
-      "labelEn": "About",
       "href": "#about",
       "external": false
     },
     {
       "label": "رویدادها",
-      "labelEn": "Events",
       "href": "#events",
       "external": false
     },
     {
       "label": "سخنرانان",
-      "labelEn": "Speakers",
       "href": "#speakers",
       "external": false
     },
     {
       "label": "تیم",
-      "labelEn": "The Team",
       "href": "#team",
       "external": false
     },
     {
       "label": "دوره‌ها",
-      "labelEn": "Courses",
       "href": "#courses",
       "external": false
     },
     {
       "label": "مقالات",
-      "labelEn": "Articles",
       "href": "/fa/articles",
       "external": false
     },
     {
       "label": "پرسش‌های رایج",
-      "labelEn": "FAQ",
       "href": "#faq",
       "external": false
     }

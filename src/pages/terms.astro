@@ -10,7 +10,7 @@ const sections = [
   {
     title: "Community Guidelines",
     items: [
-      "Respect others. Harassment, discrimination, or abusive behavior will not be tolerated.",
+      "Respect others. Harassment, discrimination, or abusive behaviour will not be tolerated.",
       "Conversations and discussions should remain professional, constructive, and inclusive.",
       "Sharing false or misleading information is prohibited.",
       "Contributions to open-source projects and collaborative efforts should follow community standards and best practices.",
@@ -29,7 +29,7 @@ const sections = [
     items: [
       "Educational materials, articles, tutorials, and code shared by speakers, instructors, or community members remain their intellectual property unless otherwise stated.",
       "Content produced by PersiaJS (including photos, videos, educational materials, and event summaries) may be used for community promotion and educational purposes.",
-      "Open-source contributions are subject to their respective licenses as specified by each project.",
+      "Open-source contributions are subject to their respective licences as specified by each project.",
     ],
   },
   {
@@ -55,7 +55,7 @@ const sections = [
 ];
 
 // The old site showed today's date. Here it is the date of the last build.
-const lastUpdated = new Date().toLocaleDateString("en-US", {
+const lastUpdated = new Date().toLocaleDateString("en-GB", {
   year: "numeric",
   month: "long",
   day: "numeric",
@@ -138,6 +138,6 @@ const headingClass = "text-2xl font-bold text-ink mb-4 flex items-center";
         </div>
       </Container>
     </section>
-    <Footer />
+    <Footer lang="en" />
   </div>
 </BaseLayout>

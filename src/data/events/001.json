@@ -1,13 +1,13 @@
 {
   "title": "PersiaJS December 2025: Design Systems & Web Components",
   "slug": "persiajs-december-2025-design-systems-web-components",
-  "date": "December 1st, 2025",
+  "date": "1 December 2025",
   "dateFa": "۱ دسامبر ۲۰۲۵",
-  "time": "6:00 PM - 8:30 PM GMT (UK Time)",
+  "time": "6:00 pm to 8:30 pm GMT (UK time)",
   "location": "Online",
   "platform": "Twitch",
   "lumaLink": "https://luma.com/rlbqpett",
-  "description": "Join us for an exciting evening of technical talks and insights! This month's PersiaJS event brings together community experts to share their knowledge on design systems, web components, and engineering productivity. From building scalable frontend architectures to applying ancient wisdom for modern developer excellence, our speakers will cover both technical practices and holistic approaches to engineering. The event will be streamed live on Twitch, so join us there to participate in real-time discussions and Q&A sessions.",
+  "description": "An evening of technical talks from the PersiaJS community on design systems, web components and engineering productivity. From building scalable frontend architectures to applying ancient wisdom to modern developer practice, the speakers covered both technical practice and wider approaches to engineering. The event was planned as a Twitch livestream with live discussion and Q&A.",
   "highlights": [
     "Deep dives into design system implementation strategies",
     "Hands-on insights into modern web components",
@@ -16,7 +16,7 @@
     "Q&A sessions with experienced speakers",
     "Networking opportunities with the PersiaJS community",
     "Live streaming on Twitch",
-    "Live recording available on our YouTube channel"
+    "Recording planned for our YouTube channel"
   ],
   "agenda": [
     {
@@ -34,14 +34,14 @@
       "title": "How to Implement Design Systems",
       "type": "talk",
       "speaker": "Ehsan Gazar",
-      "abstract": "Learn the fundamentals of creating and maintaining design systems that scale. This talk will cover best practices, common pitfalls, and practical strategies for implementing design systems in your organization. We'll explore tools, processes, and methodologies that help teams work more efficiently while maintaining design consistency."
+      "abstract": "Learn the fundamentals of creating and maintaining design systems that scale. The talk covers best practices, common pitfalls, and practical strategies for implementing design systems in your organisation. It explores tools, processes, and methodologies that help teams work more efficiently while maintaining design consistency."
     },
     {
       "time": "6:40 PM",
       "title": "Web Components",
       "type": "talk",
       "speaker": "Ali Parvizi",
-      "abstract": "Dive into the world of web components and discover how to build reusable, framework-agnostic UI elements. This session will cover the Web Components API, Shadow DOM, Custom Elements, and how to create components that work across different frameworks and libraries. Perfect for developers looking to build future-proof component libraries."
+      "abstract": "Dive into the world of web components and discover how to build reusable, framework-agnostic UI elements. The session covers the Web Components API, Shadow DOM, Custom Elements, and how to create components that work across different frameworks and libraries. Perfect for developers looking to build future-proof component libraries."
     },
     {
       "time": "7:10 PM",
@@ -75,7 +75,7 @@
       "title": "Closing Remarks & Next Steps",
       "type": "closing",
       "items": [
-        "Thank yous to speakers and attendees",
+        "Thanks to speakers and attendees",
         "Upcoming events and announcements",
         "Community calls to action",
         "Recording information"
@@ -93,7 +93,7 @@
     {
       "name": "Ali Parvizi",
       "title": "Software Engineer",
-      "bio": "Ali is an experienced software engineer specializing in modern web technologies and component architecture. With a strong focus on building scalable and maintainable applications, he brings practical insights from real-world projects.",
+      "bio": "Ali is an experienced software engineer specialising in modern web technologies and component architecture. With a strong focus on building scalable and maintainable applications, he brings practical insights from real-world projects.",
       "linkedin": "https://www.linkedin.com/in/ali-parvizi/",
       "topic": "Web Components"
     },
@@ -119,11 +119,11 @@
     "Work-life balance and sustainable productivity"
   ],
   "eventDetails": {
-    "language": "Persian / English (Bilingual)",
-    "level": "Intermediate to Advanced (all levels welcome)",
+    "language": "Persian and English",
+    "level": "Intermediate to advanced (all levels welcome)",
     "cost": "Free",
-    "format": "Online via Twitch livestream",
+    "format": "Online, via a Twitch livestream",
     "capacity": "Unlimited (online event)",
-    "recording": "Yes - Event will be recorded and available on our YouTube channel"
+    "recording": "Planned for our YouTube channel"
   }
 }

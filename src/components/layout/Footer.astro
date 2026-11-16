@@ -5,23 +5,67 @@ import SocialIcon from "../ui/SocialIcon.astro";
 import { withBase } from "../../utils/url";
 import type { SocialLink, NavLink } from "../../types";
 
+interface Props {
+  /** "en" only on the English pages (/en, /terms); everything else is Persian */
+  lang?: "fa" | "en";
+}
+
+const { lang = "fa" } = Astro.props;
 const social = socialData as { links: SocialLink[] };
 const navigation = navigationData as { links: NavLink[] };
 
 const currentYear = new Date().getFullYear();
 
 // "/#team" works from every page, not only from the home page
-const aboutLinks = navigation.links.filter((link) =>
-  ["#team", "#speakers", "#courses"].includes(link.href)
-);
+const labelFor = (href: string) =>
+  navigation.links.find((link) => link.href === href)?.label ?? "";
+
+const t =
+  lang === "en"
+    ? {
+        dir: "ltr",
+        subtitle: "Developer community",
+        tagline:
+          "A community of Persian-speaking JavaScript developers: articles in Persian, past online events and a Telegram group where members help each other.",
+        about: [
+          { label: "The team (in Persian)", href: "/#team" },
+          { label: "Speakers (in Persian)", href: "/#speakers" },
+          { label: "Courses (in Persian)", href: "/#courses" },
+        ],
+        resourcesTitle: "Resources",
+        resources: [
+          { label: "Articles (in Persian)", href: "/fa/articles" },
+          { label: "FAQ (in Persian)", href: "/#faq" },
+          { label: "Terms and conditions", href: "/terms" },
+          { label: "فارسی", href: "/", lang: "fa" },
+        ],
+        rights: `© ${currentYear} PersiaJS. All rights reserved.`,
+      }
+    : {
+        dir: "rtl",
+        subtitle: "جامعه‌ی توسعه‌دهندگان",
+        tagline:
+          "جامعه‌ی توسعه‌دهندگان فارسی‌زبان جاوااسکریپت: مقاله‌های فارسی، رویدادهای آنلاین و گروهی در تلگرام که اعضا در آن به هم کمک می‌کنند.",
+        about: ["#team", "#speakers", "#courses"].map((href) => ({
+          label: labelFor(href),
+          href: `/${href}`,
+        })),
+        resourcesTitle: "منابع",
+        resources: [
+          { label: "مقالات", href: "/fa/articles" },
+          { label: "پرسش‌های رایج", href: "/#faq" },
+          { label: "قوانین و شرایط", href: "/terms" },
+          { label: "About in English", href: "/en", lang: "en" },
+        ],
+        rights: `© ${currentYear} PersiaJS. همه‌ی حقوق محفوظ است.`,
+      };
 
 const linkClass =
   "inline-flex min-h-[40px] items-center text-[#c9cdd4] transition-colors duration-200 hover:text-white";
 const headingClass = "mb-4 text-base font-bold text-white";
 ---
 
-<!-- The footer is Persian on every page, including the English ones -->
-<footer dir="rtl" lang="fa" class="bg-ink text-[#c9cdd4]">
+<footer dir={t.dir} lang={lang} class="bg-ink text-[#c9cdd4]">
   <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-14">
     <div class="grid grid-cols-2 gap-10 md:grid-cols-4">
       <div class="col-span-2">
@@ -33,13 +77,10 @@ const headingClass = "mb-4 text-base font-bold text-white";
           />
           <div>
             <p class="text-xl font-bold text-white" lang="en">PersiaJS</p>
-            <p class="text-sm text-[#9aa0ab]">جامعه‌ی توسعه‌دهندگان</p>
+            <p class="text-sm text-[#9aa0ab]">{t.subtitle}</p>
           </div>
         </div>
-        <p class="mt-5 max-w-md leading-8">
-          جامعه‌ی توسعه‌دهندگان فارسی‌زبان جاوااسکریپت: مقاله‌های فارسی،
-          رویدادهای آنلاین و گروهی در تلگرام که اعضا در آن به هم کمک می‌کنند.
-        </p>
+        <p class="mt-5 max-w-md leading-8">{t.tagline}</p>
         <div class="mt-6 flex flex-wrap gap-2">
           {
             social.links.map((link) => (
@@ -61,9 +102,9 @@ const headingClass = "mb-4 text-base font-bold text-white";
         <p class={headingClass}>PersiaJS</p>
         <ul class="space-y-1">
           {
-            aboutLinks.map((link) => (
+            t.about.map((link) => (
               <li>
-                <a href={withBase(`/${link.href}`)} class={linkClass}>
+                <a href={withBase(link.href)} class={linkClass}>
                   {link.label}
                 </a>
               </li>
@@ -73,24 +114,36 @@ const headingClass = "mb-4 text-base font-bold text-white";
       </div>
 
       <div>
-        <p class={headingClass}>منابع</p>
+        <p class={headingClass}>{t.resourcesTitle}</p>
         <ul class="space-y-1">
-          <li><a href={withBase("/fa/articles")} class={linkClass}>مقالات</a></li>
-          <li><a href={withBase("/#faq")} class={linkClass}>پرسش‌های رایج</a></li>
-          <li><a href={withBase("/terms")} class={linkClass}>قوانین و شرایط</a></li>
-          <li>
-            <a href={withBase("/en")} lang="en" class={linkClass}>About in English</a>
-          </li>
+          {
+            t.resources.map((link) => (
+              <li>
+                <a href={withBase(link.href)} lang={link.lang} class={linkClass}>
+                  {link.label}
+                </a>
+              </li>
+            ))
+          }
         </ul>
       </div>
     </div>
 
     <div class="mt-12 flex flex-col items-center justify-between gap-3 border-t border-white/10 pt-6 text-sm text-[#9aa0ab] md:flex-row">
-      <p>© {currentYear} PersiaJS. همه‌ی حقوق محفوظ است.</p>
-      <p>
-        طراحی و توسعه با <span aria-label="عشق">❤️</span> توسط{" "}
-        <span class="text-white">روح‌الله حسینی</span> (<span lang="en">Ruhollah Hosseini</span>)
-      </p>
+      <p>{t.rights}</p>
+      {
+        lang === "en" ? (
+          <p>
+            Designed and built with <span aria-label="love">❤️</span> by{" "}
+            <span class="text-white">Ruhollah Hosseini</span>
+          </p>
+        ) : (
+          <p>
+            طراحی و توسعه با <span aria-label="عشق">❤️</span> توسط{" "}
+            <span class="text-white">روح‌الله حسینی</span> (<span lang="en">Ruhollah Hosseini</span>)
+          </p>
+        )
+      }
     </div>
   </div>
 </footer>

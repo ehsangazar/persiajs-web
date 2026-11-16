@@ -2,9 +2,22 @@ import { useState, useEffect, useCallback, useRef } from "react";
 import type { MouseEvent } from "react";
 import navigationData from "../../data/navigation.json";
 import type { NavLink } from "../../types";
+import socialData from "../../data/social.json";
 import { EVENT_SLUG } from "../../data/events";
 
 const navigation = navigationData as { links: NavLink[] };
+
+// The English page is the only English page, so its nav does not pretend the
+// home sections are English: every Persian destination says so.
+const telegramUrl =
+  socialData.links.find((l) => l.platform === "Telegram")?.url ?? "/";
+const linksEn: NavLink[] = [
+  { label: "About", href: "/en" },
+  { label: "Articles (in Persian)", href: "/fa/articles" },
+  { label: "Past events (in Persian)", href: "/#events" },
+  { label: "Courses (in Persian)", href: "/#courses" },
+  { label: "Telegram group", href: telegramUrl, external: true },
+];
 
 // Smooth scroll to a section, leaving room for the fixed header
 function scrollToSection(href: string) {
@@ -51,8 +64,7 @@ export default function Header({
   lang?: "fa" | "en";
 }) {
   const t = strings[lang];
-  const labelOf = (link: NavLink) =>
-    lang === "en" ? link.labelEn ?? link.label : link.label;
+  const links = lang === "en" ? linksEn : navigation.links;
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("");
@@ -267,7 +279,7 @@ const handleLinkClick = useCallback(
 
             {/* Desktop Navigation */}
             <div className="hidden lg:flex items-center gap-1">
-              {navigation.links.map((link) => {
+              {links.map((link) => {
                 const isActive = link.href.startsWith("#")
                   ? activeSection === link.href
                   : currentPath.includes(link.href);
@@ -275,17 +287,21 @@ const handleLinkClick = useCallback(
                   <a
                     key={link.href}
                     href={navHref(link.href)}
+                    {...(link.external
+                      ? { target: "_blank", rel: "noopener noreferrer" }
+                      : {})}
                     className={`relative px-3 py-2 text-sm font-semibold transition-all duration-300 ease-out rounded-lg group ${
                       isActive
                         ? "text-ink bg-canvas"
                         : "text-ink-soft hover:text-ink hover:bg-canvas"
                     }`}
                     onClick={(e) => {
+                      if (link.external) return;
                       e.preventDefault();
                       handleLinkClick(link.href);
                     }}
                   >
-                    {labelOf(link)}
+                    {link.label}
                     {isActive && (
                       <span
                         className="absolute bottom-0.5 left-1/2 -translate-x-1/2 w-1 h-1 bg-ink rounded-full"
@@ -405,7 +421,7 @@ const handleLinkClick = useCallback(
               className="flex-1 overflow-y-auto py-4 px-3"
               aria-label={t.nav}
             >
-              {navigation.links.map((link, index) => {
+              {links.map((link, index) => {
                 const isActive = link.href.startsWith("#")
                   ? activeSection === link.href
                   : currentPath.includes(link.href);
@@ -413,7 +429,11 @@ const handleLinkClick = useCallback(
                   <a
                     key={link.href}
                     href={navHref(link.href)}
+                    {...(link.external
+                      ? { target: "_blank", rel: "noopener noreferrer" }
+                      : {})}
                     onClick={(e) => {
+                      if (link.external) return;
                       e.preventDefault();
                       handleLinkClick(link.href);
                     }}
@@ -427,7 +447,7 @@ const handleLinkClick = useCallback(
                     }}
                   >
                     <span className="relative">
-                      {labelOf(link)}
+                      {link.label}
                       {isActive && (
                         <span
                           className="absolute -end-3 top-1/2 -translate-y-1/2 w-2 h-2 bg-ink rounded-full"

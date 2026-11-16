@@ -51,6 +51,8 @@ const ogImage =
     <meta name="theme-color" content="#F7DF1E" />
 
     <meta property="og:type" content={type} />
+    <meta property="og:locale" content={lang === "en" ? "en_GB" : "fa_IR"} />
+    <meta property="og:site_name" content="PersiaJS" />
     {canonical && <meta property="og:url" content={canonical} />}
     {canonical && <link rel="canonical" href={canonical} />}
     <meta property="og:title" content={title} />
