@@ -28,7 +28,7 @@ const telegramUrl = socialData.links.find((l) => l.platform === "Telegram")?.url
                 class={`card group flex gap-4 p-5 sm:p-6 ${event.href ? "transition-colors duration-200 hover:border-line-strong" : ""}`}
               >
                 <div class="flex h-16 w-16 shrink-0 flex-col items-center justify-center rounded-xl border border-line text-ink">
-                  <span class="font-display text-xl font-extrabold leading-none">{event.day}</span>
+                  <span class="text-xl font-bold leading-none">{event.day}</span>
                   <span class="mt-1 text-xs text-muted">{event.month}</span>
                 </div>
                 <div class="min-w-0 flex-1">
@@ -55,13 +55,13 @@ const telegramUrl = socialData.links.find((l) => l.platform === "Telegram")?.url
 
       <!-- Past totals, as the old PersiaJS site showed them -->
       <div class="card flex flex-col p-6 sm:p-8">
-        <p class="font-display text-lg font-bold text-ink">در رویدادهای گذشته</p>
+        <p class="text-lg font-bold text-ink">در رویدادهای گذشته</p>
         <p class="mt-1 text-sm text-muted">مجموع، به نقل از سایت قبلی PersiaJS</p>
         <div class="mt-6 grid grid-cols-2 gap-x-4 gap-y-4 border-t border-line pt-5">
           {
             PAST_TOTALS.map((item) => (
               <div>
-                <p class="font-display text-2xl font-bold text-ink">{item.value}</p>
+                <p class="text-2xl font-bold text-ink">{item.value}</p>
                 <p class="text-sm text-muted">{item.label}</p>
               </div>
             ))

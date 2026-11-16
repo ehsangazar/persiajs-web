@@ -17,10 +17,10 @@ const telegramUrl = social.links.find((l) => l.platform === "Telegram")?.url;
 >
   <Container class="text-center">
     <h1
-      class="hero-in mx-auto max-w-3xl font-display text-[2.1rem] leading-[1.45] font-extrabold text-ink sm:text-5xl sm:leading-[1.4] lg:text-6xl text-balance"
+      class="hero-in mx-auto max-w-3xl text-[1.75rem] leading-[1.55] font-bold text-ink sm:text-4xl sm:leading-[1.5] lg:text-[2.75rem] text-balance"
     >
-      جامعه‌ی توسعه‌دهندگان فارسی‌زبان
-      <span class="hl-marker">جاوااسکریپت</span>
+      {/* The explicit space matters: Astro drops the newline before the span */}
+      جامعه‌ی توسعه‌دهندگان فارسی‌زبان{" "}<span class="hl-marker">جاوااسکریپت</span>
     </h1>
 
     <p

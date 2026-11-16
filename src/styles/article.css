@@ -27,8 +27,7 @@
 .article-body h2,
 .article-body h3 {
   color: var(--color-ink);
-  font-family: var(--font-display);
-  font-weight: 800;
+  font-weight: 700;
   line-height: 1.5;
   scroll-margin-top: 6rem;
 }

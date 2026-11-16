@@ -32,12 +32,6 @@ const chip =
   title={`${t.title} | PersiaJS`}
   description={t.subtitle}
 >
-  <Fragment slot="head">
-    <link
-      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap"
-      rel="stylesheet"
-    />
-  </Fragment>
 
   <div class="min-h-screen">
     <Header client:load currentPath={Astro.url.pathname} />

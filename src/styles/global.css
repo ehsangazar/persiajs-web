@@ -27,7 +27,6 @@
 
   --font-sans: "Vazirmatn", ui-sans-serif, system-ui, "Segoe UI", Tahoma,
     sans-serif;
-  --font-display: "Estedad", "Vazirmatn", ui-sans-serif, system-ui, sans-serif;
   --font-mono: "JetBrains Mono", "Fira Code", ui-monospace, Consolas, monospace;
 
   --shadow-card: 0 1px 2px rgb(22 24 29 / 0.04), 0 1px 1px rgb(22 24 29 / 0.03);
@@ -67,11 +66,12 @@ body {
   overflow-x: clip;
 }
 
-/* No negative letter-spacing: it breaks the joins of Persian script */
+/* One family for everything (Vazirmatn): headings 700, body 400.
+   No negative letter-spacing: it breaks the joins of Persian script. */
 h1,
 h2,
 h3 {
-  font-family: var(--font-display);
+  font-weight: 700;
 }
 
 /* English blocks inside Persian ones keep a Latin face */

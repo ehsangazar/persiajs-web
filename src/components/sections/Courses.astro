@@ -23,7 +23,7 @@ import { courses, courseUrl } from "../../data/courses";
           >
             <h3 class="flex-1 text-base font-bold leading-7 text-ink">
               {course.title}
-              {course.free && <span class="ms-1 text-sm font-normal text-muted">(رایگان)</span>}
+              {course.free && <>{" "}<span class="text-sm font-normal text-muted">(رایگان)</span></>}
             </h3>
             <span class="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-muted group-hover:text-ink">
               مشاهده در مکتب‌خونه
