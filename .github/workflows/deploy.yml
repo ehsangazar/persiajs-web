@@ -18,7 +18,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      # 17 Nov 2026: persiajs.dev now redirects to fa.gazar.dev/persiajs.
+      # 17 Nov 2026: persiajs.dev now redirects to the Telegram group t.me/persiajs.
       # The Astro site stays in the repo; to restore it, bring back the
       # Node setup, npm ci and npm run build steps and upload ./dist.
       - name: Upload artifact
