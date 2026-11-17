@@ -18,22 +18,13 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Setup Node
-        uses: actions/setup-node@v4
-        with:
-          node-version: 22
-          cache: npm
-
-      - name: Install dependencies
-        run: npm ci
-
-      - name: Build Astro
-        run: npm run build
-
+      # 17 Nov 2026: persiajs.dev now redirects to fa.gazar.dev/persiajs.
+      # The Astro site stays in the repo; to restore it, bring back the
+      # Node setup, npm ci and npm run build steps and upload ./dist.
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./dist
+          path: ./redirect
 
   deploy:
     environment:
